@@ -1,6 +1,7 @@
 package onotation;
 
 public class Example8 {
+    //Time complexity = O(N)
     static void reverse(int[] array) {
         for (int i = 0; i < array.length / 2; i++) {
             int other = array.length - 1 - i;
