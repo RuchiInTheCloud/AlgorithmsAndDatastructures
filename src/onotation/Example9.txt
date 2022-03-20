@@ -1,0 +1,6 @@
+Algorithm input a strings of size s
+s = length of the longest string
+a = length of the array
+Sort each string --> s log s * a
+Sort entire array --> a log a * s (Comparing two strings takes O(s) time)
+Total -> a * s * (log a + log s)
