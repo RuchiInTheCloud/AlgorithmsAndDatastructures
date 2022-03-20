@@ -9,6 +9,9 @@ public class Example7 {
                 if (arrayA[i] < arrayB[j]) {
                     System.out.println(arrayA[i] + "," + arrayB[j]);
                 }
+                for (int k = 0; k < 100000; k++) {
+                    System.out.println(arrayA[i] + "," + arrayB[j]);
+                }
             }
         }
     }
