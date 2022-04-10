@@ -1,0 +1,23 @@
+package onotation;
+
+public class Example17 {
+    // Number of times n can be halved is log n
+    // log (N) space and time complexity
+    static int powersOf2(int n) {
+        if (n < 1) {
+            return 0;
+        } else if (n == 1) {
+            System.out.println(1);
+            return 1;
+        } else {
+            int prev = powersOf2(n / 2);
+            int curr = prev * 2;
+            System.out.println(curr);
+            return curr;
+        }
+    }
+
+    public static void main(String[] args) {
+        powersOf2(5);
+    }
+}
