@@ -1,6 +1,7 @@
 package onotation;
 
 public class Example22 {
+    //Time complexity O(log n)
     static int sumDigits(int n) {
         int sum = 0;
         while (n > 0) {

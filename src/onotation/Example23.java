@@ -1,6 +1,7 @@
 package onotation;
 
 public class Example23 {
+    //Time complexity (kc^k)
     static void printSortedStrings(int remaining) {
         printSortedStrings(remaining, "");
     }
