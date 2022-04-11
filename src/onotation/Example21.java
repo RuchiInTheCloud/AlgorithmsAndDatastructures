@@ -1,5 +1,7 @@
 package onotation;
 
+import java.util.Arrays;
+
 public class Example21 {
     //Time complexity O(n^2)
     static int[] copyArray(int[] array) {
@@ -21,6 +23,6 @@ public class Example21 {
 
     public static void main(String[] args) {
         int[] array = new int[]{1, 2, 3, 4, 5};
-        System.out.println(copyArray(array));
+        System.out.println(Arrays.toString(copyArray(array)));
     }
 }
