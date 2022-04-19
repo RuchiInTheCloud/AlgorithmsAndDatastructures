@@ -1,4 +1,4 @@
-package arraysandstrings;
+package treesandgraphs;
 
 public enum BalancedBinaryTree {
 }

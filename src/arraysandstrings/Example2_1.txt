@@ -1,0 +1,5 @@
+package arraysandstrings;
+
+// Given two strings, check if one is a permutation of other
+public class Example2_1 {
+}

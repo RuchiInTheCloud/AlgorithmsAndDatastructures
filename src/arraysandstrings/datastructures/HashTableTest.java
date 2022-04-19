@@ -1,5 +1,6 @@
-package arraysandstrings;
+package arraysandstrings.datastructures;
 
+import arraysandstrings.datastructures.HashTable;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,10 +13,13 @@ public class HashTableTest {
         myMap.put("Nepal", "Kathmandu");
         myMap.put("India", "New Delhi");
         myMap.put("Australia", "Sydney");
+        myMap.put("Germany", "Berlin");
 
         assertNotNull(myMap);
-        assertEquals(4, myMap.size());
+        assertEquals(5, myMap.size());
+        assertEquals(8, myMap.capacity());
         assertEquals("Kathmandu", myMap.get("Nepal"));
         assertEquals("Sydney", myMap.get("Australia"));
+        assertEquals("Berlin", myMap.get("Germany"));
     }
 }

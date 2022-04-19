@@ -1,4 +1,4 @@
-package arraysandstrings;
+package arraysandstrings.datastructures;
 
 import org.junit.Test;
 
@@ -18,8 +18,10 @@ import static org.junit.Assert.*;
 // the number of buckets
 
 public class HashTable<K, V> {
+    private static final int INITIAL_CAPACITY = 4;
+    private static final double LOAD_FACTOR = 0.7;
+
     Entry<K, V>[] buckets;
-    private static final int INITIAL_CAPACITY = 16;
     private int size = 0;
 
     public HashTable() {
@@ -27,31 +29,38 @@ public class HashTable<K, V> {
     }
 
     public HashTable(int capacity) {
+        if (capacity < 0) {
+            throw new IllegalArgumentException();
+        }
         buckets = new Entry[capacity];
     }
 
     public void put(K key, V value) {
-        int idx = computeHashCode(key);
-
-        Entry<K, V> entry = new Entry<>(key, value);
-        Entry<K, V> existing = buckets[idx];
-        if (existing == null) {
-            buckets[idx] = entry;
-        } else {
-            while (existing.next != null) {
-                if (existing.key.equals(key)) {
-                    existing.value = value;
-                }
-                existing = existing.next;
-            }
-
-            if (existing.key.equals(key)) {
-                existing.value = value;
-            } else {
-                existing.next = entry;
-            }
+        if (LOAD_FACTOR * buckets.length < size) {
+            doubleBucketsArray();
         }
 
+        int idx = computeHashCode(key);
+        Entry<K, V> entry = new Entry<>(key, value);
+        Entry<K, V> bucket = buckets[idx];
+
+        if (bucket == null) {
+            buckets[idx] = entry;
+        } else {
+            while (bucket.next != null) {
+                if (bucket.key.equals(entry.key)) {
+                    bucket.value = entry.value;
+                    return;
+                }
+                bucket = bucket.next;
+            }
+
+            if (bucket.key.equals(entry.key)) {
+                bucket.value = entry.value;
+            } else {
+                bucket.next = entry;
+            }
+        }
         size++;
     }
 
@@ -69,12 +78,28 @@ public class HashTable<K, V> {
         return null;
     }
 
-    private int computeHashCode(K key) {
-        return (key.hashCode() & 0xfffffff) % buckets.length;
-    }
-
     public int size() {
         return size;
+    }
+
+    public int capacity() {
+        return buckets.length;
+    }
+
+    private void doubleBucketsArray() {
+        Entry<K, V>[] tempBuckets = buckets;
+        buckets = new Entry[tempBuckets.length * 2];
+        size = 0;
+        for (Entry<K, V> bucket : tempBuckets) {
+            while (bucket != null) {
+                put(bucket.key, bucket.value);
+                bucket = bucket.next;
+            }
+        }
+    }
+
+    private int computeHashCode(K key) {
+        return (key.hashCode() & 0xfffffff) % buckets.length;
     }
 
     public class Entry<A, B> {
