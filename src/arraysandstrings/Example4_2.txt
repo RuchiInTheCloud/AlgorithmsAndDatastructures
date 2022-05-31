@@ -1,5 +1,39 @@
 package arraysandstrings;
 
+//Given a string check if it is a permutation of a palindrome
+//Example: IP: Tact Coa, OP: true "taco cat", "atco cta" --> ignore non-letter characters
+//Brute force: count characters, even count for all but maximum one
+//Brute force: O(n) time complexity
 public class Example4_2 {
+    static boolean isPermutationOfPalindrome(String str) {
+        int[] charCount = new int['z' - 'a' + 1];
+        int oddCount = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            int val = getCharacterNumber();
+            charCount[val]++;
 
+            if (charCount[val] % 2 == 1) {
+                oddCount++;
+            } else {
+                oddCount--;
+            }
+        }
+        return oddCount <= 1;
+    }
+
+    static int getCharacterNumber(char c) {
+        int A = 'A';
+        int Z = 'Z';
+        int a = 'a';
+        int z = 'z';
+        int val = c;
+        if (val >= a && val <= z) {
+            return val - a;
+        }
+        if (val >= A && val <= Z) {
+            return val - A;
+        }
+        return -1;
+    }
 }

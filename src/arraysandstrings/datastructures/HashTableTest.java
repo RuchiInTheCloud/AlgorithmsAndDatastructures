@@ -1,6 +1,5 @@
 package arraysandstrings.datastructures;
 
-import arraysandstrings.datastructures.HashTable;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

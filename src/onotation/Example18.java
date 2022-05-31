@@ -41,7 +41,7 @@ public class Example18 {
     // Case a = 4, b = 2 --> 2; b < a; 2b = a; 3b > a
     int div(int a, int b) {
         int count = 0;
-        int sum = 0;
+        int sum = b;
 
         while (sum <= a) {
             sum += b;

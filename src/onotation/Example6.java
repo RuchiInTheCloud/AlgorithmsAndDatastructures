@@ -8,7 +8,7 @@ public class Example6 {
     //(N-1) + (N-2) + (N-3) + ... + 2 + 1 = N*(N-1)/2
     //With N^2 pairs, roughly half have i < j = N^2/2 pairs
 
-    //Average work: Outer loop runs N times, N - 1, N - 2,..., 1 = Average N/2
+    //Average work: Outer loop runs N times, Inner loop runs N - 1, N - 2,..., 1 = Average N/2
     static void printUnorderedPairs(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {

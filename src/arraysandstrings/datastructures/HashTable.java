@@ -1,17 +1,13 @@
 package arraysandstrings.datastructures;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
-
 // Generic, so data type like integer or string does not matter
 // From Java version 8, once the number of items in a hash bucket
 // grows beyond a certain threshold, that bucket will switch from
 // using a linked list of entries to a balanced tree. In the case
 // of high hash collisions, this will improve worst-case performance
 // from O(n) to O(log n)
-// * the initial capacity is simply the capacity at the time the
-// hash table is created.
+// The initial capacity is simply the capacity at the time the hash
+// table is created.
 // The load factors a measure of how full the hash table is allowed
 // to get before its capacity is automatically increased. The hash
 // table is rehashed so that the hash table has approximately twice

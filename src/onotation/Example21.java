@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class Example21 {
     //Time complexity O(n^2)
+    //Space complexity O(n^2)
+
     static int[] copyArray(int[] array) {
         int[] copy = new int[0];
         for (int value : array) {
