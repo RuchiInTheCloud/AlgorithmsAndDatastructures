@@ -13,7 +13,7 @@ package arraysandstrings;
 public class Example3 {
     public static void replaceSpaces(char[] str, int length) {
         int spaceCount = 0;
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < length; i++) {
             if (str[i] == ' ') {
                 spaceCount++;
             }

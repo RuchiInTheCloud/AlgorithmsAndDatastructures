@@ -46,7 +46,8 @@ public class Example2_2 {
     }
 
     public static void main(String[] args) {
-        System.out.println("Is ABCDEF permutation of FDBECA?: " + (isPermutationOfOther("ABCDEF", "FDBECA") ? "yes" : "no"));
+        System.out.println(
+                "Is ABCDEF permutation of FDBECA?: " + (isPermutationOfOther("ABCDEF", "FDBECA") ? "yes" : "no"));
         System.out.println("Is ABBA permutation of abba?: " + (isPermutationOfOther("ABBA", "abba") ? "yes" : "no"));
     }
 }

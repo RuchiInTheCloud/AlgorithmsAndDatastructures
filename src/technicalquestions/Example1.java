@@ -1,6 +1,8 @@
 package technicalquestions;
 
 public class Example1 {
+    // Time complexity = O(log_2 A + log_16 B)
+    // Space complexity = O(1)
     static boolean compareBinToHex(String binary, String hex) {
         int n1 = convertFromBase(binary, 2);
         int n2 = convertFromBase(hex, 16);
