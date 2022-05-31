@@ -1,7 +1,8 @@
 package onotation;
 
 public class Example23 {
-    //Time complexity (kc^k)
+    // Time complexity (kc^k), k: string size, c: character set size
+    // Space complexity O(k)
     static void printSortedStrings(int remaining) {
         printSortedStrings(remaining, "");
     }
