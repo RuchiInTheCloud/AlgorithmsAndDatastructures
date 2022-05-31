@@ -21,7 +21,9 @@ public class Example13 {
     }
 
     public static void main(String[] args) {
-        System.out.println("a".substring(1));
+        System.out.println("\"a\".substring(0, 0)" + "a".substring(0, 0));
+        System.out.println("\"a\".substring(1)" + "a".substring(1));
+
         permutation("Ruchi");
     }
 }
