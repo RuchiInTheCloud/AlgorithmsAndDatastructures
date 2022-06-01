@@ -1,4 +1,4 @@
 package arraysandstrings;
 
-public class Example6_1 {
+public class Example8_2 {
 }
