@@ -1,6 +1,20 @@
 package arraysandstrings;
 
 // Does a string have unique characters
+// Assumption: ASCII charachter set 128
+// Example: ABCDEF, ABBA, String of size > 128
+// Brute force: In boolean array keep track whether the character was seen
+// Brute force complexity: 1) Time O(N) 2) Space O(1)
+// Optimize: BCR
+// Walk Through:
+//              if string size > 128, return Not unique
+//              create boolean[128] array,
+//              for every character in string
+//                  if flag is true --> return Not unique
+//                  toggle the flag at the character index
+//              return Unique
+// Implement: ---
+// Test: ---
 public class Example1_1 {
     static boolean isUniqueChars(String str) {
         if (str.length() > 128) {
