@@ -9,24 +9,24 @@ package arraysandstrings;
 // Walk Through: ---
 // Implement: ---
 // Test: ---
-
-public class Example4_1 {
-
-    static boolean isPermutationOfPalindrome(String phrase) {
-        int[] table = buildCharFrequency(phrase);
-        return checkMaxOneOdd(table);
-    }
-
-    static int[] buildCharFrequency(String phrase) {
+public class Example4_2 {
+    static boolean isPermutationOfPalindrome(String str) {
         int[] charCount = new int['z' - 'a' + 1];
-        for (int i = 0; i < phrase.length(); i++) {
-            char c = phrase.charAt(i);
+        int oddCount = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
             int val = getCharacterNumber(c);
             if (val != -1) {
                 charCount[val]++;
+
+                if (charCount[val] % 2 == 1) {
+                    oddCount++;
+                } else {
+                    oddCount--;
+                }
             }
         }
-        return charCount;
+        return oddCount <= 1;
     }
 
     static int getCharacterNumber(char c) {
@@ -42,19 +42,6 @@ public class Example4_1 {
             return val - A;
         }
         return -1;
-    }
-
-    static boolean checkMaxOneOdd(int[] table) {
-        boolean foundOdd = false;
-        for (int i : table) {
-            if (table[i] % 2 == 1) {
-                if (foundOdd) {
-                    return false;
-                }
-                foundOdd = true;
-            }
-        }
-        return true;
     }
 
     public static void main(String[] args) {

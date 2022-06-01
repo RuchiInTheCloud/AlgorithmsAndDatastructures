@@ -4,12 +4,20 @@ import java.util.Arrays;
 
 // Given two strings, check if one is a permutation of other
 // Case sensitive? Yes. Whitespace significant? Yes.
-// Example 1: "abc", "abc d" : false
-// Example 2: "abc", "ABC" : false
-// Example 3: "abc", "abd" : false
-// Example 3: "abc", "cba" : true
-// Sort both strings, then compare each charachter: O(nlogn + n) = O(nlogn)
+// Assumption: ASCII character set
+// Examples:
+// 1: Strings of unequal length --> "abc", "abc d" : false
+// 2: "abc", "ABC" : false
+// 3: "abc", "abd" : false
+// 4: "abc", "cba" : true
+// Brute force: Sort both strings, then compare each character
+// Brute force complexity: 1) Time -- O(nlogn + n) = O(nlogn) 2) Space O(1)
 // Space complexity: O(n)
+// Optimize: Bottleneck: sort
+// Walk Through:
+// Implement: ---
+// Test: ---
+
 public class Example2_1 {
     static String sort(String s) {
         char[] charArray = s.toCharArray();

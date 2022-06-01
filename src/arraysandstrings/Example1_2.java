@@ -1,6 +1,5 @@
 package arraysandstrings;
 
-
 // Does a string have unique characters
 // Assumption: Assume characters 'a' - 'z' are present in the string
 // Example: abcdef, abba, String of size > 26

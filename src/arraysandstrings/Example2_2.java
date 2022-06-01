@@ -2,23 +2,22 @@ package arraysandstrings;
 
 // Given two strings, check if one is a permutation of other
 // Case sensitive? Yes. Whitespace significant? Yes.
-
-// ASCII charachter set
-// Example 1: "abc", "abc d" : false
-// Example 2: "abc", "ABC" : false
-// Example 3: "abc", "abd" : false
-// Example 4: "abc", "cba" : true
-
-// Brute force: sort, compare: time complexity O(nlogn), space complexity O(n)
-
-// Bottleneck: sort
-
-// Pseudo code:
-// Create 128 integer length counter
+// Assumption: ASCII character set
+// Examples:
+// 1: Strings of unequal length --> "abc", "abc d" : false
+// 2: "abc", "ABC" : false
+// 3: "abc", "abd" : false
+// 4: "abc", "cba" : true
+// Brute force: create an integer array of length 128
+// If strings of unequal length return false
 // Count character occurrences
 // Deduct character occurrences, if counter negative return false
 // return true
-// Time complexity: O(n), Space complexity: O(1)
+// Complexity: Time = O(n), Space = O(1)
+// Optimize:
+// Walk Through: ---
+// Implement: ---
+// Test: ---
 
 public class Example2_2 {
     static boolean isPermutationOfOther(String str1, String str2) {
