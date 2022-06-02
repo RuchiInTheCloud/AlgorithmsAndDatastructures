@@ -1,4 +1,0 @@
-package linkedlists;
-
-public class Example2_2 {
-}
