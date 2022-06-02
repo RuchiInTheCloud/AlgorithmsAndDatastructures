@@ -7,10 +7,12 @@ import static org.junit.Assert.assertEquals;
 public class LinkedListTest {
     @Test
     public void testStringBuilder() {
-        LinkedList myLinkedList = new LinkedList();
-        myLinkedList.append("USA");
-        myLinkedList.append("Nepal");
+        LinkedList<String> myLinkedList = new LinkedList();
+        myLinkedList.appendToTail("USA");
+        myLinkedList.appendToTail("Nepal");
+        assertEquals(myLinkedList.toString(), "USA Nepal ");
 
-        assertEquals(myLinkedList.toString(), "USANepalIndiaAustraliaGermany");
+        myLinkedList.deleteNode("USA");
+        assertEquals(myLinkedList.toString(), "Nepal ");
     }
 }
