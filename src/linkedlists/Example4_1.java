@@ -41,7 +41,6 @@ public class Example4_1 {
                 }
             }
             current = next;
-            current = current.next;
         }
 
         if (beforeStart == null) {
