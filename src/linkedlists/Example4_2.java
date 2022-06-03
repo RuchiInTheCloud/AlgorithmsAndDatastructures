@@ -20,11 +20,11 @@ public class Example4_2 {
             return;
         }
 
-        LinkedList<Integer>.Node node = linkedList.head;
-        LinkedList<Integer>.Node next = node.next;
+        LinkedList.Node<Integer> node = linkedList.head;
+        LinkedList.Node<Integer> next = node.next;
         node.next = null;
-        LinkedList<Integer>.Node head = node;
-        LinkedList<Integer>.Node tail = node;
+        LinkedList.Node<Integer> head = node;
+        LinkedList.Node<Integer> tail = node;
 
         node = next;
         while (node != null) {

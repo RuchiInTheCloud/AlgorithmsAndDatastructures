@@ -32,14 +32,14 @@ public class Example2_1 {
     static class Index {
         int value = 0;
     }
-    public static LinkedList<String>.Node kthElement(LinkedList<String>.Node head, int k) {
+    public static LinkedList.Node<String> kthElement(LinkedList.Node<String> head, int k) {
         return kthElement(head, k, new Index());
     }
-    public static LinkedList<String>.Node kthElement(LinkedList<String>.Node head, int k, Index index) {
+    public static LinkedList.Node<String> kthElement(LinkedList.Node<String> head, int k, Index index) {
         if (head == null) {
             return null;
         }
-        LinkedList<String>.Node node = kthElement(head.next, k, index);
+        LinkedList.Node<String> node = kthElement(head.next, k, index);
         index.value = index.value + 1;
         if (index.value == k) {
             return head;
@@ -53,7 +53,7 @@ public class Example2_1 {
         linkedList.appendToTail("am");
         linkedList.appendToTail("Ruchi");
 
-        LinkedList<String>.Node kthNode = kthElement(linkedList.head, 2);
+        LinkedList.Node<String> kthNode = kthElement(linkedList.head, 2);
         System.out.println("2nd Element found: " + kthNode.data);
         kthNode = kthElement(linkedList.head, 3);
         System.out.println("3rd Element found: " + kthNode.data);

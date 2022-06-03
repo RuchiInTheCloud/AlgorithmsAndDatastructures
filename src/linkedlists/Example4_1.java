@@ -14,14 +14,14 @@ import linkedlists.datastructures.LinkedList;
 //Test: Be careful about circular references and overwriting original linked list
 public class Example4_1 {
     static void partition(LinkedList<Integer> linkedList, int x) {
-        LinkedList<Integer>.Node beforeStart = null;
-        LinkedList<Integer>.Node beforeEnd = null;
-        LinkedList<Integer>.Node afterStart = null;
-        LinkedList<Integer>.Node afterEnd = null;
+        LinkedList.Node<Integer> beforeStart = null;
+        LinkedList.Node<Integer> beforeEnd = null;
+        LinkedList.Node<Integer> afterStart = null;
+        LinkedList.Node<Integer> afterEnd = null;
 
-        LinkedList<Integer>.Node current = linkedList.head;
+        LinkedList.Node<Integer> current = linkedList.head;
         while (current != null) {
-            LinkedList<Integer>.Node next = current.next;
+            LinkedList.Node<Integer> next = current.next;
             current.next = null;
             if (current.data < x) {
                 if (beforeStart == null) {

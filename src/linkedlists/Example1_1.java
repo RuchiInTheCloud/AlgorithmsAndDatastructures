@@ -16,8 +16,8 @@ import java.util.HashSet;
 public class Example1_1 {
     public static void removeDuplicates(LinkedList<Integer> linkedList) {
         HashSet<Integer> set = new HashSet<>();
-        LinkedList<Integer>.Node prev = null;
-        LinkedList<Integer>.Node current = linkedList.head;
+        LinkedList.Node<Integer> prev = null;
+        LinkedList.Node<Integer> current = linkedList.head;
 
         while (current != null) {
             if (set.contains(current.data)) {

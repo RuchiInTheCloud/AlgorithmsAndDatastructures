@@ -16,9 +16,9 @@ import linkedlists.datastructures.LinkedList;
 //  Move p1 and p2 simultaneously, when p1 == null, p2 is at the kth element from the end
 // Test: Import library
 public class Example2_2 {
-    public static LinkedList<String>.Node kthElement(LinkedList<String>.Node head, int k) {
-        LinkedList<String>.Node p1 = head;
-        LinkedList<String>.Node p2 = head;
+    public static LinkedList.Node<String> kthElement(LinkedList.Node<String> head, int k) {
+        LinkedList.Node<String> p1 = head;
+        LinkedList.Node<String> p2 = head;
         for (int i = 0; i < k; i++) {
             if (p1 == null) {
                 return null;
@@ -38,7 +38,7 @@ public class Example2_2 {
         linkedList.appendToTail("am");
         linkedList.appendToTail("Ruchi");
 
-        LinkedList<String>.Node kthNode = kthElement(linkedList.head, 2);
+        LinkedList.Node<String> kthNode = kthElement(linkedList.head, 2);
         System.out.println("2nd Element found: " + (kthNode == null ? null : kthNode.data));
         kthNode = kthElement(linkedList.head, 3);
         System.out.println("3rd Element found: " + (kthNode == null ? null : kthNode.data));

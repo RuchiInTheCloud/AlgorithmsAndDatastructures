@@ -2,12 +2,16 @@ package linkedlists.datastructures;
 
 // LinkedList of integer or string
 public class LinkedList<T> {
-    public class Node {
+    public static class Node<T> {
         public T data;
-        public Node next;
+        public Node<T> next;
 
         public Node(T data) {
             this.data = data;
+        }
+
+        public static <T> Node<T> createNode(T data) {
+            return new Node<T>(data);
         }
     }
 

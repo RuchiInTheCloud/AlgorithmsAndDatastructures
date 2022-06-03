@@ -13,9 +13,9 @@ import linkedlists.datastructures.LinkedList;
 //Test:
 public class Example1_2 {
     public static void removeDuplicates(LinkedList<Integer> linkedList) {
-        LinkedList<Integer>.Node current = linkedList.head;
+        LinkedList.Node<Integer> current = linkedList.head;
         while (current != null) {
-            LinkedList<Integer>.Node runner = current;
+            LinkedList.Node<Integer> runner = current;
             while (runner.next != null) {
                 if (runner.next.data == current.data) {
                     runner.next = runner.next.next;

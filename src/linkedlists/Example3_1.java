@@ -18,7 +18,7 @@ import linkedlists.datastructures.LinkedList;
 //  --> true
 // Test: The last node cannot be deleted by this approach
 public class Example3_1 {
-    static boolean deleteNode(LinkedList<String>.Node node) {
+    static boolean deleteNode(LinkedList.Node<String> node) {
         if (node == null || node.next == null) {
             return false;
         }
