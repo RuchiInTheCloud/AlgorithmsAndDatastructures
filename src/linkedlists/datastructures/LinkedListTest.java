@@ -6,13 +6,13 @@ import static org.junit.Assert.assertEquals;
 
 public class LinkedListTest {
     @Test
-    public void testStringBuilder() {
+    public void testLinkedList() {
         LinkedList<String> myLinkedList = new LinkedList();
         myLinkedList.appendToTail("USA");
         myLinkedList.appendToTail("Nepal");
-        assertEquals(myLinkedList.toString(), "USA Nepal ");
+        assertEquals(myLinkedList.string(), "USA Nepal ");
 
         myLinkedList.deleteNode("USA");
-        assertEquals(myLinkedList.toString(), "Nepal ");
+        assertEquals(myLinkedList.string(), "Nepal ");
     }
 }
