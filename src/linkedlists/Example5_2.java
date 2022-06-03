@@ -104,6 +104,6 @@ public class Example5_2 {
         LinkedList<Integer> sum = new LinkedList<>();
         sum.head = sum(number1.head, number2.head);
 
-        System.out.println("Sum: " + sum);
+        System.out.println("Sum: " + sum.string());
     }
 }

@@ -17,7 +17,7 @@ public class Example1_2 {
         while (current != null) {
             LinkedList.Node<Integer> runner = current;
             while (runner.next != null) {
-                if (runner.next.data == current.data) {
+                if (runner.next.data.equals(current.data)) {
                     runner.next = runner.next.next;
                 } else {
                     runner = runner.next;
@@ -32,10 +32,10 @@ public class Example1_2 {
         linkedList.appendToTail(2);
         linkedList.appendToTail(1);
 
-        System.out.println(linkedList);
+        System.out.println(linkedList.string());
 
         removeDuplicates(linkedList);
 
-        System.out.println(linkedList);
+        System.out.println(linkedList.string());
     }
 }

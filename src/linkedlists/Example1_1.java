@@ -34,12 +34,12 @@ public class Example1_1 {
         LinkedList<Integer> linkedList = new LinkedList<>();
         linkedList.appendToTail(1);
         linkedList.appendToTail(2);
-        linkedList.appendToTail(3);
+        linkedList.appendToTail(1);
 
-        System.out.println(linkedList);
+        System.out.println(linkedList.string());
 
         removeDuplicates(linkedList);
 
-        System.out.println(linkedList);
+        System.out.println(linkedList.string());
     }
 }

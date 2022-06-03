@@ -26,15 +26,15 @@ public class Example5_1 {
             return null;
         }
         int sum = carry;
-        if (number1.data != null) {
+        if (number1 != null) {
             sum += number1.data;
         }
-        if (number2.data != null) {
+        if (number2 != null) {
             sum += number2.data;
         }
         LinkedList.Node<Integer> node = LinkedList.Node.createNode(sum % 10);
-        LinkedList.Node<Integer> nextNode = sum(number1.next == null ? null : number1.next,
-                number2.next == null ? null : number2.next, sum >= 10 ? 1 : 0);
+        LinkedList.Node<Integer> nextNode = sum(number1 == null ? null : number1.next,
+                number2 == null ? null : number2.next, sum >= 10 ? 1 : 0);
         node.next = nextNode;
         return node;
     }
@@ -56,6 +56,6 @@ public class Example5_1 {
         LinkedList<Integer> sum = new LinkedList<>();
         sum.head = sum(number1.head, number2.head, 0);
 
-        System.out.println("Sum: " + sum);
+        System.out.println("Sum: " + sum.string());
     }
 }

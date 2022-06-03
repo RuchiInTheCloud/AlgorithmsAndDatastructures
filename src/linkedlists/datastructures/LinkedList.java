@@ -68,8 +68,7 @@ public class LinkedList<T> {
         return null;
     }
 
-    @Override
-    public String toString() {
+    public String string() {
         StringBuilder string = new StringBuilder();
         Node<T> current = head;
         while (current != null) {

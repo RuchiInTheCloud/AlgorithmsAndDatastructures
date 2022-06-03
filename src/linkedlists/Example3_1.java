@@ -36,8 +36,8 @@ public class Example3_1 {
         linkedList.appendToTail("e");
         linkedList.appendToTail("f");
 
-        System.out.println("Initial List: " + linkedList);
+        System.out.println("Initial List: " + linkedList.string());
         deleteNode(linkedList.head.next.next);
-        System.out.println("After Deletion: " + linkedList);
+        System.out.println("After Deletion: " + linkedList.string());
     }
 }

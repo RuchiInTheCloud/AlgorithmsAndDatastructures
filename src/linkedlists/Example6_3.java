@@ -75,7 +75,7 @@ public class Example6_3 {
         example1.appendToTail(1);
         example1.appendToTail(0);
 
-        System.out.println("Is example " + example1 + " a palindrome? " + isPalindrome(example1.head));
+        System.out.println("Is example " + example1.string() + " a palindrome? " + isPalindrome(example1.head));
 
         LinkedList<Integer> example2 = new LinkedList<>();
         example2.appendToTail(0);
@@ -83,6 +83,6 @@ public class Example6_3 {
         example2.appendToTail(2);
         example2.appendToTail(3);
 
-        System.out.println("Is example " + example2 + " a palindrome? " + isPalindrome(example2.head));
+        System.out.println("Is example " + example2.string() + " a palindrome? " + isPalindrome(example2.head));
     }
 }

@@ -68,6 +68,6 @@ public class Example6_1 {
         example1.appendToTail(1);
         example1.appendToTail(0);
 
-        System.out.println("Is example " + example1 + " a palindrome? " + isPalindrome(example1.head));
+        System.out.println("Is example " + example1.string() + " a palindrome? " + isPalindrome(example1.head));
     }
 }

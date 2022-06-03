@@ -51,8 +51,8 @@ public class Example4_2 {
         linkedList.appendToTail(2);
         linkedList.appendToTail(1);
 
-        System.out.println("Initial List: " + linkedList);
+        System.out.println("Initial List: " + linkedList.string());
         partition(linkedList, 5);
-        System.out.println("After Partition: " + linkedList);
+        System.out.println("After Partition: " + linkedList.string());
     }
 }
