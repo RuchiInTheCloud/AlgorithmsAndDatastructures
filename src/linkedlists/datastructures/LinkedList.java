@@ -11,18 +11,18 @@ public class LinkedList<T> {
         }
 
         public static <T> Node<T> createNode(T data) {
-            return new Node<T>(data);
+            return new Node<>(data);
         }
     }
 
-    public Node head;
+    public Node<T> head;
 
     public void appendToTail(T data) {
-        Node end = new Node(data);
+        Node<T> end = new Node<>(data);
         if (head == null) {
             head = end;
         } else {
-            Node current = head;
+            Node<T> current = head;
             while (current.next != null) {
                 current = current.next;
             }
@@ -31,20 +31,20 @@ public class LinkedList<T> {
     }
 
     //Example data located on head, tail or middle
-    public Node deleteNode(T data) {
+    public Node<T> deleteNode(T data) {
         if (head == null) {
             return null;
         }
 
-        Node current = head;
+        Node<T> current = head;
         if (head.data == data) {
             head = head.next;
             return current;
         }
 
-        Node prev = head;
+        Node<T> prev = head;
         current = head.next;
-        while (current.next != null) {
+        while (current != null) {
             if (current.data == data) {
                 prev.next = current.next;
                 return current;
@@ -53,20 +53,15 @@ public class LinkedList<T> {
             current = current.next;
         }
 
-        if (current.data == data) {
-            prev.next = current.next;
-            return current;
-        }
-
         return null;
     }
 
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
-            string.append(current.data + " ");
+            string.append(current.data).append(" ");
             current = current.next;
         }
         return string.toString();
