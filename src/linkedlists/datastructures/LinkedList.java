@@ -30,6 +30,18 @@ public class LinkedList<T> {
         }
     }
 
+    public void appendToTail(Node<T> node) {
+        if (head == null) {
+            head = node;
+        } else {
+            Node<T> current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = node;
+        }
+    }
+
     //Example data located on head, tail or middle
     public Node<T> deleteNode(T data) {
         if (head == null) {
