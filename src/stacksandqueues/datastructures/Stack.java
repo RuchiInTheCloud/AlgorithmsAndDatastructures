@@ -1,5 +1,7 @@
 package stacksandqueues.datastructures;
 
+import jdk.jfr.Percentage;
+
 import java.util.EmptyStackException;
 
 public class Stack<T> {
@@ -16,8 +18,8 @@ public class Stack<T> {
     public Node<T> top;
     public Node<T> bottom;
 
-    private int capacity;
-    private int size = 0;
+    protected int capacity;
+    protected int size = 0;
 
     public Stack(int capacity) {
         this.capacity = capacity;
@@ -94,5 +96,16 @@ public class Stack<T> {
 
     public boolean isFull() {
         return size == capacity;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        Stack.Node<T> current = top;
+        while (current != null) {
+            string.append(current.data).append(" ");
+            current = current.below;
+        }
+        return string.toString();
     }
 }
