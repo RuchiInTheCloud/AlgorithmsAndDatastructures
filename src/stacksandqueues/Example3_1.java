@@ -11,6 +11,7 @@ import java.util.EmptyStackException;
 //popAt: Remove element from the top of stack, if next stacks are present remove element from bottom and pass on to caller. Put the element
 // received from recursive call to the top of stack
 //BCR: popAt: O(number of stacks)
+//Test: Cross check boundary conditions, pointers
 public class Example3_1 {
     public static void main(String[] args) {
         SetOfStacks setOfStacks = new SetOfStacks(2);
@@ -26,7 +27,7 @@ public class Example3_1 {
 }
 
 class SetOfStacks {
-    ArrayList<Stack<Integer>> stacks = new ArrayList<Stack<Integer>>();
+    ArrayList<Stack<Integer>> stacks = new ArrayList<>();
     int capacity;
 
     SetOfStacks(int capacity) {
