@@ -45,4 +45,11 @@ public class ArrayList<T> {
     public int capacity() {
         return resizableArray.length;
     }
+
+    public void remove(int index) {
+        for (int i = index; i < resizableArray.length - 1; i++) {
+            resizableArray[i] = resizableArray[i + 1];
+        }
+        size--;
+    }
 }

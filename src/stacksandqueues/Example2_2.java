@@ -2,9 +2,15 @@ package stacksandqueues;
 
 import stacksandqueues.datastructures.Stack;
 
+//Implement a stack with min method that returns the smallest element in the stack at a given time and operates in O(1) complexity
+//Example: 5, 6, 3, 7 --> min 3
+//         5, 6 --> min 5
+//Brute force: Since min keeps changing depending on the content in the stack, push new min into separate stack whenever data is pushed
+//When stack is popped, pop from min Stack if a min was popped from original stack
+//Complexity: O(n) in space
 public class Example2_2 {
     public static void main(String[] args) {
-        StackWithMinStack stackWithMin = new StackWithMinStack();
+        StackWithMinStack stackWithMin = new StackWithMinStack(10);
         stackWithMin.push(5);
         stackWithMin.push(6);
         stackWithMin.push(3);
@@ -20,13 +26,18 @@ public class Example2_2 {
 }
 
 class StackWithMinStack extends Stack<Integer> {
-    Stack<Integer> minStack = new Stack<>();
+    Stack<Integer> minStack;
 
-    public void push(Integer data) {
+    StackWithMinStack (int capacity) {
+        super(capacity);
+        minStack = new Stack<>(capacity);
+    }
+
+    public boolean push(Integer data) {
         if (data < min()) {
             minStack.push(data);
         }
-        super.push(data);
+        return super.push(data);
     }
 
     public Node<Integer> pop() {

@@ -5,7 +5,8 @@ import java.util.EmptyStackException;
 public class Stack<T> {
     public static class Node<T> {
         public T data;
-        public Node<T> next;
+        public Node<T> below;
+        public Node<T> above;
 
         public Node(T data) {
             this.data = data;
@@ -13,11 +14,33 @@ public class Stack<T> {
     }
 
     public Node<T> top;
+    public Node<T> bottom;
 
-    public void push(T data) {
+    private int capacity;
+    private int size = 0;
+
+    public Stack(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public boolean push(T data) {
+        if (size == capacity) {
+            return false;
+        }
+
         Node<T> node = new Node<>(data);
-        node.next = top;
+
+        if (top == null) {
+            bottom = node;
+        } else {
+            top.above = node;
+            node.below = top;
+        }
+
         top = node;
+        size++;
+
+        return true;
     }
 
     public Node<T> peek() {
@@ -31,12 +54,45 @@ public class Stack<T> {
         if (top == null) {
             throw new EmptyStackException();
         }
+
         Node<T> node = top;
-        top = top.next;
+        top = top.below;
+
+        if (top == null) {
+            bottom = null;
+        } else {
+            top.above = null;
+            node.below = null;
+        }
+
+        size--;
+        return node;
+    }
+
+    public Node<T> removeBottom() {
+        if (bottom == null) {
+            return null;
+        }
+
+        Node<T> node = bottom;
+        bottom = bottom.above;
+
+        if (bottom != null) {
+            bottom.below = null;
+        } else {
+            top = null;
+        }
+
+        size--;
+
         return node;
     }
 
     public boolean isEmpty() {
-        return top == null;
+        return size == 0;
+    }
+
+    public boolean isFull() {
+        return size == capacity;
     }
 }

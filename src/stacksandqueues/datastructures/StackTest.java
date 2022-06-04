@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class StackTest {
     @Test
     public void testStack() {
-        Stack<String> myStack = new Stack<>();
+        Stack<String> myStack = new Stack<>(10);
         assertTrue(myStack.isEmpty());
 
         myStack.push("USA");
