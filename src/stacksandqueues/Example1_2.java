@@ -21,6 +21,8 @@ public class Example1_2 {
         multiStack.push(2, 3);
         System.out.println("State of stack 2: Is empty? " + multiStack.stackInfos[2].isEmpty());
         System.out.println("State of stack 2: Is full? " + multiStack.stackInfos[2].isFull());
+
+        multiStack.push(0, 2);
     }
 }
 
@@ -35,8 +37,18 @@ class MultiStack {
             this.capacity = capacity;
         }
 
+        public boolean isIndexWithinStackCapacity(int index) {
+            int contiguousIndex = index < start ? index + values.length: index;
+            int end = start + capacity;
+            return start <= contiguousIndex && contiguousIndex < end;
+        }
+
         public int lastElementIndex() {
             return adjustIndex(start + size - 1);
+        }
+
+        public int lastCapacityIndex() {
+            return adjustIndex(start + capacity - 1);
         }
 
         public boolean isFull() {
@@ -95,6 +107,21 @@ class MultiStack {
     }
 
     private void shift(int stackNumber) {
+        StackInfo stack = stackInfos[stackNumber];
+        if (stack.isFull()) {
+            shift((stackNumber + 1) % stackInfos.length);
+            stack.capacity++;
+        }
+
+        int index = stack.lastCapacityIndex();
+        while (stack.isIndexWithinStackCapacity(index)) {
+            values[index] = values[previousIndex(index)];
+            index = previousIndex(index);
+        }
+
+        values[stack.start] = 0;
+        stack.start = nextIndex(stack.start);
+        stack.capacity--;
     }
 
     private boolean allStacksFull() {
@@ -109,7 +136,15 @@ class MultiStack {
         return numberOfElements;
     }
 
+    private int nextIndex(int index) {
+        return adjustIndex(index + 1);
+    }
+
+    private int previousIndex(int index) {
+        return adjustIndex(index - 1);
+    }
+
     private int adjustIndex(int index) {
-        return (index + values.length) % values.length;
+        return (index % values.length + values.length) % values.length;
     }
 }
