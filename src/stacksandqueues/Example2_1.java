@@ -1,6 +1,6 @@
 package stacksandqueues;
 
-import stacksandqueues.datastructures.Stack;
+import stacksandqueues.datastructures.StackWithContiguousMin;
 
 //Implement a stack with min method that returns the smallest element in the stack at a given time and operates in O(1) complexity
 //Example: 5, 6, 3, 7 --> min 3
@@ -22,35 +22,5 @@ public class Example2_1 {
         stackWithMin.pop();
 
         System.out.println("Minimum of stack: " + stackWithMin.min());
-    }
-}
-
-class StackWithContiguousMin extends Stack<NodeWithMin> {
-    StackWithContiguousMin(int capacity) {
-        super(capacity);
-    }
-
-    public void push(int value) {
-        int newMin = Math.min(min(), value);
-        NodeWithMin nodeWithMin = new NodeWithMin(value, newMin);
-        super.push(nodeWithMin);
-    }
-
-    public int min() {
-        if (this.isEmpty()) {
-            return Integer.MAX_VALUE;
-        }
-
-        return peek().data.min;
-    }
-}
-
-class NodeWithMin {
-    public int value;
-    public int min;
-
-    NodeWithMin(int value, int min) {
-        this.value = value;
-        this.min = min;
     }
 }
