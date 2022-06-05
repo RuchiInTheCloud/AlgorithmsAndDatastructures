@@ -1,4 +1,4 @@
 package treesandgraphs.datastructures;
 
-public enum BalancedBinaryTree {
+public class MinHeapTest {
 }

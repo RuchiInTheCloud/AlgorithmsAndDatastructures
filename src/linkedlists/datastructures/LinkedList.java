@@ -1,5 +1,7 @@
 package linkedlists.datastructures;
 
+import java.util.EmptyStackException;
+
 // LinkedList of integer or string
 public class LinkedList<T> {
     public static class Node<T> {
@@ -16,6 +18,7 @@ public class LinkedList<T> {
     }
 
     public Node<T> head;
+    private int size = 0;
 
     public void appendToTail(T data) {
         Node<T> end = new Node<>(data);
@@ -28,6 +31,7 @@ public class LinkedList<T> {
             }
             current.next = end;
         }
+        size++;
     }
 
     public void appendToTail(Node<T> node) {
@@ -40,6 +44,7 @@ public class LinkedList<T> {
             }
             current.next = node;
         }
+        size++;
     }
 
     //Example data located on head, tail or middle
@@ -49,8 +54,9 @@ public class LinkedList<T> {
         }
 
         Node<T> current = head;
-        if (head.data == data) {
+        if (current.data == data) {
             head = head.next;
+            size--;
             return current;
         }
 
@@ -59,6 +65,7 @@ public class LinkedList<T> {
         while (current != null) {
             if (current.data == data) {
                 prev.next = current.next;
+                size--;
                 return current;
             }
             prev = current;
@@ -66,6 +73,26 @@ public class LinkedList<T> {
         }
 
         return null;
+    }
+
+    public Node<T> poll() {
+        if (head == null) {
+            throw new EmptyStackException();
+        }
+
+        Node<T> node = head;
+        head = head.next;
+
+        size--;
+        return node;
+    }
+
+    public Node<T> peek() {
+        if (head == null) {
+            throw new EmptyStackException();
+        }
+
+        return head;
     }
 
     public String string() {
@@ -76,5 +103,9 @@ public class LinkedList<T> {
             current = current.next;
         }
         return string.toString();
+    }
+
+    public int size() {
+        return size;
     }
 }
