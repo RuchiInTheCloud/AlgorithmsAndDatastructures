@@ -4,37 +4,58 @@ import arraysandstrings.datastructures.ArrayList;
 import stacksandqueues.datastructures.Queue;
 
 public class Graph<T> {
-    static class Node<T> {
-        public T data;
-        public ArrayList<Node<T>> adjacentNodes;
+    public static class Node<T> {
+        private T data;
+        private ArrayList<Node<T>> adjacentNodes = new ArrayList<>();
         State state;
 
-        public Node(T data) {
+        private Node(T data) {
             this.data = data;
+        }
+
+        private void add(Node<T> adjacentNode) {
+            adjacentNodes.add(adjacentNode);
         }
     }
 
-    static enum State {
+    enum State {
         Unvisited,
         Visiting,
         Visited
     }
 
-    public ArrayList<Node<T>> nodes;
+    private ArrayList<Node<T>> nodes = new ArrayList<>();
 
-    public boolean breadthFirstSearch(Node<T> start, Node<T> end) {
-        if (start == end) {
+    public void add(T data) {
+        Node<T> node = new Node<>(data);
+        nodes.add(node);
+    }
+
+    public void add(int sourceIndex, int targetIndex) {
+        Node<T> sourceNode = get(sourceIndex);
+        Node<T> targetNode = get(targetIndex);
+
+        sourceNode.add(targetNode);
+    }
+
+    public Node<T> get(int index) {
+        return nodes.get(index);
+    }
+
+    public boolean breadthFirstSearch(int startIndex, int endIndex) {
+        if (startIndex == endIndex) {
             return true;
         }
 
-        if (start != null && end != null) {
-            for (int i = 0; i < nodes.size(); i++) {
-                nodes.get(0).state = State.Unvisited;
-            }
+        Node<T> startNode = get(startIndex);
+        Node<T> endNode = get(endIndex);
+
+        if (startNode != null && endNode != null) {
+            resetNodeState();
 
             Queue<Node<T>> queue = new Queue<>();
-            start.state = State.Visiting;
-            queue.add(start);
+            startNode.state = State.Visiting;
+            queue.add(startNode);
 
             Node<T> node;
             Node<T> adjacentNode;
@@ -44,7 +65,7 @@ public class Graph<T> {
                 for (int i = 0; i < node.adjacentNodes.size(); i++) {
                     adjacentNode = node.adjacentNodes.get(i);
                     if (adjacentNode.state == State.Unvisited) {
-                        if (adjacentNode == end) {
+                        if (adjacentNode == endNode) {
                             return true;
                         } else {
                             adjacentNode.state = State.Visiting;
@@ -58,15 +79,22 @@ public class Graph<T> {
         return false;
     }
 
+    private void resetNodeState() {
+        for (int i = 0; i < nodes.size(); i++) {
+            nodes.get(i).state = State.Unvisited;
+        }
+    }
+
     public void depthFirstSearch(Node<T> node) {
         if (node != null) {
             visit(node);
-            node.marked = true;
+            node.state = State.Visited;
 
             Node<T> adjacentNode;
             for (int i = 0; i < node.adjacentNodes.size(); i++) {
                 adjacentNode = node.adjacentNodes.get(i);
-                if (!adjacentNode.marked) {
+                if (adjacentNode.state == State.Unvisited) {
+                    adjacentNode.state = State.Visiting;
                     depthFirstSearch(adjacentNode);
                 }
             }
@@ -97,6 +125,7 @@ public class Graph<T> {
     }*/
 
     private void visit(Node<T> node) {
-        System.out.println(node.data);
+        System.out.print(node.data + " -> ");
     }
+
 }

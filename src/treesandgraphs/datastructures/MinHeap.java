@@ -6,6 +6,6 @@ public class MinHeap<T> extends BinaryTree<T> {
     }
 
     public Node<T> extractMin() {
-
+        return null;
     }
 }

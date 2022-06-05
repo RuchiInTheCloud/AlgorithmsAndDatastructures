@@ -40,6 +40,6 @@ public class BinaryTree<T> {
     }
 
     private void visit(Node<T> node) {
-        System.out.println(node.data);
+        System.out.print(node.data + " -> ");
     }
 }
