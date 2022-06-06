@@ -17,7 +17,9 @@ import treesandgraphs.datastructures.BinaryTree;
 //  if (node == null) return -1;
 //  Math.max(height(node.left), height(node.right)) + 1;
 //
-// Complexity: ?????????
+// Complexity: O(nlogn) in time, because every node is touched by checkBalanced. Every node is called by the nodes above
+// it to compute their height, in the worst case this is O(log n) times
+// Complexity: O(logn) in stack space
 public class Example4_1 {
     private static boolean checkBalanced(BinaryTree<Integer> binaryTree) {
         return checkBalanced(binaryTree.root);
