@@ -24,7 +24,7 @@ import treesandgraphs.datastructures.BinaryTree;
 //  boolean checkBalanced(tree tree)
 //      return checkHeight(tree.root) != Int.minValue;
 //
-//  Complexity: O(n) in time, O(log n) in stack space
+//  Complexity: O(n) in time, O(H) in stack space, H is height of tree
 public class Example4_2 {
     private static boolean checkBalanced(BinaryTree<Integer> binaryTree) {
         return checkHeight(binaryTree.root) != Integer.MIN_VALUE;
