@@ -1,20 +1,46 @@
 package treesandgraphs.datastructures;
 
 import arraysandstrings.datastructures.ArrayList;
+import arraysandstrings.datastructures.HashTable;
 import stacksandqueues.datastructures.Queue;
 
 public class Graph<T> {
     public static class Node<T> {
-        private T data;
-        private ArrayList<Node<T>> adjacentNodes = new ArrayList<>();
+        public T data;
         State state;
+        int dependencies;
 
-        private Node(T data) {
+        public ArrayList<Node<T>> adjacentNodes = new ArrayList<>();
+        private HashTable<String, Node<T>> adjacentNodesMap = new HashTable<>();
+
+        protected Node(T data) {
             this.data = data;
+            dependencies = 0;
         }
 
-        private void add(Node<T> adjacentNode) {
-            adjacentNodes.add(adjacentNode);
+        protected void addNeighbor(String adjacentNodeName, Node<T> adjacentNode) {
+            if (!adjacentNodesMap.containsKey(adjacentNodeName)) {
+                adjacentNodes.add(adjacentNode);
+                adjacentNodesMap.put(adjacentNodeName, adjacentNode);
+                adjacentNode.dependencies++;
+            }
+        }
+
+        public void decrementDependencies() {
+            this.dependencies--;
+        }
+
+        public void resetDependencies() {
+            this.dependencies = this.adjacentNodes.size();
+        }
+
+        public int getDependencies() {
+            return dependencies;
+        }
+
+        @Override
+        public String toString() {
+            return data.toString();
         }
     }
 
@@ -24,31 +50,44 @@ public class Graph<T> {
         Visited
     }
 
-    private ArrayList<Node<T>> nodes = new ArrayList<>();
+    public ArrayList<Node<T>> nodes = new ArrayList<>();
+    private HashTable<String, Node<T>> nodesMap = new HashTable<>();
 
-    public void add(T data) {
-        Node<T> node = new Node<>(data);
-        nodes.add(node);
+    public int size() {
+        return nodes.size();
     }
 
-    public void add(int sourceIndex, int targetIndex) {
-        Node<T> sourceNode = get(sourceIndex);
-        Node<T> targetNode = get(targetIndex);
-
-        sourceNode.add(targetNode);
+    public void add(String nodeName, T data) {
+        if (!nodesMap.containsKey(nodeName)) {
+            Node<T> node = new Node<>(data);
+            nodes.add(node);
+            nodesMap.put(nodeName, node);
+        }
     }
 
-    public Node<T> get(int index) {
-        return nodes.get(index);
+    public void addEdge(String startName, String endName) {
+        Node<T> sourceNode = get(startName);
+        Node<T> targetNode = get(endName);
+
+        if (sourceNode != null && targetNode != null) {
+            sourceNode.addNeighbor(endName, targetNode);
+        }
     }
 
-    public boolean breadthFirstSearch(int startIndex, int endIndex) {
-        if (startIndex == endIndex) {
+    public Node<T> get(String nodeName) {
+        if (nodesMap.containsKey(nodeName)) {
+            return nodesMap.get(nodeName);
+        }
+        return null;
+    }
+
+    public boolean breadthFirstSearch(String startName, String endName) {
+        if (startName.equals(endName)) {
             return true;
         }
 
-        Node<T> startNode = get(startIndex);
-        Node<T> endNode = get(endIndex);
+        Node<T> startNode = get(startName);
+        Node<T> endNode = get(endName);
 
         if (startNode != null && endNode != null) {
             resetNodeState();

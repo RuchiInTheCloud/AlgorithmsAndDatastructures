@@ -74,6 +74,19 @@ public class HashTable<K, V> {
         return null;
     }
 
+    public boolean containsKey(K key) {
+        int idx = computeHashCode(key);
+        Entry<K, V> bucket = buckets[idx];
+
+        while (bucket != null) {
+            if (bucket.key.equals(key)) {
+                return true;
+            }
+            bucket = bucket.next;
+        }
+        return false;
+    }
+
     public int size() {
         return size;
     }
@@ -98,7 +111,7 @@ public class HashTable<K, V> {
         return (key.hashCode() & 0xfffffff) % buckets.length;
     }
 
-    public class Entry<A, B> {
+    public static class Entry<A, B> {
         A key;
         B value;
         Entry<A, B> next;
