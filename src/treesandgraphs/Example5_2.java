@@ -5,7 +5,10 @@ import treesandgraphs.datastructures.BinaryTree;
 //Check if binary tree is a binary search tree
 //left subtree <= n < right subtree
 //Assumption: there are no duplicates
-//
+//Through in order traversal one can get hold of the previous node value
+//E.g. When checking the BST condition for a parent node, one would want to have the left child node
+// When checking the BST condition for a right child not, one would want to have the right child node
+// time complexity= O(n), space complexity O(log n)
 
 public class Example5_2 {
     static class PreviousContent {

@@ -29,7 +29,8 @@ package treesandgraphs;
 //      index.index = index.index + 1;
 //      copyBST(array, node.right, index)
 //
-// time complexity= O(n), space complexity O(log n)
+// time complexity= O(n), space complexity O(n)
+// Optimize space in next attempt
 import treesandgraphs.datastructures.BinaryTree;
 
 public class Example5_1 {
