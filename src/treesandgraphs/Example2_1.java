@@ -27,7 +27,13 @@ public class Example2_1 {
         int mid = (low + high) / 2;
         BinaryTree.Node<Integer> node = new BinaryTree.Node<>(array[mid]);
         node.left = createMinimalBST(array, low, mid - 1);
+        if (node.left != null) {
+            node.left.parent = node;
+        }
         node.right = createMinimalBST(array, mid + 1, high);
+        if (node.right != null) {
+            node.right.parent = node;
+        }
 
         return node;
     }

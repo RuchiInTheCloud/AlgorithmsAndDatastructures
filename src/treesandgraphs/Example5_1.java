@@ -60,11 +60,15 @@ public class Example5_1 {
 
     public static void main(String[] args) {
         BinaryTree<Integer> binaryTree = new BinaryTree<>();
+
         BinaryTree.Node<Integer> node = new BinaryTree.Node<>(2);
         BinaryTree.Node<Integer> subNode = new BinaryTree.Node<>(1);
         node.left = subNode;
+        subNode.parent = node;
         subNode = new BinaryTree.Node<>(3);
         node.right = subNode;
+        subNode.parent = node;
+
         binaryTree.root = node;
 
         System.out.println("Is binary tree a binary search tree? " + checkBST(binaryTree));
@@ -72,9 +76,11 @@ public class Example5_1 {
         node = subNode;
         subNode = new BinaryTree.Node<>(4);
         node.right = subNode;
+        subNode.parent = node;
         node = subNode;
         subNode = new BinaryTree.Node<>(5);
         node.right = subNode;
+        subNode.parent = node;
 
         System.out.println("Is binary tree a binary search tree? " + checkBST(binaryTree));
     }

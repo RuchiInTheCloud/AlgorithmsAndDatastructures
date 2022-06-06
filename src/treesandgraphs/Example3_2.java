@@ -45,11 +45,15 @@ public class Example3_2 {
 
     public static void main(String[] args) {
         BinaryTree<Integer> binaryTree = new BinaryTree<>();
+
         BinaryTree.Node<Integer> node = new BinaryTree.Node<>(1);
         BinaryTree.Node<Integer> subNode = new BinaryTree.Node<>(2);
         node.left = subNode;
+        subNode.parent = node;
         subNode = new BinaryTree.Node<>(3);
         node.right = subNode;
+        subNode.parent = node;
+
         binaryTree.root = node;
 
         ArrayList<LinkedList<BinaryTree.Node<Integer>>> levelLinkedLists = createLevelLinkedList(binaryTree);

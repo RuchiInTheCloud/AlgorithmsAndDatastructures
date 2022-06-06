@@ -4,6 +4,7 @@ public class BinaryTree<T> {
     public static class Node<T> {
         public T data;
 
+        public Node<T> parent;
         public Node<T> left;
         public Node<T> right;
 
