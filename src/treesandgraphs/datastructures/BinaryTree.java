@@ -1,21 +1,20 @@
 package treesandgraphs.datastructures;
 
 public class BinaryTree<T> {
-    static class Node<T> {
+    public static class Node<T> {
         T data;
 
-        Node<T> parent;
-        Node<T> left;
-        Node<T> right;
+        public Node<T> left;
+        public Node<T> right;
 
-        Node (T data) {
+        public Node(T data) {
             this.data = data;
         }
     }
 
-    protected Node<T> root;
+    public Node<T> root;
 
-    void inOrderTraversal(Node<T> node) {
+    public void inOrderTraversal(Node<T> node) {
         if (node != null) {
             inOrderTraversal(node.left);
             visit(node);
@@ -23,7 +22,7 @@ public class BinaryTree<T> {
         }
     }
 
-    void preOrderTraversal(Node<T> node) {
+    public void preOrderTraversal(Node<T> node) {
         if (node != null) {
             visit(node);
             preOrderTraversal(node.left);
@@ -31,7 +30,7 @@ public class BinaryTree<T> {
         }
     }
 
-    void postOrderTraversal(Node<T> node) {
+    public void postOrderTraversal(Node<T> node) {
         if (node != null) {
             postOrderTraversal(node.left);
             postOrderTraversal(node.right);
