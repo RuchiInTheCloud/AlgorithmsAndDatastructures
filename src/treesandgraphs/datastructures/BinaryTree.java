@@ -2,7 +2,7 @@ package treesandgraphs.datastructures;
 
 public class BinaryTree<T> {
     public static class Node<T> {
-        T data;
+        public T data;
 
         public Node<T> left;
         public Node<T> right;
@@ -18,6 +18,14 @@ public class BinaryTree<T> {
     }
 
     public Node<T> root;
+
+
+    public int size(Node<T> node) {
+        if (node == null) {
+            return 0;
+        }
+        return size(node.left) + size(node.right) + 1;
+    }
 
     public void inOrderTraversal(Node<T> node) {
         if (node != null) {
