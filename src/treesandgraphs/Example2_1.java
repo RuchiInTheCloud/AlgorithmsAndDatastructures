@@ -4,10 +4,22 @@ import treesandgraphs.datastructures.BinaryTree;
 
 //Convert a sorted array into a BST
 //Left descendants <= n < Right descendants
-//Tree needs to be "constructed" recursively
+// If we insert every element into tree the time to insert n elements would be O(nlogn)
+// Tree needs to be "constructed" recursively
+// treenode createBST(array, start, end)
+// Initially root in middle
+// root.left = mid of left subsection [start, mid - 1] (recursively construct this nodes children)
+// root.right = mid of right subsection [mid + 1, end] (recursively construct this nodes children)
+// return root
 //Complexity: O(n) in time, call stack space: O(log n)
 public class Example2_1 {
-    static BinaryTree.Node<Integer> createMinimalBST(int[] array, int low, int high) {
+    private static BinaryTree<Integer> createMinimalBST(int[] array) {
+        BinaryTree<Integer> bst = new BinaryTree<>();
+        bst.root = createMinimalBST(array, 0, array.length - 1);
+        return bst;
+    }
+
+    private static BinaryTree.Node<Integer> createMinimalBST(int[] array, int low, int high) {
         if (low > high) {
             return null;
         }
@@ -25,8 +37,7 @@ public class Example2_1 {
         for (int i = 0; i < array.length; i++) {
             array[i] = i;
         }
-        BinaryTree<Integer> bst = new BinaryTree<>();
-        bst.root = createMinimalBST(array, 0, array.length - 1);
+        BinaryTree<Integer> bst = createMinimalBST(array);
         bst.inOrderTraversal(bst.root);
     }
 }
