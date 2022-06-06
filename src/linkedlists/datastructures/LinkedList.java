@@ -99,7 +99,7 @@ public class LinkedList<T> {
         StringBuilder string = new StringBuilder();
         Node<T> current = head;
         while (current != null) {
-            string.append(current.data).append(" ");
+            string.append(current.data.toString()).append(" ");
             current = current.next;
         }
         return string.toString();
