@@ -12,7 +12,9 @@ package treesandgraphs;
 //     node2 = node2.parent
 //
 // return node1 == null || node2 == null ? return null: node1
-
+//
+//Complexity: O(d)
+//Complexity: O(d)
 import treesandgraphs.datastructures.Tree;
 
 public class Example8_1 {
