@@ -20,7 +20,13 @@ public class LinkedList<T> {
     public Node<T> head;
     private int size = 0;
 
-    public void appendToTail(T data) {
+    public void addFront(Node<T> node) {
+        node.next = head;
+        head = node;
+        size++;
+    }
+
+    public void addLast(T data) {
         Node<T> end = new Node<>(data);
         if (head == null) {
             head = end;
@@ -34,7 +40,7 @@ public class LinkedList<T> {
         size++;
     }
 
-    public void appendToTail(Node<T> node) {
+    public void addLast(Node<T> node) {
         if (head == null) {
             head = node;
         } else {
@@ -47,8 +53,40 @@ public class LinkedList<T> {
         size++;
     }
 
+    public Node<T> removeFront() {
+        if (head == null) {
+            return null;
+        }
+
+        Node<T> current = head;
+        head = head.next;
+        size--;
+        return current;
+    }
+
+    public Node<T> removeLast() {
+        if (head == null) {
+            return null;
+        } else if (head.next == null) {
+            Node<T> current = head;
+            head = head.next;
+            size--;
+            return current;
+        } else {
+            Node<T> prev = head;
+            Node<T> current = head.next;
+            while (current.next != null) {
+                prev = current;
+                current = current.next;
+            }
+            prev.next = current.next;
+            size--;
+            return current;
+        }
+    }
+
     //Example data located on head, tail or middle
-    public Node<T> deleteNode(T data) {
+    public Node<T> removeNode(T data) {
         if (head == null) {
             return null;
         }
