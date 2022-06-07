@@ -13,7 +13,14 @@ import treesandgraphs.datastructures.Project;
 //e
 //Project build order: f, e, a, b, d, c
 //
+//Order does not exist if there is a cycle in the graph in this case return null
 //
+//Enter the nodes without dependency in the array
+//Process the element in the array one by one
+//If no element in the array, there is a cycle in the graph
+//For each element in the array reduce the dependency count of their children
+//Repeat the above three steps
+//Topological sort Complexity = O (N + E)
 public class Example7_1 {
     private static Graph.Node<Project>[] orderProjects(String[] projects, String[][] dependencies) {
         Graph<Project> projectGraph = buildProjectGraph(projects, dependencies);

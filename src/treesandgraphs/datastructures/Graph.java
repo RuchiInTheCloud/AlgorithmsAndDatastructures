@@ -7,7 +7,7 @@ import stacksandqueues.datastructures.Queue;
 public class Graph<T> {
     public static class Node<T> {
         public T data;
-        State state;
+        public State state;
         int dependencies;
 
         public ArrayList<Node<T>> adjacentNodes = new ArrayList<>();
@@ -44,7 +44,7 @@ public class Graph<T> {
         }
     }
 
-    enum State {
+    public enum State {
         Unvisited,
         Visiting,
         Visited
@@ -79,6 +79,10 @@ public class Graph<T> {
             return nodesMap.get(nodeName);
         }
         return null;
+    }
+
+    public Node<T> get(int index) {
+        return nodes.get(index);
     }
 
     public boolean breadthFirstSearch(String startName, String endName) {
@@ -118,7 +122,7 @@ public class Graph<T> {
         return false;
     }
 
-    private void resetNodeState() {
+    public void resetNodeState() {
         for (int i = 0; i < nodes.size(); i++) {
             nodes.get(i).state = State.Unvisited;
         }

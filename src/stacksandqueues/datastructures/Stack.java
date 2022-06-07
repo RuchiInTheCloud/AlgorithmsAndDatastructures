@@ -103,7 +103,7 @@ public class Stack<T> {
         StringBuilder string = new StringBuilder();
         Stack.Node<T> current = top;
         while (current != null) {
-            string.append(current.data).append(" ");
+            string.append(current.data.toString()).append(" ");
             current = current.below;
         }
         return string.toString();
