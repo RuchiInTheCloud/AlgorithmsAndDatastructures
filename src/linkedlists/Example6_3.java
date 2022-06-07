@@ -69,19 +69,19 @@ public class Example6_3 {
 
     public static void main(String[] args) {
         LinkedList<Integer> example1 = new LinkedList<>();
-        example1.appendToTail(0);
-        example1.appendToTail(1);
-        example1.appendToTail(2);
-        example1.appendToTail(1);
-        example1.appendToTail(0);
+        example1.addLast(0);
+        example1.addLast(1);
+        example1.addLast(2);
+        example1.addLast(1);
+        example1.addLast(0);
 
         System.out.println("Is example " + example1.string() + " a palindrome? " + isPalindrome(example1.head));
 
         LinkedList<Integer> example2 = new LinkedList<>();
-        example2.appendToTail(0);
-        example2.appendToTail(1);
-        example2.appendToTail(2);
-        example2.appendToTail(3);
+        example2.addLast(0);
+        example2.addLast(1);
+        example2.addLast(2);
+        example2.addLast(3);
 
         System.out.println("Is example " + example2.string() + " a palindrome? " + isPalindrome(example2.head));
     }

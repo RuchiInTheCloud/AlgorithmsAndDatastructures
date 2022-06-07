@@ -29,12 +29,12 @@ public class Example3_1 {
 
     public static void main(String[] args) {
         LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.appendToTail("a");
-        linkedList.appendToTail("b");
-        linkedList.appendToTail("c");
-        linkedList.appendToTail("d");
-        linkedList.appendToTail("e");
-        linkedList.appendToTail("f");
+        linkedList.addLast("a");
+        linkedList.addLast("b");
+        linkedList.addLast("c");
+        linkedList.addLast("d");
+        linkedList.addLast("e");
+        linkedList.addLast("f");
 
         System.out.println("Initial List: " + linkedList.string());
         deleteNode(linkedList.head.next.next);

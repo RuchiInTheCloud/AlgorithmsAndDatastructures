@@ -41,7 +41,7 @@ public class Example3_1 {
         } else {
             levelList = list.get(level);
         }
-        levelList.appendToTail(node);
+        levelList.addLast(node);
         createLevelLinkedList(node.left, list, level + 1);
         createLevelLinkedList(node.right, list, level + 1);
     }

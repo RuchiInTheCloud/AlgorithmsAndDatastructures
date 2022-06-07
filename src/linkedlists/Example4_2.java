@@ -43,13 +43,13 @@ public class Example4_2 {
     }
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.appendToTail(3);
-        linkedList.appendToTail(5);
-        linkedList.appendToTail(8);
-        linkedList.appendToTail(5);
-        linkedList.appendToTail(10);
-        linkedList.appendToTail(2);
-        linkedList.appendToTail(1);
+        linkedList.addLast(3);
+        linkedList.addLast(5);
+        linkedList.addLast(8);
+        linkedList.addLast(5);
+        linkedList.addLast(10);
+        linkedList.addLast(2);
+        linkedList.addLast(1);
 
         System.out.println("Initial List: " + linkedList.string());
         partition(linkedList, 5);

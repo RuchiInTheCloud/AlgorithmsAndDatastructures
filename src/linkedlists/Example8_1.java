@@ -54,21 +54,21 @@ public class Example8_1 {
 
     public static void main(String[] args) {
         LinkedList<Integer> list1 = new LinkedList<>();
-        list1.appendToTail(0);
-        list1.appendToTail(1);
-        list1.appendToTail(1);
-        list1.appendToTail(1);
-        list1.appendToTail(1);
-        list1.appendToTail(1);
-        list1.appendToTail(1);
-        list1.appendToTail(1);
-        list1.appendToTail(list1.head);
+        list1.addLast(0);
+        list1.addLast(1);
+        list1.addLast(1);
+        list1.addLast(1);
+        list1.addLast(1);
+        list1.addLast(1);
+        list1.addLast(1);
+        list1.addLast(1);
+        list1.addLast(list1.head);
 
         LinkedList<Integer> list2 = new LinkedList<>();
-        list2.appendToTail(1);
-        list2.appendToTail(1);
-        list2.appendToTail(1);
-        list2.appendToTail(list1.head);
+        list2.addLast(1);
+        list2.addLast(1);
+        list2.addLast(1);
+        list2.addLast(list1.head);
 
         LinkedList.Node<Integer> beginning = findBeginning(list2.head);
 

@@ -48,10 +48,10 @@ public class Example2_1 {
     }
     public static void main(String[] args) {
         LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.appendToTail("Hi");
-        linkedList.appendToTail("I");
-        linkedList.appendToTail("am");
-        linkedList.appendToTail("Ruchi");
+        linkedList.addLast("Hi");
+        linkedList.addLast("I");
+        linkedList.addLast("am");
+        linkedList.addLast("Ruchi");
 
         LinkedList.Node<String> kthNode = kthElement(linkedList.head, 2);
         System.out.println("2nd Element found: " + kthNode.data);

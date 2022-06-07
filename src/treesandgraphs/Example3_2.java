@@ -22,7 +22,7 @@ public class Example3_2 {
         ArrayList<LinkedList<BinaryTree.Node<Integer>>> list = new ArrayList<>();
 
         LinkedList<BinaryTree.Node<Integer>> levelList = new LinkedList<>();
-        levelList.appendToTail(binaryTree.root);
+        levelList.addLast(binaryTree.root);
 
         while (levelList.size() > 0) {
             list.add(levelList);
@@ -32,10 +32,10 @@ public class Example3_2 {
             LinkedList.Node<BinaryTree.Node<Integer>> parentNode = parents.head;
             while (parentNode != null) {
                 if (parentNode.data.left != null) {
-                    levelList.appendToTail(parentNode.data.left);
+                    levelList.addLast(parentNode.data.left);
                 }
                 if (parentNode.data.right != null) {
-                    levelList.appendToTail(parentNode.data.right);
+                    levelList.addLast(parentNode.data.right);
                 }
                 parentNode = parentNode.next;
             }

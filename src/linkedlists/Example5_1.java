@@ -33,22 +33,21 @@ public class Example5_1 {
             sum += number2.data;
         }
         LinkedList.Node<Integer> node = LinkedList.Node.createNode(sum % 10);
-        LinkedList.Node<Integer> nextNode = sum(number1 == null ? null : number1.next,
+        node.next = sum(number1 == null ? null : number1.next,
                 number2 == null ? null : number2.next, sum >= 10 ? 1 : 0);
-        node.next = nextNode;
         return node;
     }
 
     public static void main(String[] args) {
         LinkedList<Integer> number1 = new LinkedList<>();
-        number1.appendToTail(7);
-        number1.appendToTail(1);
-        number1.appendToTail(6);
+        number1.addLast(7);
+        number1.addLast(1);
+        number1.addLast(6);
 
         LinkedList<Integer> number2 = new LinkedList<>();
-        number2.appendToTail(5);
-        number2.appendToTail(9);
-        number2.appendToTail(2);
+        number2.addLast(5);
+        number2.addLast(9);
+        number2.addLast(2);
 
         System.out.println("Number 1: " + number1);
         System.out.println("Number 2: " + number2);

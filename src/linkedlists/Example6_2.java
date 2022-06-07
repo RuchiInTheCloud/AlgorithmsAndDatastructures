@@ -53,11 +53,11 @@ public class Example6_2 {
 
     public static void main(String[] args) {
         LinkedList<Integer> example1 = new LinkedList<>();
-        example1.appendToTail(0);
-        example1.appendToTail(1);
-        example1.appendToTail(2);
-        example1.appendToTail(1);
-        example1.appendToTail(0);
+        example1.addLast(0);
+        example1.addLast(1);
+        example1.addLast(2);
+        example1.addLast(1);
+        example1.addLast(0);
 
         System.out.println("Is example " + example1.string() + " a palindrome? " + isPalindrome(example1.head));
     }

@@ -12,9 +12,9 @@ public class AnimalQueue {
         order++;
 
         if (animal instanceof Dog)
-            dogQueue.appendToTail((Dog) animal);
+            dogQueue.addLast((Dog) animal);
         else if (animal instanceof Cat)
-            catQueue.appendToTail((Cat) animal);
+            catQueue.addLast((Cat) animal);
     }
 
     public Animal dequeueAny() {

@@ -32,9 +32,9 @@ public class Example1_1 {
 
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.appendToTail(1);
-        linkedList.appendToTail(2);
-        linkedList.appendToTail(1);
+        linkedList.addLast(1);
+        linkedList.addLast(2);
+        linkedList.addLast(1);
 
         System.out.println(linkedList.string());
 

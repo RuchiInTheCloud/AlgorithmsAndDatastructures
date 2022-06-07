@@ -70,18 +70,18 @@ public class Example7_1 {
 
     public static void main(String[] args) {
         LinkedList<Integer> list1 = new LinkedList<>();
-        list1.appendToTail(3);
-        list1.appendToTail(1);
-        list1.appendToTail(5);
-        list1.appendToTail(9);
-        list1.appendToTail(7);
-        list1.appendToTail(2);
-        list1.appendToTail(1);
+        list1.addLast(3);
+        list1.addLast(1);
+        list1.addLast(5);
+        list1.addLast(9);
+        list1.addLast(7);
+        list1.addLast(2);
+        list1.addLast(1);
 
         LinkedList<Integer> list2 = new LinkedList<>();
-        list2.appendToTail(4);
-        list2.appendToTail(6);
-        list2.appendToTail(list1.head.next.next.next.next);
+        list2.addLast(4);
+        list2.addLast(6);
+        list2.addLast(list1.head.next.next.next.next);
 
         LinkedList<Integer> intersection = new LinkedList<>();
         intersection.head = findIntersection(list1.head, list2.head);

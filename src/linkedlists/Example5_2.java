@@ -88,15 +88,15 @@ public class Example5_2 {
 
     public static void main(String[] args) {
         LinkedList<Integer> number1 = new LinkedList<>();
-        number1.appendToTail(1);
-        number1.appendToTail(6);
-        number1.appendToTail(1);
-        number1.appendToTail(7);
+        number1.addLast(1);
+        number1.addLast(6);
+        number1.addLast(1);
+        number1.addLast(7);
 
         LinkedList<Integer> number2 = new LinkedList<>();
-        number2.appendToTail(2);
-        number2.appendToTail(9);
-        number2.appendToTail(5);
+        number2.addLast(2);
+        number2.addLast(9);
+        number2.addLast(5);
 
         System.out.println("Number 1: " + number1);
         System.out.println("Number 2: " + number2);
