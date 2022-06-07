@@ -22,7 +22,8 @@ import treesandgraphs.datastructures.BinaryTree;
 //
 //  If both are on the right side, call recursively with node.right, p, q
 //  If both are on the left side, call recursively with node.left, p, q
-
+//
+// Complexity: n + n + n/2 + n/2 + n/4 + n/4 .. = O(n)
 public class Example8_3 {
     private static BinaryTree.Node<Integer> commonAncestor(BinaryTree.Node<Integer> root, BinaryTree.Node<Integer> p,
             BinaryTree.Node<Integer> q) {
