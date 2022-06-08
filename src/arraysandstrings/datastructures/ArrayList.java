@@ -1,5 +1,8 @@
 package arraysandstrings.datastructures;
 
+import linkedlists.datastructures.LinkedList;
+import treesandgraphs.datastructures.BinaryTree;
+
 public class ArrayList<T> {
     private static final int INITIAL_CAPACITY = 4;
 
@@ -51,5 +54,11 @@ public class ArrayList<T> {
             resizableArray[i] = resizableArray[i + 1];
         }
         size--;
+    }
+
+    public void addAll(ArrayList<T> arrayList) {
+        for (int i = 0; i < arrayList.size(); i++) {
+            this.add(arrayList.get(i));
+        }
     }
 }

@@ -53,6 +53,17 @@ public class LinkedList<T> {
         size++;
     }
 
+    public void addAll(LinkedList<T> list) {
+        Node<T> current = list.head;
+
+        while (current != null) {
+            Node<T> node = new Node<>(current.data);
+            this.addLast(node);
+
+            current = current.next;
+        }
+    }
+
     public Node<T> removeFront() {
         if (head == null) {
             return null;
