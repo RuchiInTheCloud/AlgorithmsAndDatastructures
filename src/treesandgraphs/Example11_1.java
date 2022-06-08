@@ -94,11 +94,9 @@ public class Example11_1 {
             if (node.data == data) {
                 return node;
             } else if (node.data > data && node.left != null) {
-                Node subNode = find(node.left, data);
-                return subNode;
+                return find(node.left, data);
             } else if (node.data < data && node.right != null) {
-                Node subNode = find(node.right, data);
-                return subNode;
+                return find(node.right, data);
             }
 
             return null;
@@ -113,6 +111,11 @@ public class Example11_1 {
         binarySearchTree.insert(10);
         binarySearchTree.insert(7);
 
+        System.out.println("Random node: " + binarySearchTree.getRandomNode());
+        System.out.println("Random node: " + binarySearchTree.getRandomNode());
+        System.out.println("Random node: " + binarySearchTree.getRandomNode());
+        System.out.println("Random node: " + binarySearchTree.getRandomNode());
+        System.out.println("Random node: " + binarySearchTree.getRandomNode());
         System.out.println("Random node: " + binarySearchTree.getRandomNode());
         System.out.println("Random node: " + binarySearchTree.getRandomNode());
         System.out.println("Random node: " + binarySearchTree.getRandomNode());
