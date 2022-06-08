@@ -1,7 +1,5 @@
 package treesandgraphs;
 
-import treesandgraphs.datastructures.BinaryTree;
-
 import java.util.Random;
 
 //Implement a BST with a method to return a random node
@@ -9,6 +7,8 @@ import java.util.Random;
 //The probability of choosing left subtree : LEFT_SIZE/n
 //probability of choosing current node: 1/n
 //probability of choosing right subtree: RIGHT_SIZE/n
+//
+//time and space O(log n) for a balanced tree
 public class Example11_1 {
     private static class BinarySearchTree {
         private static class Node {
@@ -39,33 +39,35 @@ public class Example11_1 {
         }
 
         private Node insert(Node node, int data) {
-            if (node == null) {
-                return null;
-            }
+            Node subNode;
             if (node.data >= data) {
-                Node subNode = insert(node.left, data);
-                if (subNode == null) {
+                if (node.left == null) {
                     subNode = new Node(data);
                     node.left = subNode;
                     node.size++;
+                    return subNode;
                 } else {
+                    subNode = insert(node.left, data);
                     node.size++;
                 }
-                return subNode;
             } else {
-                Node subNode = insert(node.right, data);
-                if (subNode == null) {
+                if (node.right == null) {
                     subNode = new Node(data);
                     node.right = subNode;
                     node.size++;
                 } else {
+                    subNode = insert(node.right, data);
                     node.size++;
                 }
                 return subNode;
             }
+            return subNode;
         }
 
         public Node getRandomNode() {
+            if (root == null) {
+                return null;
+            }
             return getRandomNode(root);
         }
 
