@@ -16,6 +16,7 @@ import treesandgraphs.datastructures.BinaryTree;
 //      parents = level
 //      level = new list
 //      for every parent, add child to level
+//  Time complexity: O(n), Space Complexity: O(n)
 public class Example3_2 {
     private static ArrayList<LinkedList<BinaryTree.Node<Integer>>> createLevelLinkedList(
             BinaryTree<Integer> binaryTree) {

@@ -15,7 +15,7 @@ package treesandgraphs;
 //  levellist.add(node)
 //  createLevelLinkedList(node.left, list, level + 1)
 //  createLevelLinkedList(node.right, list, level + 1)
-//  Space complexity: O(log n), Time complexity: O(n)
+//  Space complexity: O(n (output) + log n), Time complexity: O(n)
 import arraysandstrings.datastructures.ArrayList;
 import linkedlists.datastructures.LinkedList;
 import treesandgraphs.datastructures.BinaryTree;

@@ -32,6 +32,7 @@ import treesandgraphs.datastructures.BinaryTree;
 // add [d] as prefix to weaves of [a, b, c] and [e, f]
 //Weave elements while maintaining the relative order
 //
+//Complexity == ???
 public class Example9_1 {
     private static ArrayList<LinkedList<Integer>> allSequences(BinaryTree.Node<Integer> node) {
         ArrayList<LinkedList<Integer>> result = new ArrayList<>();

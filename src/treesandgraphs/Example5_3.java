@@ -8,7 +8,7 @@ import treesandgraphs.datastructures.BinaryTree;
 //Check if max != null --> node.value <= max? if not return false;
 //Check if min != null --> node.value > min? if not return false;
 //Check the same for the left and right subtree, if either result is false return false
-
+//Time complexity: O(n), space complexity O(log n)
 public class Example5_3 {
     private static boolean checkBST(BinaryTree<Integer> binaryTree) {
         return checkBST(binaryTree.root, null, null);
@@ -23,7 +23,7 @@ public class Example5_3 {
             return false;
         }
 
-        if (!(checkBST(node.left, node.data, null) && checkBST(node.right, null, min))) {
+        if (!(checkBST(node.left, node.data, null) || !checkBST(node.right, null, min))) {
             return false;
         }
 
