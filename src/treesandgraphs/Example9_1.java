@@ -33,7 +33,7 @@ import treesandgraphs.datastructures.BinaryTree;
 //Weave elements while maintaining the relative order
 //
 public class Example9_1 {
-    private ArrayList<LinkedList<Integer>> allSequences(BinaryTree.Node<Integer> node) {
+    private static ArrayList<LinkedList<Integer>> allSequences(BinaryTree.Node<Integer> node) {
         ArrayList<LinkedList<Integer>> result = new ArrayList<>();
 
         if (node == null) {
@@ -60,7 +60,7 @@ public class Example9_1 {
         return result;
     }
 
-    private void weave(LinkedList<Integer> leftSequence, LinkedList<Integer> rightSequence,
+    private static void weave(LinkedList<Integer> leftSequence, LinkedList<Integer> rightSequence,
             ArrayList<LinkedList<Integer>> results, LinkedList<Integer> prefix) {
         if (leftSequence.size() == 0 || rightSequence.size() == 0) {
             LinkedList<Integer> list = new LinkedList<>();
@@ -72,19 +72,44 @@ public class Example9_1 {
         }
 
         LinkedList.Node<Integer> first = leftSequence.removeFront();
-        prefix.addLast(first);
+        prefix.addLast(first.data);
         weave(leftSequence, rightSequence, results, prefix);
         prefix.removeLast();
         leftSequence.addFront(first);
 
         first = rightSequence.removeFront();
-        prefix.addLast(first);
+        prefix.addLast(first.data);
         weave(leftSequence, rightSequence, results, prefix);
         prefix.removeLast();
         rightSequence.addFront(first);
     }
 
     public static void main(String[] args) {
+        BinaryTree<Integer> binaryTree = new BinaryTree<>();
 
+        BinaryTree.Node<Integer> node = new BinaryTree.Node<>(2);
+        BinaryTree.Node<Integer> subNode = new BinaryTree.Node<>(1);
+        node.left = subNode;
+        subNode.parent = node;
+        subNode = new BinaryTree.Node<>(3);
+        node.right = subNode;
+        subNode.parent = node;
+
+        binaryTree.root = node;
+
+        node = subNode;
+        subNode = new BinaryTree.Node<>(4);
+        node.right = subNode;
+        subNode.parent = node;
+        node = subNode;
+        subNode = new BinaryTree.Node<>(5);
+        node.right = subNode;
+        subNode.parent = node;
+
+        System.out.println("All sequences that could generate the BST are: ");
+        ArrayList<LinkedList<Integer>> results = allSequences(binaryTree.root);
+        for (int i = 0; i < results.size(); i++) {
+            System.out.println(results.get(i).string());
+        }
     }
 }
