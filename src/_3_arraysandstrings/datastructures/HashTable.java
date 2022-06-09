@@ -13,6 +13,8 @@ package _3_arraysandstrings.datastructures;
 // table is rehashed so that the hash table has approximately twice
 // the number of buckets
 
+import _4_linkedlists.datastructures.LinkedList;
+
 public class HashTable<K, V> {
     private static final int INITIAL_CAPACITY = 4;
     private static final double LOAD_FACTOR = 0.7;
@@ -109,6 +111,33 @@ public class HashTable<K, V> {
 
     private int computeHashCode(K key) {
         return (key.hashCode() & 0xfffffff) % buckets.length;
+    }
+
+    public V getOrElse(K key, V otherValue) {
+        V value = get(key);
+        return value == null ? otherValue : value;
+    }
+
+    public void remove(K key) {
+        int idx = computeHashCode(key);
+        Entry<K, V> bucket = buckets[idx];
+
+        if (bucket == null) {
+            return;
+        }
+
+        while (bucket.next != null) {
+            if (bucket.next.key == key) {
+                bucket.next = bucket.next.next;
+                size--;
+            } else {
+                bucket = bucket.next;
+            }
+        }
+
+        if (buckets[idx].key == key) {
+            buckets[idx] = buckets[idx].next;
+        }
     }
 
     public static class Entry<A, B> {

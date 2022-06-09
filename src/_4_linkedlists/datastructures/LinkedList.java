@@ -96,32 +96,29 @@ public class LinkedList<T> {
         }
     }
 
-    //Example data located on head, tail or middle
+    //Example data located on head, tail or middle <--- does not remove all occurences
     public Node<T> removeNode(T data) {
         if (head == null) {
             return null;
         }
 
         Node<T> current = head;
-        if (current.data == data) {
-            head = head.next;
-            size--;
-            return current;
-        }
-
-        Node<T> prev = head;
-        current = head.next;
-        while (current != null) {
-            if (current.data == data) {
-                prev.next = current.next;
+        Node<T> returnValue = null;
+        while (current.next != null) {
+            if (current.next.data == data) {
+                returnValue = current.next;
+                current.next = current.next.next;
                 size--;
-                return current;
+            } else {
+                current = current.next;
             }
-            prev = current;
-            current = current.next;
         }
 
-        return null;
+        if (head.data == data) {
+            head = head.next;
+        }
+
+        return returnValue;
     }
 
     public Node<T> poll() {
