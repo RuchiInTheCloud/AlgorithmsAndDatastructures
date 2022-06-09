@@ -58,4 +58,8 @@ public class ArrayList<T> {
             this.add(arrayList.get(i));
         }
     }
+
+    public T[] toArray() {
+        return resizableArray;
+    }
 }
