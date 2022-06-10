@@ -4,8 +4,8 @@ package _7_bitmanipulation;
 //00000111 --> No next smallest number with three 1 bits, largest number 00001011
 //00001000 --> Next smallest number 00000100 with 1 bit, largest number 00010000
 //00001010 --> Next smaller number 00001001 with 2 bit, largest number 00001100
-//00001011 -->                                        , largest number 00001110
-//00001100 -->                                                         00010001
+//00001011 --> Next smaller number 00000111 with 2 bit, largest number 00001110
+//00001100 --> Next smaller number 00001010 with 2 bit, largest number 00010001
 //For largest number:
 //
 //For smaller number:
