@@ -2,3 +2,20 @@ package _7_bitmanipulation;
 
 // n & (n - 1) == 0 --> checks if n is a power of 2
 // n & (n - 1) do not have a 1 bit in the same place
+//
+//1101011000
+//-        1
+//----------
+//1101010111
+
+//Subtraction take away: If the LSB is 0, one needs to borrow from
+//a larger bit. Move to increasingly larger bits, changing 0 to 1
+//. Flip that 1 to a 0
+
+//n - 1 looks like n, except initial 0s look like 1s. n's least significant
+//1 will be a 0 in n - 1
+//
+// n = abcde1000
+//n-1= abcde0111, abcde must be 00000
+//
+// n is a power of 2 if n & (n - 1) == 0
