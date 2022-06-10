@@ -11,7 +11,14 @@ package _7_bitmanipulation;
 //For smaller number:
 //
 public class Example4_2 {
-    public static void main(String[] args) {
+    private static String getNext(int num) {
+    }
 
+    private static String getPrevious(int num) {
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Next number with the same number of bits " + getNext(7));
+        System.out.println("Previous number with the same number of bits " + getPrevious(7));
     }
 }

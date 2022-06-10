@@ -79,6 +79,7 @@ public class Example4_1 {
     }
 
     public static void main(String[] args) {
-
+        System.out.println("Next number with the same number of bits " + getNext(7));
+        System.out.println("Previous number with the same number of bits " + getPrevious(7));
     }
 }
