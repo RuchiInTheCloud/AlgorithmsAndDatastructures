@@ -1,0 +1,13 @@
+package _8_mathandlogicpuzzles;
+
+//20 bottles of pills
+//19 bottles contain pills of 1g
+//One bottle contains pills of 1.1g
+//Given a scale that provides exact measurement
+//Find the heavy bottle
+//
+//If all bottles contained 1g pills and we took
+//1 pill from 1st bottle and 2 pills from second bottle and so on...
+//The scale would measure as 1 + 2 + 3 + .. + 20 = 20 * 21/2 = 210g
+//Since one of the bottles contain pills of 1.1g the scale would return >210g
+//(total weight - 210)/0.1 ==> would point to the bottle containing 1.1 g of pills
