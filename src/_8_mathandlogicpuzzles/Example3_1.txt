@@ -1,0 +1,7 @@
+package _8_mathandlogicpuzzles;
+
+//8 X 8 Chessboard, two diagonally opposite corners have been cut off
+//31 dominos given, each fits on two squares
+//Can you cover the board with 31 dominos?
+//
+//

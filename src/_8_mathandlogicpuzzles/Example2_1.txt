@@ -1,4 +1,31 @@
 package _8_mathandlogicpuzzles;
 
-public class Example2_1 {
-}
+//You can play one of two games
+//Game 1 : You get one shot to make the hoop
+//Game 2 : You get three shots and you have to make two of the three shots
+//p is probability of making a shot. For which values of p should you pick
+//one game or the other?
+//
+//Probability of winning Game 1 = p
+//Probability of winning Game 2 = P(making all shots)
+                                  P(making shot 1 and 2, failing 3) +
+                                  P(making shot 1 and 3, failing 2) +
+                                  P(making shot 2 and 3, failing 1)
+                                = p^3 + 3p^2(1-p) = 3p^2 - 2p^3
+
+//Play Game 1 if
+// --> p > 3p^2 - 2p^3
+// --> 1 > 3p - 2p^2
+// --> 2p^2 - 3p + 1 > 0
+// --> 2p^2 - 2p - p + 1 > 0
+// --> 2p (p - 1) - (p - 1) > 0
+// --> (p - 1) (2p - 1) > 0
+//
+// 0 <= p <= 1
+//
+// --> p - 1 < 0, 2p - 1 < 0
+// --> p < 1, 2p < 1
+// --> p < 1, p < 1/2
+// Play Game 1 if p < 1/2
+// Play Game 2 if p > 1/2
+// If p = 0, 1/2, 1, probability of winning both games is equal
