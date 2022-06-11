@@ -1,4 +1,16 @@
 package _8_mathandlogicpuzzles;
 
-public class Example4_1 {
-}
+//There are three ants on three different vertices of a triangle. Probability of collision between any two or all,
+//if they start walking on the sides of the triangle. Assume that each ant randomly picks a direction. With either
+//direction being likely chosen and that they walk at the same speed.
+//Find the probability of collision on n vertex polygon.
+//
+//If all are moving in the same direction (clockwise, counterclockwise) they will not collide.
+//P (clockwise) = 1 / 8
+//P (counter clockwise) = 1 / 8
+//P (collision) = 1 - P (moving same direction) = 1 - 1 / 4 = 3 / 4
+//
+//Generalize on n-vertex poligon
+//P (clockwise) = 1 / 2^n
+//P (counter clockwise) = 1 / 2^n
+//P (collision) = 1 - P (moving same direction) = 1 - 1 / 2^(n - 1) = (2^(n - ^) - 1)/ 2^(n - 1)

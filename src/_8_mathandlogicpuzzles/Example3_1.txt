@@ -4,4 +4,9 @@ package _8_mathandlogicpuzzles;
 //31 dominos given, each fits on two squares
 //Can you cover the board with 31 dominos?
 //
-//
+//| W | B | W | B | W | B | W | B | <-- First row and column would look probably like this
+// If two square are removed diagonally, either two White squares are removed or two Black squares
+// On an 8 x 8 board there are 64 squares, after square removed, there are 62 squares
+// Either 32 black and 30 white or 32 white and 30 black.
+// When placing the domino, 1 white and 1 black square are covered. And we are able to cover 30 white and black squares
+// The two whites squares will not be covered by the domino.
