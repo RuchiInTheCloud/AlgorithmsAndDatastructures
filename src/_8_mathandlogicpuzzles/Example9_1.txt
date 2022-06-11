@@ -1,4 +1,14 @@
 package _8_mathandlogicpuzzles;
 
-public class Example9_1 {
-}
+//100 closed lockers in the hallway
+//open all lockers
+//close every second locker
+//toggle every third locker
+//continue until 100 passes
+//How many lockers are open
+
+//A given locker will be toggled by its factor including 1 and itself
+//A door is left open, if it has odd number of factors
+//Factors of non perfect square are odd. E.g. 6 --> 1, 2, 3, 6
+//Factors of perfect square are odd. E.g. 25 --> 1, 5, 25
+//All 10 perfect squares between 1 and 100 will be left open.
