@@ -1,4 +1,22 @@
 package _8_mathandlogicpuzzles;
 
-public class Example6_1 {
-}
+//Blue eyed island: All blue eyed people must leave the island as soon as possible
+//Every person knows every one else's color but their own
+//No one is allowed to tell the other of their color
+//They do not know how many people have blue eyes except atleast one
+//How many days will it take for the blue eyed people to leave?
+
+//c = 1
+//The non-blue eyed people will see one blue eyed person.
+//The blue eyed person will seen no other blue eyed person since they know at-least one blue eyed person is present
+//that this must be himself
+//
+//c = 2
+//The non-blue eyed people will see two blue eyed people.
+//The blue eyed people will see one blue eyed person. Since this person did not leave the first night, he himself must
+//be blue eyed
+//
+//c = n
+//The non-blue eyed people will see n blue eyed people.
+//The blue eyed people will see n - 1 blue eyed person. Since these people did not leave the n - 1 night, he himself must
+//be blue eyed. All n blue eyed people would leave on the nth night
