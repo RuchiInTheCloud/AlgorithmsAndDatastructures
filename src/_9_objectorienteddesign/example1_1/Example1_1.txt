@@ -1,0 +1,17 @@
+package _9_objectorienteddesign.example1_1;
+
+//Core objects
+//Card
+//Suit
+//Hand
+//Deck
+//Suit
+
+//Define Relationships
+//Card has a Suit
+//Hand - 0..* Cards
+//Deck - 0..* Cards
+
+//Define Actions
+//Deck - shuffle, dealCard, dealHand, remainingCards
+//Hand - addCard, score

@@ -46,11 +46,13 @@ public class ArrayList<T> {
         return resizableArray.length;
     }
 
-    public void remove(int index) {
+    public T remove(int index) {
+        T removedElement = resizableArray[index];
         for (int i = index; i < resizableArray.length - 1; i++) {
             resizableArray[i] = resizableArray[i + 1];
         }
         size--;
+        return removedElement;
     }
 
     public void addAll(ArrayList<T> arrayList) {
@@ -61,5 +63,17 @@ public class ArrayList<T> {
 
     public T[] toArray() {
         return resizableArray;
+    }
+
+    public void set(int index, T element) {
+        resizableArray[index] = element;
+    }
+
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            resizableArray[i] = null;
+        }
+
+        size = 0;
     }
 }
