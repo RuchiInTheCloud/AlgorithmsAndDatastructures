@@ -1,0 +1,21 @@
+package _9_objectorienteddesign.example3_1;
+
+//Initial Questions
+//Is the Jukebox playing CDs? Records? MP3?
+//Is it a simulation on a computer or is it supposed to represent a physical jukebox
+//Does it take money? In which currency? Does it deliver change?
+
+//Core objects
+//Jukebox
+//Song
+//CD
+//CDPlayer
+
+//Define relationships
+//Jukebox contains CDs, CDPlayer
+//CD contains Songs
+//CDPlayer can contain a CD
+
+//Define actions
+//Jukebox: playSong
+//CDPlayer: playSong
