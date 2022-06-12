@@ -1,4 +1,4 @@
-package _7_bitmanipulation.datastructures;
+package _7_bitmanipulation.fundamentals;
 
 public class BitManipulation {
     static boolean getBit(int num, int i) {

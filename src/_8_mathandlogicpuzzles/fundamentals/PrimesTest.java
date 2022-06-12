@@ -1,4 +1,4 @@
-package _8_mathandlogicpuzzles.datastructures;
+package _8_mathandlogicpuzzles.fundamentals;
 
 import org.junit.Test;
 
