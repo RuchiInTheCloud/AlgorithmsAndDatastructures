@@ -1,0 +1,24 @@
+package _9_objectorienteddesign.example2_1;
+
+//Core objects
+//Call Center/ Call Handler
+//Employee
+//Respondent (busy, available)
+//Manager
+//Director
+//Telephone Call
+//Caller
+
+//Define Relationships
+//Call Center has Employees
+//Respondent is an Employee
+//Manager is an Employee
+//Director is an Employee
+//Employee is assigned a call
+//Call has an Employee
+//Call has a Caller
+//Employee has a rank
+//Call has a rank
+
+//Define Actions
+//dispatchCall
