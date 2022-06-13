@@ -3,9 +3,11 @@ package _9_objectorienteddesign.example6_1;
 public class Edge {
     EdgeShape shape;
     private Piece parentPiece;
+String code;
 
-    public Edge(EdgeShape shape) {
+    public Edge(EdgeShape shape, String code) {
         this.shape = shape;
+        this.code = code;
     }
 
     public void setParentPiece(Piece parentPiece) {
@@ -19,7 +21,7 @@ public class Edge {
     public Edge _createMatchingEdge() {
         if (shape == EdgeShape.FLAT)
             return null;
-        return new Edge(shape.getOpposite());
+        return new Edge(shape.getOpposite(), code);
     }
 
     public EdgeShape getShape() {
@@ -35,5 +37,9 @@ public class Edge {
             default:
                 return false;
         }
+    }
+
+    public String toString() {
+        return code;
     }
 }

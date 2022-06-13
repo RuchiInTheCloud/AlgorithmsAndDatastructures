@@ -9,6 +9,7 @@ public class Question {
     private static boolean testSize(int size) {
         Puzzle puzzle = initializePuzzle(size);
         Piece[][] solution = puzzle.solve();
+        System.out.println(solutionToString(solution));
         boolean result = validate(solution);
         System.out.println(result);
         return result;
@@ -84,27 +85,46 @@ public class Question {
     }
 
     private static Edge[] createEdges(Piece[][] puzzleArray, int row, int column) {
+        String key = column + ":" + row + ":";
+
         Edge left = column == 0 ?
-                new Edge(EdgeShape.FLAT) :
+                new Edge(EdgeShape.FLAT, key + "h|e") :
                 puzzleArray[row][column - 1].getEdgeWithOrientation(EdgeOrientation.RIGHT)._createMatchingEdge();
         Edge top = row == 0 ?
-                new Edge(EdgeShape.FLAT) :
+                new Edge(EdgeShape.FLAT, key + "v|e") :
                 puzzleArray[row - 1][column].getEdgeWithOrientation(EdgeOrientation.BOTTOM)._createMatchingEdge();
 
-        Edge right = column == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT) : createRandomEdge();
+        Edge right = column == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "h|e") : createRandomEdge(key + "h");
 
-        Edge bottom = row == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT) : createRandomEdge();
+        Edge bottom = row == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "v|e") : createRandomEdge(key + "v");
 
         return new Edge[]{left, top, right, bottom};
     }
 
-    private static Edge createRandomEdge() {
+    private static Edge createRandomEdge(String code) {
         Random random = new Random();
         EdgeShape type = EdgeShape.INNER;
         if (random.nextBoolean()) {
             type = EdgeShape.OUTER;
         }
-        return new Edge(type);
+        return new Edge(type, code);
+    }
+
+    public static String solutionToString(Piece[][] solution) {
+        StringBuilder sb = new StringBuilder();
+        for (int h = 0; h < solution.length; h++) {
+            for (int w = 0; w < solution[h].length; w++) {
+                Piece p = solution[h][w];
+                if (p == null) {
+                    sb.append("null");
+                }
+                else {
+                    sb.append(p.toString());
+                }
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 
     public static void main(String[] args) {

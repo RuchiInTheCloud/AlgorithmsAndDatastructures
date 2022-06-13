@@ -73,4 +73,13 @@ public class Piece {
         }
         return null;
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        EdgeOrientation[] orientations = EdgeOrientation.values();
+        for (EdgeOrientation o : orientations) {
+            sb.append(edges.get(o).toString() + ",");
+        }
+        return "[" + sb.toString() + "]";
+    }
 }

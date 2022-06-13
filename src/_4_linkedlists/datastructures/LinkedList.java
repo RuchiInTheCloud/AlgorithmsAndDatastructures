@@ -66,23 +66,22 @@ public class LinkedList<T> {
     }
 
     public void add(int index, T data) {
-        if (index < size) {
-            Node<T> toInsert = new Node<>(data);
+        Node<T> toInsert = new Node<>(data);
 
-            if (index == 0) {
-                toInsert.next = head;
-                head = toInsert;
-            } else {
-                Node<T> current = head;
-                int currentPosition = 0;
-                while (currentPosition < index - 1) {
-                    current = current.next;
-                    currentPosition += 1;
-                }
-                toInsert.next = current.next;
-                current.next = toInsert;
+        if (index == 0) {
+            toInsert.next = head;
+            head = toInsert;
+        } else {
+            Node<T> current = head;
+            int currentPosition = 0;
+            while (currentPosition < index - 1) {
+                current = current.next;
+                currentPosition += 1;
             }
+            toInsert.next = current.next;
+            current.next = toInsert;
         }
+        size++;
     }
 
     public T get(int index) {
