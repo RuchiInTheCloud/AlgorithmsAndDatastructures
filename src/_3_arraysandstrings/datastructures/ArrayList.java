@@ -10,11 +10,11 @@ public class ArrayList<T> {
         this(INITIAL_CAPACITY);
     }
 
-    public ArrayList(int size) {
-        if (size < 0) {
+    public ArrayList(int capacity) {
+        if (capacity < 0) {
             throw new IllegalArgumentException();
         }
-        resizableArray = (T[]) new Object[size];
+        resizableArray = (T[]) new Object[capacity];
     }
 
     public void add(T element) {

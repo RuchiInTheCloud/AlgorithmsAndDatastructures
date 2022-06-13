@@ -1,0 +1,26 @@
+package _9_objectorienteddesign.example4_1;
+
+//Design Parking Lot
+
+//Core objects
+Parking Lot
+Parking Level
+Vehicle
+Parking Ticket
+Parking Spot (Motorcycle spot, compact spot, single large spot)
+
+Motor cycle (any spot)
+Car (compact spot, large spot)
+Bus (5 large consecutive spots in the same row)
+
+//Define relationships
+//ParkingLot has Parking Levels
+//Parking Level has Rows of Parking Spots
+//Parking Spot can have Vehicle
+//Vehicle can have Parking Spots
+
+//Define actions
+//Parking Lot, park Vehicle
+//Parking Level, park Vehicle
+//Parking Spot, park Vehicle
+//Vehicle unpark
