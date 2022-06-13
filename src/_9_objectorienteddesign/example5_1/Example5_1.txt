@@ -8,10 +8,12 @@ package _9_objectorienteddesign.example5_1;
 //Library
 //OnlineReaderSystem
 //UserManager
+//Display
 
 //Define relationships
 //User rent some books
 //Library has a collection of books
+//Display has an active user, active book
 
 //Define actions
 //Rent a book
