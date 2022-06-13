@@ -2,9 +2,18 @@ package _9_objectorienteddesign.example6_1;
 
 public class Edge {
     EdgeShape shape;
+    private Piece parentPiece;
 
     public Edge(EdgeShape shape) {
         this.shape = shape;
+    }
+
+    public void setParentPiece(Piece parentPiece) {
+        this.parentPiece = parentPiece;
+    }
+
+    public Piece getParentPiece() {
+        return parentPiece;
     }
 
     public Edge _createMatchingEdge() {

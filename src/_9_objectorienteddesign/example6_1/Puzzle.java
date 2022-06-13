@@ -14,9 +14,9 @@ public class Puzzle {
 
     public Piece[][] solve() {
         /* Group pieces. */
-        LinkedList<Piece> cornerPieces = new LinkedList<Piece>();
-        LinkedList<Piece> borderPieces = new LinkedList<Piece>();
-        LinkedList<Piece> insidePieces = new LinkedList<Piece>();
+        LinkedList<Piece> cornerPieces = new LinkedList<>();
+        LinkedList<Piece> borderPieces = new LinkedList<>();
+        LinkedList<Piece> insidePieces = new LinkedList<>();
         groupPieces(cornerPieces, borderPieces, insidePieces);
 
         solution = new Piece[size][size];
@@ -51,8 +51,33 @@ public class Puzzle {
             orientTopLeftCorner(p);
             solution[0][0] = p;
         } else {
-
+            Piece pieceToMatch = column == 0 ? solution[row - 1][0] : solution[row][column - 1];
+            EdgeOrientation orientationToMatch = column == 0 ? EdgeOrientation.BOTTOM : EdgeOrientation.RIGHT;
+            Edge edgeToMatch = pieceToMatch.getEdgeWithOrientation(orientationToMatch);
+            Edge edge = getMatchingEdge(edgeToMatch, piecesToSearch);
+            if (edge == null) return false;
+            EdgeOrientation orientation = orientationToMatch.getOpposite();
+            setEdgeInSolution(piecesToSearch, edge, row, column, orientation);
         }
+        return true;
+    }
+
+    private void setEdgeInSolution(LinkedList<Piece> pieces, Edge edge, int row, int column, EdgeOrientation orientation) {
+        Piece piece = edge.getParentPiece();
+        piece.setEdgeAsOrientation(edge, orientation);
+        pieces.removeNode(piece);
+        solution[row][column] = piece;
+    }
+
+    private Edge getMatchingEdge(Edge targetEdge, LinkedList<Piece> pieces) {
+        for (int i = 0; i < pieces.size(); i++) {
+            Piece piece = pieces.get(i);
+            Edge matchingEdge = piece.getMatchingEdge(targetEdge);
+            if (matchingEdge != null) {
+                return matchingEdge;
+            }
+        }
+        return null;
     }
 
     private void orientTopLeftCorner(Piece piece) {

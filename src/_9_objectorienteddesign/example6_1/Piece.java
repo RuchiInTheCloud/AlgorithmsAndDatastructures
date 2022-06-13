@@ -11,6 +11,7 @@ public class Piece {
         EdgeOrientation[] orientations = EdgeOrientation.values();
         for (int i = 0; i < edgeList.length; i++) {
             Edge edge = edgeList[i];
+            edge.setParentPiece(this);
             edges.put(orientations[i], edge);
         }
     }
@@ -62,5 +63,14 @@ public class Piece {
 
     private EdgeOrientation getOrientation(Edge edge) {
         return edges.getKey(edge);
+    }
+
+    public Edge getMatchingEdge(Edge targetEdge) {
+        for (Edge e : edges.values()) {
+            if (targetEdge.fitsWith(e)) {
+                return e;
+            }
+        }
+        return null;
     }
 }
