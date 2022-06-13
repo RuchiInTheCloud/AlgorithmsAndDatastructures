@@ -4,6 +4,7 @@ import java.util.EmptyStackException;
 
 // LinkedList of integer or string
 public class LinkedList<T> {
+
     public static class Node<T> {
         public T data;
         public Node<T> next;
@@ -62,6 +63,36 @@ public class LinkedList<T> {
 
             current = current.next;
         }
+    }
+
+    public void add(int index, T data) {
+        if (index < size) {
+            Node<T> toInsert = new Node<>(data);
+
+            if (index == 0) {
+                toInsert.next = head;
+                head = toInsert;
+            } else {
+                Node<T> current = head;
+                int currentPosition = 0;
+                while (currentPosition < index - 1) {
+                    current = current.next;
+                    currentPosition += 1;
+                }
+                toInsert.next = current.next;
+                current.next = toInsert;
+            }
+        }
+    }
+
+    public T get(int index) {
+        Node<T> current = head;
+        int currentPosition = 0;
+        while (currentPosition < index) {
+            current = current.next;
+            currentPosition += 1;
+        }
+        return current.data;
     }
 
     public Node<T> removeFront() {

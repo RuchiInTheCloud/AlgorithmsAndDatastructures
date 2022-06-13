@@ -1,4 +1,18 @@
 package _9_objectorienteddesign.example6_1;
 
-public class Example6_1 {
-}
+//N X N Jigsaw Puzzle
+//Design Datastructure and Design algorithm to solve the problem
+//
+//Core objects
+//Puzzle
+//Piece
+//Edge
+//EdgeShape
+//EdgeOrientation
+
+//Define relationships
+//Puzzle --> Pieces
+//Piece --> Edges
+//Edge --> EdgeShape, EdgeOrientation
+
+//Puzzle solve
