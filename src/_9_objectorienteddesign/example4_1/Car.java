@@ -11,4 +11,8 @@ public class Car extends Vehicle {
     public boolean isSuitable(ParkingSpotType spotType) {
         return spotType == ParkingSpotType.Large || spotType == ParkingSpotType.Compact;
     }
+
+    public void print() {
+        System.out.print("C");
+    }
 }

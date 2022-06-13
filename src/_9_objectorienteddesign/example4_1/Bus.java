@@ -11,4 +11,8 @@ public class Bus extends Vehicle {
     public boolean isSuitable(ParkingSpotType spotType) {
         return spotType == ParkingSpotType.Large;
     }
+
+    public void print() {
+        System.out.print("B");
+    }
 }

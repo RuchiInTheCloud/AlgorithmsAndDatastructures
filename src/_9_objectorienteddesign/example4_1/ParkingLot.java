@@ -1,7 +1,7 @@
 package _9_objectorienteddesign.example4_1;
 
 public class ParkingLot {
-    ParkingLevel[] levels;
+    private ParkingLevel[] levels;
     private final int NUM_LEVELS = 5;
 
     public ParkingLot() {
@@ -19,5 +19,13 @@ public class ParkingLot {
             }
         }
         return false;
+    }
+    public void print() {
+        for (int i = 0; i < levels.length; i++) {
+            System.out.print("Level" + i + ": ");
+            levels[i].print();
+            System.out.println();
+        }
+        System.out.println();
     }
 }

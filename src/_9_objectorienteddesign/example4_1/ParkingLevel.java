@@ -45,6 +45,17 @@ public class ParkingLevel {
         availableSpots += 1;
     }
 
+    public void print() {
+        int lastRow = -1;
+        for (ParkingSpot spot: spots) {
+            if (spot.getRow() != lastRow) {
+                System.out.print("  ");
+                lastRow = spot.getRow();
+            }
+            spot.print();
+        }
+    }
+
     private int findAvailableSpots(Vehicle vehicle) {
         int spotsNeeded = vehicle.getSpotsNeeded();
         int spotsFound = 0;

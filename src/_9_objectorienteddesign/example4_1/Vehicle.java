@@ -12,6 +12,7 @@ public abstract class Vehicle {
     }
 
     public abstract boolean isSuitable(ParkingSpotType spotType);
+    public abstract void print();
 
     public int getSpotsNeeded() {
         return vehicleSize.spotsNeeded;

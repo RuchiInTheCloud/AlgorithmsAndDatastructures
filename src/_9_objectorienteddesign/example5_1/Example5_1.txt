@@ -1,0 +1,20 @@
+package _9_objectorienteddesign.example5_1;
+
+//Online book reader
+
+//Define core objects
+//Book
+//User
+//Library
+//OnlineReaderSystem
+//UserManager
+
+//Define relationships
+//User rent some books
+//Library has a collection of books
+
+//Define actions
+//Rent a book
+//Create a user membership, extension
+//Search a book
+//User rent some books

@@ -11,4 +11,9 @@ public class Motorcycle extends Vehicle {
     public boolean isSuitable(ParkingSpotType spotType) {
         return true;
     }
+
+    @Override
+    public void print() {
+        System.out.print("M");
+    }
 }

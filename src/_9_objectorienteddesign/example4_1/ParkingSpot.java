@@ -41,4 +41,18 @@ public class ParkingSpot {
         level.spotFreed();
         vehicle = null;
     }
+
+    public void print() {
+        if (vehicle == null) {
+            if (spotType == ParkingSpotType.Compact) {
+                System.out.print("c");
+            } else if (spotType == ParkingSpotType.Large) {
+                System.out.print("l");
+            } else if (spotType == ParkingSpotType.Motorcycle) {
+                System.out.print("m");
+            }
+        } else {
+            vehicle.print();
+        }
+    }
 }
