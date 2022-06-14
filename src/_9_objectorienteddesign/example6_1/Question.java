@@ -10,9 +10,7 @@ public class Question {
         Puzzle puzzle = initializePuzzle(size);
         Piece[][] solution = puzzle.solve();
         System.out.println(solutionToString(solution));
-        boolean result = validate(solution);
-        System.out.println(result);
-        return result;
+        return validate(solution);
     }
 
     private static Puzzle initializePuzzle(int size) {
@@ -85,7 +83,7 @@ public class Question {
     }
 
     private static Edge[] createEdges(Piece[][] puzzleArray, int row, int column) {
-        String key = column + ":" + row + ":";
+        String key = row + ":" + column + ":";
 
         Edge left = column == 0 ?
                 new Edge(EdgeShape.FLAT, key + "h|e") :
@@ -111,6 +109,8 @@ public class Question {
     }
 
     public static String solutionToString(Piece[][] solution) {
+        if (solution == null) return "ERROR";
+
         StringBuilder sb = new StringBuilder();
         for (int h = 0; h < solution.length; h++) {
             for (int w = 0; w < solution[h].length; w++) {
@@ -128,7 +128,7 @@ public class Question {
     }
 
     public static void main(String[] args) {
-        for (int size = 1; size < 10; size++) {
+        for (int size = 1; size < 3; size++) {
             if (!testSize(size)) {
                 System.out.println("ERROR: " + size);
             }

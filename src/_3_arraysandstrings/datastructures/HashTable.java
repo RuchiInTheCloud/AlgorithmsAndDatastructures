@@ -155,19 +155,6 @@ public class HashTable<K, V> {
         return null;
     }
 
-    public V[] values() {
-        V[] values = (V[]) new Object[size];
-        int index = 0;
-        for (int i = 0; i < buckets.length; i++) {
-            Entry<K, V> bucket = buckets[i];
-            while (bucket != null) {
-                values[index++] = bucket.value;
-                bucket = bucket.next;
-            }
-        }
-        return values;
-    }
-
     public static class Entry<A, B> {
         A key;
         B value;
