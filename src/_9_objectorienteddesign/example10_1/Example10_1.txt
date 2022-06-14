@@ -1,0 +1,4 @@
+package _9_objectorienteddesign.example10_1;
+
+public class Example10_1 {
+}

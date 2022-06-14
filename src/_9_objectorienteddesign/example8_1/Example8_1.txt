@@ -1,2 +1,16 @@
 package _9_objectorienteddesign.example8_1;
 
+//Othello
+//Board
+//Piece
+//Player
+//Color
+
+//Board has an array of Pieces
+//Player has a color
+//Board has two Players (White and Black)
+
+//Player can place a piece on the board
+//Recomputation of colors done by board?
+//Score?
+//The color of a piece can be flipped
