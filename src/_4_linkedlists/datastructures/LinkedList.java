@@ -146,6 +146,7 @@ public class LinkedList<T> {
 
         if (head.data == data) {
             head = head.next;
+            size--;
         }
 
         return returnValue;

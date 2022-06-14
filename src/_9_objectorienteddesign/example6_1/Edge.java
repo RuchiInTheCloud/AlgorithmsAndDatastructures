@@ -18,10 +18,10 @@ public class Edge {
         return parentPiece;
     }
 
-    public Edge _createMatchingEdge(String code) {
+    public Edge _createMatchingEdge() {
         if (shape == EdgeShape.FLAT)
             return null;
-        return new Edge(shape.getOpposite(), code + (shape == EdgeShape.INNER ? "O" : "I"));
+        return new Edge(shape.getOpposite(), code);
     }
 
     public EdgeShape getShape() {
@@ -29,14 +29,11 @@ public class Edge {
     }
 
     public boolean fitsWith(Edge edge) {
-        switch (shape) {
-            case INNER:
-                return edge.getShape() == EdgeShape.OUTER;
-            case OUTER:
-                return edge.getShape() == EdgeShape.INNER;
-            default:
-                return false;
-        }
+        return edge.getCode().equals(code);
+    }
+
+    private String getCode() {
+        return code;
     }
 
     public String toString() {
