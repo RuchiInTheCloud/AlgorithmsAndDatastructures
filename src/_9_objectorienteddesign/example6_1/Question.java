@@ -132,7 +132,7 @@ public class Question {
     }
 
     public static void main(String[] args) {
-        for (int size = 1; size < 3; size++) {
+        for (int size = 2; size < 3; size++) {
             if (!testSize(size)) {
                 System.out.println("ERROR: " + size);
             }

@@ -24,7 +24,8 @@ public class Piece {
         EdgeOrientation[] orientations = EdgeOrientation.values();
         HashTable<EdgeOrientation, Edge> rotated = new HashTable<>();
 
-        if (numberRotations < 0) numberRotations += NUMBER_OF_EDGES;
+        if (numberRotations < 0)
+            numberRotations += NUMBER_OF_EDGES;
 
         for (int i = 0; i < orientations.length; i++) {
             EdgeOrientation oldOrientation = orientations[i];
@@ -66,7 +67,9 @@ public class Piece {
     }
 
     public Edge getMatchingEdge(Edge targetEdge) {
-        for (Edge e : edges.values()) {
+        EdgeOrientation[] orientations = EdgeOrientation.values();
+        for (int i = 0; i < orientations.length; i++) {
+            Edge e = edges.get(orientations[i]);
             if (targetEdge.fitsWith(e)) {
                 return e;
             }
