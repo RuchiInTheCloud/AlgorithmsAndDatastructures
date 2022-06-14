@@ -12,7 +12,61 @@ package _9_objectorienteddesign.example6_1;
 
 //Define relationships
 //Puzzle --> Pieces
-//Piece --> Edges
+//Piece --> Orientation Edges
 //Edge --> EdgeShape, EdgeOrientation
 
+//Puzzle initalize
+//for int i = 0; i < N; i++
+//for int j = 0; j < N; j++
+//Create left edge
+//  column = 0 ? FLAT: puzzle[row][column-1].right edge --> create matching edge
+//Create top edge
+//  row = 0 ? FLAT: puzzle[row - 1][column].bottom edge --> create matching edge
+//Create right edge
+//  column = N - 1 ? FLAT: random()
+//Create bottom edge
+//  row = N - 1 ? FLAT: random()
+//
+//Convert Edge[] --> Map(Orientation -> Edge)
+//
+//LinkedList of Pieces
+//for int i = 0; i < N; i++
+//for int j = 0; j < N; j++
+//  rotate Piece by random (4)
+//  insert Piece into random index (List size)
+//
 //Puzzle solve
+//group pieces into corner piece, border piece, inside piece
+//  corner piece --> edges at two adjacent orientations are flat
+//  border piece --> edges at one orientation is flat
+//for int i = 0; i < N; i++
+//for int j = 0; j < N; j++
+//  Find the right piece list
+//      i = 0/n - 1 && j = 0/n - 1 ---> corner piece
+//      i = 0/n - 1 || j = 0/n - 1 ---> border piece
+//      inside piece
+//  Fit the next edge
+//      if (row = 0 && column = 0), remove a piece and orient first flat edge to left
+//      else
+//         piece to match = column = 0? piece[row-1][column]: piece[row][column -1]
+//         orientation to match = column = 0? bottom: right
+//         fetch edge of the orientation chosen
+//         find piece whose edge matches the chosen edge
+//         remove piece from list
+//         orient edge to the opposite orientation
+//
+//Puzzle validate
+//for int i = 0; i < N; i++
+//for int j = 0; j < N; j++
+//Validate left edge
+//  column = 0? FLAT: puzzle[row][column-1].right edge matches left side
+//Validate top edge
+//  row = 0? FLAT: puzzle[row - 1][column].bottom edge matches top side
+//Validate right edge
+//  column = N - 1? FLAT: puzzle[row][column+1].left edge matches right side
+//Validate bottom edge
+//  row = N - 1? FLAT: puzzle[row+1][column].top edge matches bottom side
+//
+//
+// Rotate piece
+//
