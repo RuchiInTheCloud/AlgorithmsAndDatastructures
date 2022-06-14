@@ -1,3 +1,30 @@
 package _9_objectorienteddesign.example7_1;
 
-//
+//Chat Server
+
+//Chat
+//Private Chat
+//Group Chat
+//User
+//Message
+//Add Request Status
+//Online Status
+
+//Chat - List of Messages
+//Chat - List of Users
+
+//Open Chat with User(s)
+//View Messages in Chat
+//Write Message in Chat
+//Registering Self
+//Adding a Contact (Friending is mutual)/ Sending a Request
+//Accepting a Request
+//Rejecting a Request
+//Updating ones status
+
+//System: Database, Clients, Servers
+//Database: User list, Chat archives
+//BigTable for high scalability, or SQL database
+//Client and Server communication: XML
+//Data split across machine to reduce lookups
+//No single machine controls a feature such as user sign in, if it did and is cut off we are cut off from millions of users
