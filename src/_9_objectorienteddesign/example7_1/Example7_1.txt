@@ -12,6 +12,8 @@ package _9_objectorienteddesign.example7_1;
 
 //Chat - List of Messages
 //Chat - List of Users
+//User has Contacts
+//User has Chats
 
 //Open Chat with User(s)
 //View Messages in Chat
@@ -27,4 +29,10 @@ package _9_objectorienteddesign.example7_1;
 //BigTable for high scalability, or SQL database
 //Client and Server communication: XML
 //Data split across machine to reduce lookups
-//No single machine controls a feature such as user sign in, if it did and is cut off we are cut off from millions of users
+//No single machine controls a feature such as user sign in,
+//if it did and is cut off we are cut off from millions of users
+
+//How do we know whether someone is still online? poll
+//How do we keep data in sync between computer memory and database? How do we deal with conflicting information?
+//How do we scale server while syncing our data between servers?
+//How do we prevent denial of service attacks?

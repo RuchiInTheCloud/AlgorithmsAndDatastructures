@@ -55,6 +55,14 @@ public class ArrayList<T> {
         return removedElement;
     }
 
+    public void remove(T element) {
+        for (int i = 0; i < resizableArray.length; i++) {
+            if (element.equals(resizableArray[i])) {
+                remove(i);
+            }
+        }
+    }
+
     public void addAll(ArrayList<T> arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
             this.add(arrayList.get(i));
