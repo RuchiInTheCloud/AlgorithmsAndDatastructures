@@ -42,13 +42,13 @@ public class Board {
         }
 
         /* if nothing was flipped, then it's an invalid move */
-        if (flipped < 0) {
-            return false;
+        if (flipped > 0) {
+            board[row][column] = new Piece(color);
+            updateScore(color, flipped + 1);
+            return true;
         }
 
-        updateScore(color, flipped + 1);
-        return true;
-
+        return false;
     }
 
     public void updateScore(Color newColor, int newPieces) {

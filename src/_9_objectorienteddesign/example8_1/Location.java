@@ -9,6 +9,10 @@ public class Location {
         this.column = column;
     }
 
+    public boolean isSameAs(int r, int c) {
+        return row == r && column == c;
+    }
+
     public int getRow() {
         return row;
     }

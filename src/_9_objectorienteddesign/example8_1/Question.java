@@ -6,7 +6,8 @@ public class Question {
         game.getBoard().initialize();
         game.getBoard().printBoard();
         Automator automator = Automator.getInstance();
-        automator.playRandom();
+        while (!automator.isOver() && automator.playRandom()) {
+        }
         automator.printScores();
     }
 }
