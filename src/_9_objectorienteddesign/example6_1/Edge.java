@@ -3,7 +3,7 @@ package _9_objectorienteddesign.example6_1;
 public class Edge {
     EdgeShape shape;
     private Piece parentPiece;
-String code;
+    String code;
 
     public Edge(EdgeShape shape, String code) {
         this.shape = shape;
@@ -18,10 +18,10 @@ String code;
         return parentPiece;
     }
 
-    public Edge _createMatchingEdge() {
+    public Edge _createMatchingEdge(String code) {
         if (shape == EdgeShape.FLAT)
             return null;
-        return new Edge(shape.getOpposite(), code);
+        return new Edge(shape.getOpposite(), code + (shape == EdgeShape.INNER ? "I" : "O"));
     }
 
     public EdgeShape getShape() {

@@ -83,18 +83,22 @@ public class Question {
     }
 
     private static Edge[] createEdges(Piece[][] puzzleArray, int row, int column) {
-        String key = row + ":" + column + ":";
+        String key = row + ":" + column;
 
         Edge left = column == 0 ?
-                new Edge(EdgeShape.FLAT, key + "h|e") :
-                puzzleArray[row][column - 1].getEdgeWithOrientation(EdgeOrientation.RIGHT)._createMatchingEdge();
+                new Edge(EdgeShape.FLAT, key + "LF") :
+                puzzleArray[row][column - 1].getEdgeWithOrientation(EdgeOrientation.RIGHT)
+                        ._createMatchingEdge(key + "L");
         Edge top = row == 0 ?
                 new Edge(EdgeShape.FLAT, key + "v|e") :
-                puzzleArray[row - 1][column].getEdgeWithOrientation(EdgeOrientation.BOTTOM)._createMatchingEdge();
+                puzzleArray[row - 1][column].getEdgeWithOrientation(EdgeOrientation.BOTTOM)
+                        ._createMatchingEdge(key + "T");
 
-        Edge right = column == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "h|e") : createRandomEdge(key + "h");
+        Edge right =
+                column == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "h|e") : createRandomEdge(key + "R");
 
-        Edge bottom = row == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "v|e") : createRandomEdge(key + "v");
+        Edge bottom =
+                row == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "v|e") : createRandomEdge(key + "B");
 
         return new Edge[]{left, top, right, bottom};
     }
@@ -105,11 +109,12 @@ public class Question {
         if (random.nextBoolean()) {
             type = EdgeShape.OUTER;
         }
-        return new Edge(type, code);
+        return new Edge(type, code + (type == EdgeShape.INNER ? "I" : "O"));
     }
 
     public static String solutionToString(Piece[][] solution) {
-        if (solution == null) return "ERROR";
+        if (solution == null)
+            return "ERROR";
 
         StringBuilder sb = new StringBuilder();
         for (int h = 0; h < solution.length; h++) {
@@ -117,8 +122,7 @@ public class Question {
                 Piece p = solution[h][w];
                 if (p == null) {
                     sb.append("null");
-                }
-                else {
+                } else {
                     sb.append(p.toString());
                 }
             }
