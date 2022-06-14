@@ -28,7 +28,85 @@ public class Board {
         if (board[row][column] != null) {
             return false;
         }
+        int[] results = new int[4];
+        results[0] = flipSection(row - 1, column, color, Direction.up);
+        results[1] = flipSection(row + 1, column, color, Direction.down);
+        results[2] = flipSection(row, column + 1, color, Direction.right);
+        results[3] = flipSection(row, column - 1, color, Direction.left);
 
+        int flipped = 0;
+        for (int result : results) {
+            if (result > 0) {
+                flipped += result;
+            }
+        }
+
+        /* if nothing was flipped, then it's an invalid move */
+        if (flipped < 0) {
+            return false;
+        }
+
+        updateScore(color, flipped + 1);
+        return true;
+
+    }
+
+    public void updateScore(Color newColor, int newPieces) {
+        /* If we added x pieces of a color, then we actually removed x - 1 pieces of the other
+         * color. The -1 is because one of the new pieces was the just-placed one.
+         */
+        if (newColor == Color.Black) {
+            whiteCount -= newPieces - 1;
+            blackCount += newPieces;
+        } else {
+            blackCount -= newPieces - 1;
+            whiteCount += newPieces;
+        }
+    }
+
+    private int flipSection(int row, int column, Color color, Direction d) {
+        /* Compute the delta for the row and the column. At all times, only the row or the column
+         * will have a delta, since we're only moving in one direction at a time.
+         */
+        int r = 0;
+        int c = 0;
+        switch (d) {
+            case up:
+                r = -1;
+                break;
+            case down:
+                r = 1;
+                break;
+            case left:
+                c = -1;
+                break;
+            case right:
+                c = 1;
+                break;
+        }
+
+        /* If out of bounds, or nothing to flip, return an error (-1) */
+        if (row < 0 || row >= board.length || column < 0 || column >= board[row].length || board[row][column] == null) {
+            return -1;
+        }
+
+        /* Found same color - return nothing flipped */
+        if (board[row][column].getColor() == color) {
+            return 0;
+        }
+
+        /* Recursively flip the remainder of the row. If -1 is returned, then we know we hit the boundary
+         * of the row (or a null piece) before we found our own color, so there's nothing to flip. Return
+         * the error code.
+         */
+        int flipped = flipSection(row + r, column + c, color, d);
+        if (flipped < 0) {
+            return -1;
+        }
+
+        /* flip our own color */
+        board[row][column].flip();
+        return flipped + 1;
     }
 
     public int getScoreForColor(Color c) {
