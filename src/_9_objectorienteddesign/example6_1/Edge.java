@@ -21,7 +21,7 @@ public class Edge {
     public Edge _createMatchingEdge(String code) {
         if (shape == EdgeShape.FLAT)
             return null;
-        return new Edge(shape.getOpposite(), code + (shape == EdgeShape.INNER ? "I" : "O"));
+        return new Edge(shape.getOpposite(), code + (shape == EdgeShape.INNER ? "O" : "I"));
     }
 
     public EdgeShape getShape() {

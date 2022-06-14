@@ -90,15 +90,15 @@ public class Question {
                 puzzleArray[row][column - 1].getEdgeWithOrientation(EdgeOrientation.RIGHT)
                         ._createMatchingEdge(key + "L");
         Edge top = row == 0 ?
-                new Edge(EdgeShape.FLAT, key + "v|e") :
+                new Edge(EdgeShape.FLAT, key + "TF") :
                 puzzleArray[row - 1][column].getEdgeWithOrientation(EdgeOrientation.BOTTOM)
                         ._createMatchingEdge(key + "T");
 
         Edge right =
-                column == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "h|e") : createRandomEdge(key + "R");
+                column == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "RF") : createRandomEdge(key + "R");
 
         Edge bottom =
-                row == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "v|e") : createRandomEdge(key + "B");
+                row == puzzleArray.length - 1 ? new Edge(EdgeShape.FLAT, key + "BF") : createRandomEdge(key + "B");
 
         return new Edge[]{left, top, right, bottom};
     }
