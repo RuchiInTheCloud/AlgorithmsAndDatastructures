@@ -18,7 +18,7 @@ public class UserPlay {
             isGuess = true;
             input = input.substring(1);
         }
-        if (!input.matches("\\d* \\d+")) {
+        if (!input.matches("\\d+ \\d+")) {
             return null;
         }
 
