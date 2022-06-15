@@ -1,6 +1,8 @@
 package _3_arraysandstrings.datastructures;
 
-public class ArrayList<T> {
+import java.util.Iterator;
+
+public class ArrayList<T> implements Iterable<T> {
     private static final int INITIAL_CAPACITY = 4;
 
     T[] resizableArray;
@@ -83,5 +85,25 @@ public class ArrayList<T> {
         }
 
         size = 0;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayListIterator();
+    }
+
+    private class ArrayListIterator implements Iterator<T> {
+        int currentIndex = -1;
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < resizableArray.length - 1;
+        }
+
+        @Override
+        public T next() {
+            currentIndex++;
+            return resizableArray[currentIndex];
+        }
     }
 }
