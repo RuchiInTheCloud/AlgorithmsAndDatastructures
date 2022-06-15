@@ -3,7 +3,7 @@ package _9_objectorienteddesign.example11_1;
 public class File extends Entry {
     private String content;
 
-    protected File(String name, Directory parent) {
+    public File(String name, Directory parent) {
         super(name, parent);
     }
 

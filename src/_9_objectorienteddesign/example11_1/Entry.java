@@ -11,7 +11,7 @@ public abstract class Entry {
 
     protected Directory parent;
 
-    protected Entry(String name, Directory parent) {
+    public Entry(String name, Directory parent) {
         this.name = name;
         this.createdAt = Date.from(Instant.now());
         this.modifiedAt = Date.from(Instant.now());

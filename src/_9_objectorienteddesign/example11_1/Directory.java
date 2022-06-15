@@ -3,7 +3,7 @@ package _9_objectorienteddesign.example11_1;
 import _3_arraysandstrings.datastructures.ArrayList;
 
 public class Directory extends Entry {
-    ArrayList<Entry> contents;
+    private ArrayList<Entry> contents;
 
     public Directory(String name, Directory parent) {
         super(name, parent);
@@ -39,5 +39,9 @@ public class Directory extends Entry {
 
     public void removeEntry(Entry entry) {
         contents.remove(entry);
+    }
+
+    public ArrayList<Entry> getContents() {
+        return contents;
     }
 }
