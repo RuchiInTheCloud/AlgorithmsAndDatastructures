@@ -5,17 +5,35 @@ package _10_recursionanddynamicprogramming;
 //
 //Find all the ways of deducting (-1, -2, -3) from n to arrive at 0
 //
-//Time complexity = O(3^n), Space complexity = O(n)
-public class Example1_1 {
+//f(-1) = 0
+//f(0) = 1
+//f(1) = 1
+//f(2) = f(1) + f(0) + f(-1)
+//f(3) = f(2) + f(1) + f(0)
+//f(4) = f(3) + f(2) + f(1)
+//
+//Time complexity = O(n), Space complexity = O(1)
+public class Example1_3 {
     private static int countWays(int n) {
         if (n < 0) {
             return 0;
         } else if (n == 0) {
             return 1;
-        } else {
-            return countWays(n - 1) + countWays(n - 2) + countWays(n - 3);
         }
+
+        int a, b, c, d;
+        a = b = d = 0;
+        c = 1;
+
+        for (int i = 1; i <= n; i++) {
+            d = a + b + c;
+            a = b;
+            b = c;
+            c = d;
+        }
+        return d;
     }
+
     public static void main(String[] args) {
         System.out.println("Ways to come down a staircase of 4 steps " + countWays(4));
     }
