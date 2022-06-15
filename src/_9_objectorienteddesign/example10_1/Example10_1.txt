@@ -3,10 +3,15 @@ package _9_objectorienteddesign.example10_1;
 //Core Objects
 //Board
 //Cell
+//UserPlay
+//UserPlayResult
 
 //Relationships
 //Board has N X N cells
 
 //Actions
-//select a cell
-//mark a cell as potential bomb
+//flip a cell
+//toggle a cell as potential bomb
+//exit game
+//initialise board
+//

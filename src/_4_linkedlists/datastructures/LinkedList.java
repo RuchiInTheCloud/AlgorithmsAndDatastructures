@@ -185,4 +185,8 @@ public class LinkedList<T> {
     public int size() {
         return size;
     }
+
+    public boolean isEmpty() {
+        return head == null || size == 0;
+    }
 }

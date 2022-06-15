@@ -1,5 +1,7 @@
 package _9_objectorienteddesign.example10_1;
 
+import _4_linkedlists.datastructures.LinkedList;
+
 import java.util.Random;
 
 public class Board {
@@ -75,13 +77,25 @@ public class Board {
     }
 
     private void expandBlank(Cell cell) {
-        int[][] deltas = {
-                {-1, -1}, {-1, 0}, {-1, 1},
-                { 0, -1},          { 0, 1},
-                { 1, -1}, { 1, 0}, { 1, 1}
-        };
+        int[][] deltas = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 
+        LinkedList<Cell> toExplore = new LinkedList<>();
+        toExplore.addLast(cell);
 
+        while (!toExplore.isEmpty()) {
+            Cell current = toExplore.removeFront().data;
+
+            for (int[] delta : deltas) {
+                int r = current.getRow() + delta[0];
+                int c = current.getColumn() + delta[1];
+                if (inBounds(r, c)) {
+                    Cell neighbor = cells[r][c];
+                    if (flipCell(neighbor) && neighbor.isBlank()) {
+                        toExplore.addLast(neighbor);
+                    }
+                }
+            }
+        }
     }
 
     public int getNumRemaining() {
