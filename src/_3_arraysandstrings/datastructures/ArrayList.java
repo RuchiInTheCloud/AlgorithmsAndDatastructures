@@ -1,5 +1,6 @@
 package _3_arraysandstrings.datastructures;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class ArrayList<T> implements Iterable<T> {
@@ -88,6 +89,22 @@ public class ArrayList<T> implements Iterable<T> {
     }
 
     @Override
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("[");
+        for (int i = 0; i < size; i++) {
+            T element = resizableArray[i];
+            stringBuffer.append(element);
+            if (i < size - 1) {
+                stringBuffer.append(", ");
+            }
+        }
+        stringBuffer.append("]");
+
+        return stringBuffer.toString();
+    }
+
+    @Override
     public Iterator<T> iterator() {
         return new ArrayListIterator();
     }
@@ -97,7 +114,7 @@ public class ArrayList<T> implements Iterable<T> {
 
         @Override
         public boolean hasNext() {
-            return currentIndex < resizableArray.length - 1;
+            return currentIndex < size - 1;
         }
 
         @Override
