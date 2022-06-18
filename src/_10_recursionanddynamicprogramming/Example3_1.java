@@ -18,6 +18,8 @@ import java.util.Arrays;
 //If A[mid] > mid, search in the left side
 //If A[mid] < mid, search in the right side
 //If start > end, nothing found
+//
+//O(log n) time and space complexity
 public class Example3_1 {
     private static int magicIndex(int[] array) {
         return magicIndex(array, 0, array.length - 1);
