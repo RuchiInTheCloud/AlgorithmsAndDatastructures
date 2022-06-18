@@ -19,6 +19,12 @@ public class Stack<T> {
     protected int capacity;
     protected int size = 0;
 
+    private static int MAXIMUM_CAPACITY = 100;
+
+    public Stack() {
+        this(MAXIMUM_CAPACITY);
+    }
+
     public Stack(int capacity) {
         this.capacity = capacity;
     }
