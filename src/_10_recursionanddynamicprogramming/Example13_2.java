@@ -1,6 +1,7 @@
 package _10_recursionanddynamicprogramming;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 //Stack boxes on top of another and find maximum height of stack
@@ -32,6 +33,38 @@ public class Example13_2 {
             return o2.height - o1.height;
         }
     }
+
+
+    private static int createStack(ArrayList<Box> boxes) {
+        Collections.sort(boxes, new BoxComparator());
+        int maxHeight = 0;
+        int[] maxHeightMap = new int[boxes.size()];
+        for (int i = 0; i < boxes.size(); i++) {
+            int height = createStack(boxes, i, maxHeightMap);
+            maxHeight = Math.max(maxHeight, height);
+        }
+        return maxHeight;
+    }
+
+    private static int createStack(ArrayList<Box> boxes, int index, int[] maxHeightMap) {
+        if (maxHeightMap[index] > 0) {
+            return maxHeightMap[index];
+        }
+
+        Box bottom = boxes.get(index);
+        int maxHeight = 0;
+        for (int i = index + 1; i < boxes.size(); i++) {
+            Box currentBox = boxes.get(i);
+            if (currentBox.canBeAbove(bottom)) {
+                int height = createStack(boxes, i, maxHeightMap);
+                maxHeight = Math.max(maxHeight, height);
+            }
+        }
+        maxHeight += bottom.height;
+        maxHeightMap[index] = maxHeight;
+        return maxHeight;
+    }
+
 
     public static void main(String[] args) {
         ArrayList<Box> boxes = new ArrayList<>();
