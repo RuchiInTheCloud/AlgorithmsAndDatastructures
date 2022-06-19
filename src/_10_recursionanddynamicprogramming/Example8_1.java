@@ -37,8 +37,14 @@ public class Example8_1 {
             permutations.add(prefix);
             return;
         } else {
-            for () {
-
+            ArrayList<Character> keySet = charFrequency.keySet();
+            for (Character character : keySet) {
+                int frequency = charFrequency.get(character);
+                if (frequency > 0) {
+                    charFrequency.put(character, frequency - 1);
+                    permutation(charFrequency, remaining - 1, prefix + character, permutations);
+                    charFrequency.put(character, frequency);
+                }
             }
         }
     }

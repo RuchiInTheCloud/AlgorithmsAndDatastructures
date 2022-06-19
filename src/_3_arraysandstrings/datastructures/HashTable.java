@@ -99,20 +99,17 @@ public class HashTable<K, V> {
         return buckets.length;
     }
 
-    private void doubleBucketsArray() {
-        Entry<K, V>[] tempBuckets = buckets;
-        buckets = new Entry[tempBuckets.length * 2];
-        size = 0;
-        for (Entry<K, V> bucket : tempBuckets) {
-            while (bucket != null) {
-                put(bucket.key, bucket.value);
-                bucket = bucket.next;
+    public ArrayList<K> keySet() {
+        ArrayList<K> keys = new ArrayList<>();
+        for (Entry<K, V> bucket : buckets) {
+            if (buckets != null) {
+                while (bucket != null) {
+                    keys.add(bucket.key);
+                    bucket = bucket.next;
+                }
             }
         }
-    }
-
-    private int computeHashCode(K key) {
-        return (key.hashCode() & 0xfffffff) % buckets.length;
+        return keys;
     }
 
     public V getOrElse(K key, V otherValue) {
@@ -143,8 +140,7 @@ public class HashTable<K, V> {
     }
 
     public K getKey(V value) {
-        for (int i = 0; i < buckets.length; i++) {
-            Entry<K, V> bucket = buckets[i];
+        for (Entry<K, V> bucket : buckets) {
             while (bucket != null) {
                 if (bucket.value == value) {
                     return bucket.key;
@@ -153,6 +149,22 @@ public class HashTable<K, V> {
             }
         }
         return null;
+    }
+
+    private void doubleBucketsArray() {
+        Entry<K, V>[] tempBuckets = buckets;
+        buckets = new Entry[tempBuckets.length * 2];
+        size = 0;
+        for (Entry<K, V> bucket : tempBuckets) {
+            while (bucket != null) {
+                put(bucket.key, bucket.value);
+                bucket = bucket.next;
+            }
+        }
+    }
+
+    private int computeHashCode(K key) {
+        return (key.hashCode() & 0xfffffff) % buckets.length;
     }
 
     public static class Entry<A, B> {
