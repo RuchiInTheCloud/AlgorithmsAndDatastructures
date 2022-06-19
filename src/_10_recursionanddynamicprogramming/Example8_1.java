@@ -49,7 +49,7 @@ public class Example8_1 {
     }
 
     public static void main(String[] args) {
-        ArrayList<String> permutations = permutation("abba");
+        ArrayList<String> permutations = permutation("aabbbbc");
         System.out.println(permutations);
     }
 }
