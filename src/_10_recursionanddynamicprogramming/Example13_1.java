@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+//Stack boxes on top of another and find maximum height of stack
+//One can be stacked on top of another only if all dimensions are strictly smaller than the top of the stack
 public class Example13_1 {
     private static class Box {
         private int width;
