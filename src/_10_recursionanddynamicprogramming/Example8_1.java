@@ -35,7 +35,6 @@ public class Example8_1 {
             ArrayList<String> permutations) {
         if (remaining == 0) {
             permutations.add(prefix);
-            return;
         } else {
             ArrayList<Character> keySet = charFrequency.keySet();
             for (Character character : keySet) {
