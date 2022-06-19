@@ -3,7 +3,6 @@ package _10_recursionanddynamicprogramming;
 import java.util.Arrays;
 
 //number of ways of representing n cents via 25, 10, 5, 1
-
 public class Example11_2 {
     private static int makeChange(int n, int[] denoms) {
         int[][] map = new int[n + 1][denoms.length];
