@@ -22,10 +22,7 @@ public class Example13_2 {
             if (bottom == null) {
                 return true;
             }
-            if (bottom.width > width && bottom.height > height && bottom.depth > depth) {
-                return true;
-            }
-            return false;
+            return bottom.width > width && bottom.height > height && bottom.depth > depth;
         }
     }
 
