@@ -9,6 +9,7 @@ import _3_arraysandstrings.datastructures.ArrayList;
 //P(a0a1a2) = a2a1a0 + a1a2a0 + a1a0a2 + a2a0a1 + a0a2a1 + a0a1a2 = Insert a0 at the front of P(a1a2)
 // + Insert a1 at the front of P(a0a2) + Insert a2 at the front of P(a0a1)
 //
+//Time Complexity = O(n!), Space Complexity = O(n!) ????????? According to text book
 
 public class Example7_2 {
     private static ArrayList<String> permutation(String string) {
