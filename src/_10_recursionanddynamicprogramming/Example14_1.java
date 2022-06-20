@@ -29,7 +29,10 @@ package _10_recursionanddynamicprogramming;
 //
 //
 // countEval(left & right, true) = countEval(left, true) * countEval(right, true)
-//
+// countEval(left | right, true) = countEval(left, true) * countEval(right, true) + countEval(left, true) * countEval(right, false)
+//                                  + countEval(left, false) * countEval(right, true)
+// countEval(left ^ right, true) = countEval(left, true) * countEval(right, false) + countEval(left, false) * countEval(right, true)
+
 public class Example14_1 {
     private static int countEval(String expression, boolean result) {
         if (expression.length() == 0)
