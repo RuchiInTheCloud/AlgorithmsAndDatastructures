@@ -1,0 +1,37 @@
+package _11_systemdesignandscalability;
+
+Build a service called by 1000 client applications to get simple end of day stock price information (open, close, high, low)
+Assume you have the data and can store in any format you wish
+You are responsible for development, rollout, ongoing monitoring and maintenance of the feed
+Describe different methods and why you recommend the approach.
+
+----
+Considerations:
+Client Ease of Use: Service that is easy for clients to implement and useful for them
+Ease for Ourselves: Easy to implement. Consider cost of development and maintenance
+Flexibility for Future Demands: We should be flexible if requirements or demands change
+Scalability and Efficiency: Be mindful of the efficiency of our solution, so as to not overly burden the service
+
+Proposal 1
+Keep data in a file and let client download it via an FTP server
+
+- Complex to parse for any query
+- If additional data added to text file, the parsing on client side may break
+
+Proposal 2
+Standard SQL database and let clients plug into it
+
++ Easy queries over the data. Return stocks with open price > N and closing price < M
++ Rolling back, backing up data, security provided by database
++ SQL integration is a standard feature of software development environments
+- Much heavier
+- Difficult for humans to read, additional layer needed to view and maintain the data. Increases implementation costs
+- Security: Careful not to give client too much access. Clients may perform expensive queries costs on our side
+
+Proposal3
+XML to distribute information. Data has fixed format
+
++ Easy to read by humans and machines
++ Libraries available for xml parsing
++ Add additional data to xml file by adding additional nodes
+
