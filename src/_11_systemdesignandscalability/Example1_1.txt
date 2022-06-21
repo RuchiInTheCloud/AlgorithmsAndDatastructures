@@ -34,4 +34,15 @@ XML to distribute information. Data has fixed format
 + Easy to read by humans and machines
 + Libraries available for xml parsing
 + Add additional data to xml file by adding additional nodes
+- Sends all information to client even though only parts of it needed
+- Querying requires parsing the entire file
+
+Regardless of Approach
+Web Service for client data access.
+
+- Additional work
++ Provides security
++ Easier for clients to integrate the system
+- Clients limited to grabbing data how we want them
+
 

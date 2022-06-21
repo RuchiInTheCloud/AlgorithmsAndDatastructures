@@ -1,4 +1,10 @@
 package _11_systemdesignandscalability;
 
-public class Example2_1 {
-}
+Social network: Describe datastructure for social network
+Design algorithm to show shortest path between two people
+
+Step 1: Simplify problem: forget about millions of users
+
+Use graph. Each node is a person. An edge indicates the two persons are friends
+To find a path between two persons, perform breadth first search
+DFS would find a path not the shortest path
