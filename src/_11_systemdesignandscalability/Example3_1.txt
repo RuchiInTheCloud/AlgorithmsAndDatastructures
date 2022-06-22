@@ -1,4 +1,25 @@
 package _11_systemdesignandscalability;
 
-public class Example3_1 {
-}
+Web Crawler, how would you avoid infinite loops?
+
+How can an infinite loop occur?
+Web is a graph of links, an infinite loop will occur when a cycle occurs
+To prevent infinite loops, cycles need to be detected e.g. via Hash table.
+Set hash[v] to true after visiting a page
+
+Crawl the qwb using BFS, when visiting a page gather its links and insert them at the end of the queue. If we visited
+a page we ignore it
+
+What does it mean to visit a page? Is it defined based on content or URL?
+URL parameters may indicate a different page: careercup.com/page?pid=microsoft, careercup.com/page?pid=google
+Is a random content on careercup a new page? Not really
+
+Estimate degree of similarity: If pages content and URL similar to other pages, deprioritze crawling its children
+For every page, create a signature based on content and URL
+
+If database contains a list of items to crawl:
+- Select highest priority page to crawl
+- Open page and create a signature
+- Query database to see if anything similar was crawled recently
+- If yes, insert page back with low priority
+- If not, crawl page and insert links into database

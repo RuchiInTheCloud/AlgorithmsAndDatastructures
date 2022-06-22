@@ -1,0 +1,24 @@
+package _11_systemdesignandscalability;
+
+Social network: Describe datastructure for social network
+Design algorithm to show shortest path between two people
+
+Step 1: Simplify problem: forget about millions of users
+
+Use graph. Each node is a person. An edge indicates the two persons are friends
+To find a path between two persons, perform breadth first search
+DFS would find a path not the shortest path
+BiBFS: O(k^(d/2)), k is number of friends and d is distance between source and destination
+
+Handle millions of users:
+See Machine class
+
+- Reduce machine jumps: If five of my friends are on same machine I should look them up at once
+- Smart division of people and machines: People are much more likely to be friends with people who live in the same
+country as they do. Divide people across machines based on country, city, state.. This reduces the number of machine jumps
+- Mark a node as visited using Hash table
+- Questions
+-- How does server fail affect the search?
+-- How could you take advantage of caching?
+-- Do you search until end of graph? How do you decide to give up?
+-- Some people have lots of friends of friends. How do you use this information in your search?

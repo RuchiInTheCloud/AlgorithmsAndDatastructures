@@ -21,6 +21,13 @@ public class LinkedList<T> {
     public Node<T> head;
     private int size = 0;
 
+    public void addFront(T data) {
+        Node<T> node = new Node<>(data);
+        node.next = head;
+        head = node;
+        size++;
+    }
+
     public void addFront(Node<T> node) {
         node.next = head;
         head = node;

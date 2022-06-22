@@ -1,0 +1,19 @@
+Duplicate URL: 10 billion URLs. How do you detect duplicate documents? meaning documents with identical URL
+
+10 billion URL size --
+1 billion = 1 Giga
+1 URL = 100 characters = 200 bytes
+10 billion URL = 2000 GB
+
+If all data could be held in memory:
+- Create hash table where URL maps to true if it has been found
+
+Option 1: Store 2 TB on disk
+- Two passes of the document
+-- Split URLs into 2000 chunks of 1 GB by storing URL u in <x>.txt where x = hash(u) % 2000
+-- Load file into memory, create hash and look for duplicates
+
+Option 2: Store 1 GB on 2000 machines
+- Send URL to machine x
++ 2000 chunks can be processed simultaneously
+- 2000 machines wont operate perfectly
