@@ -25,8 +25,18 @@ Identify the key issues
 -- Reading data from file system relatively slow compared to reading data from memory
 -- Use cache to store most recently/ frequently accessed documents
 -- Since documents cannot be edited no need to invalidate cache
---
+-- Sharding a database. hash(URL)%int, locate database containing the file
+-- Skip database. Let hash determine the machine. If we need to add servers difficult to redistribute documents.
 - Generating URLs
+-- Generate random guid: 128 bit value with low odds of collision
+-- If we hash to a smaller value, there is risk of collision
+-- Alternatively generate a 10 charachter sequence of letters and numbers. 36^10 possible strings
+--- Odds of collision low. Collision may occur after storing 1 billion URLs
+--- Check if URL exists, if URL maps to server, if document exists at the server, if yes regenerate URL
 - Analytics
+-- Display number of visits (by location and time)
+-- Two options:
+---
+---
 
 Follow up questions
