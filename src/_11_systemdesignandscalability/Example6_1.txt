@@ -23,7 +23,7 @@ Identify the key issues
 -- Querying for number of sales in past week is expensive, since one needs to look at sales for all time
 -- Store total sales from last week, each purchase updates the total weekly sales
 --- If we use single field to keep track of total sales in the past week, we need to recompute every day the total sales
---- Product ID, Total, Sun, Mon, Tue, Wed, Thurs, Fri, Sat
+--- Instead keep track of total sales in a day: Product ID, Total, Sun, Mon, Tue, Wed, Thurs, Fri, Sat
 ---- Each day clear out the day of the week, we update the sales count for the product on that day of the week and total count
 --- Product ID, Category ID
 ---- Join the two tables to calculate the rank of products in a category
@@ -45,5 +45,20 @@ Identify the key issues
 -- Keep data joined, multiple updates then needed per product if it belongs to multiple categories
 
 - Database queries can still be expensive
+-- Just keep log files and use Map Reduce
+--- Write a purchase in a text file with product id and time stamp
+--- Each category has a directory, write to all categories associated with the product
+--- Run frequent jobs to merge files by product ID and time range (day, hour)
+---- /sportequiment: 1423, Dec 13, 2021, 1; 1410, Dec 13, 2021, 5
+--- Next sort the lines in a category directory
+-- Overall ranking
+--- Write every purchase in a general directory
+--- Execute N way merge?
+---- Look at two categories and construct the top 100, then compare this result with another category (pairwise merge)
+---- Run this work once a day
+---- Divide files on multiple servers, as they are not dependent on each other
 
 Follow up questions
+- Bottlenecks? What do you do about it?
+- What if there are subcategories?
+- Data needed to be more accurate? 30 minutes?
