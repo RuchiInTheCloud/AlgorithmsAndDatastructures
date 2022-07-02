@@ -1,0 +1,23 @@
+Paste bin: Enter piece of text and randomly generated URL for public access
+
+Scope the problem
+- System does not support user accounts or editing documents
+- System tracks analytics of how often a page is accessed
+- Old documents get deleted after not being accessed for a long time
+- No authentication to access documents, not possible to guess URL easily
+- System has frontend as well as API
+- Analytics of each URL can be accessed through stats link on each page. Not shown by default
+
+Make reasonable assumptions
+- System gets heavy traffic
+- Contains millions of documents
+- Traffic not equally distributed across documents. Some accessed more frequently than others.
+
+Draw major components
+-
+-
+
+Identify the key issues
+
+
+Follow up questions
