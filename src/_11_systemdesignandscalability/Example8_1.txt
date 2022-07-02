@@ -36,7 +36,20 @@ Identify the key issues
 - Analytics
 -- Display number of visits (by location and time)
 -- Two options:
----
----
+--- Store data from each visit
+--- Store data we know we will use (number of visits by location, time, URL)
+- Raw data gives flexibility
+- Store visits in files conditionally based on storage_probability since space usage would be enormous
+-- As popularity goes up, storage probability goes down
+-- Log popular document, one out of every 10 times at random. When looking at number of visits for the site multiply by 10
+-- Log file not used frequently. Store precomputed data in data store
+-- URL, month, visits
+-- everytime URL visited increment counter
+-- datastore can be sharded by URL
+-- Stats not frequently visited, no heavy load
+-- stats of popular websites, the generated html could be cached on frontend servers to avoid reaccess for the most popular URLs
 
 Follow up questions
+- How would you support user accounts
+- How would you add a new piece of analytics (referal source) to the stats page?
+- How would your design change if stats were shown with each document?
