@@ -18,9 +18,25 @@ Make reasonable assumptions:
 - Once transaction assigned a category, it can be changed by the user. System never changes assignment. Two identical transactions may be assigned to different category if the rules change.
 - Banks dont push data to the system. It needs to pull the data.
 - Alerts on users exceeding budget can be 24 hours delayed.
+- Categorize transactions based on sellers name
 
 Draw the major components:
+- Bank data synchronizer pulls data periodically, depends on user. Less active users, less frequently.
+-- Bank data read stored in unprocessed transaction list
+- Unprocessed transaction list pushed to Categorizer which categorizes the transaction and stores it separately
+- Budget analyser pulls categorized transaction, updates users spending per category
+- Frontend pulls data from categorized transaction store and budget data store
+-- User can interact with software and change budget or categorization
 
 Identify the key issues:
+- Data heavy system. Processing asynchronous
+-- One task queue: pull in bank data, reanalyse budget, categorize bank data, retry failed task
+-- Prioritize some tasks over others, while ensuring even low priority task get executed
+-- One task to crawl through categorized spending to alert if budget is exceeded. Alternatively, when budget exceeded send notification
+- Deprioritize inactive users.
+- Fetch bank data asynchronously and run tasks across many servers.
+- Categorizer
+--
+- Budget Analyzer
 
 Follow up questions:
