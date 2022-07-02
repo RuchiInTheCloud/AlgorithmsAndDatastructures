@@ -14,10 +14,36 @@ Make reasonable assumption
 (you may need to make other assumptions along the way)
 
 Draw the major components
--
--
--
+- Purchase system --> orders added --> DB
+- Sales rank data cache <-- reads data by category, compute sales, sort it <-- DB
+- Frontend <-- reads <-- sales rank data cache
 
 Identify the key issues
+- Analytics are expensive
+-- Querying for number of sales in past week is expensive, since one needs to look at sales for all time
+-- Store total sales from last week, each purchase updates the total weekly sales
+--- If we use single field to keep track of total sales in the past week, we need to recompute every day the total sales
+--- Product ID, Total, Sun, Mon, Tue, Wed, Thurs, Fri, Sat
+---- Each day clear out the day of the week, we update the sales count for the product on that day of the week and total count
+--- Product ID, Category ID
+---- Join the two tables to calculate the rank of products in a category
+
+- Database writes are very frequent
+-- Batch up database writes
+-- Periodically process the log and update the totals
+--- 10 million products. Store product id and count in as table
+--- product id: 4 bytes. Can store 4 billion unique IDs = 16 GB
+--- count is 4 bytes. 4 billion counts = 16 GB
+--- 10 million products = 80 MB
+-- Rerun sales rank after database update
+--- Divide log by time period. Update database with log and compute sales rank
+
+- Joins are expensive
+-- tens of thousands of product categories. For every category, pull data for its items and sort
+-- Alternatively, join product and categories. Sort on category, sales volume. Walk the results to get the sales rank for each category
+-- Sort entire table on sales number to get overall rank
+-- Keep data joined, multiple updates then needed per product if it belongs to multiple categories
+
+- Database queries can still be expensive
 
 Follow up questions
