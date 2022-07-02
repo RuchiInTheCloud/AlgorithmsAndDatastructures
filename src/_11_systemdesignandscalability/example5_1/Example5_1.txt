@@ -29,4 +29,17 @@ Machine j returns result from cache or from processSearch call.
 -----------------------------------------------------------------------------------------------
 
 Updating results when contents change
-Some popular queries may be permanently cached.
+- Some popular queries may be permanently cached.
+- Mechanism needed to refresh these entries periodically or on demand
+- When do results change:
+-- The content at a URL changes (or page at URL is removed)
+-- The ordering of results changes in response to a result change
+-- New pages appear related to a query
+
+To handle situation 1 and 2, we create a hastable with URL -> cached query. Separate cache residing in several machine... <-- data intensive
+If instant refresh not required crawl through cache and purge queries tied to updated URL
+
+Situation 3 difficult. Purge single word queries when parsing content at a new URL.
+Implement automatic timeout. No query regardless of popularity can reside in cache for more than x minutes.
+- Separate timeout for every URL, based on how frequently it is updated. Timeout of query is the smallest timeouts of each URL.
+- Implement timeout based on topic. News updated more frequently.
