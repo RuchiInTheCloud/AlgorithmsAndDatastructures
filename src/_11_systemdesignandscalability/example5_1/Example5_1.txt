@@ -1,0 +1,32 @@
+100 machines to respond to search queries
+which call out another cluster to get the result using processSearch(query)
+machine which responds to a given query is chosen at random
+processSearch is expensive
+Design caching mechanism to cache the results of the most recent queries
+Be sure to update cache when data changes
+
+Expand to many machines
+-----------------------------------------------------------------------------------------
+- Each machine has its own cache
+If a query is sent twice to the same machine. The result of the second request is taken from the cache
+If a query is sent to two separate machines, it would be treated as a fresh query each time.
+
++ Quick since no machine to machine calls
+- Less effective cache since repeat queries are treated as fresh queries
+---------------------------------------------------------------------------------------------
+- Each machine has a copy of the cache
+When new items added to the cache they are added to all machines
+
++ Common queries resolved by cache
+- Updating cache means firing off data to N different machines
+- Since each items is saved N times, cache holds much less data
+---------------------------------------------------------------------------------------------
+- Each machine has a segment of the cache
+A machine holds part of the cache. If machine i receives a query, it looks for results in machine j = hash(query) % N.
+Machine j returns result from cache or from processSearch call.
+
+- More machine to machine call
+-----------------------------------------------------------------------------------------------
+
+Updating results when contents change
+Some popular queries may be permanently cached.

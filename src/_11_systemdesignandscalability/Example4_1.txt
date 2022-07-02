@@ -12,6 +12,7 @@ Option 1: Store 2 TB on disk
 - Two passes of the document
 -- Split URLs into 2000 chunks of 1 GB by storing URL u in <x>.txt where x = hash(u) % 2000
 -- Load file into memory, create hash and look for duplicates
+1 GB file = 10^9/200 = 5 million URL
 
 Option 2: Store 1 GB on 2000 machines
 - Send URL to machine x

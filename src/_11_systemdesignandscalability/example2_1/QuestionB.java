@@ -4,6 +4,11 @@ import _3_arraysandstrings.datastructures.ArrayList;
 import _3_arraysandstrings.datastructures.HashTable;
 import _4_linkedlists.datastructures.LinkedList;
 
+//Hashmap<id, Person>
+//Person: id, List of ids
+//PathNode: Person, previous node
+//Visited: Hashmap of <id, pathNode>
+//ToVisit: Queue of PathNode
 public class QuestionB {
     public static LinkedList<Person> findPathBiBFS(HashTable<Integer, Person> people, int source, int destination) {
         BFSData sourceData = new BFSData(people.get(source));

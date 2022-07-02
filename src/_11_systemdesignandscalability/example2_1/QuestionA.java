@@ -6,6 +6,11 @@ import _4_linkedlists.datastructures.LinkedList;
 
 import java.util.HashSet;
 
+//friendId
+//Person: id, List of ids
+//Visited: Hashset of ids
+//PathNode: Person, previous node
+//ToVisit: Queue of PathNode
 public class QuestionA {
     public static LinkedList<Person> findPathBFS(HashTable<Integer, Person> people, int source, int destination) {
         LinkedList<PathNode> toVisit = new LinkedList<>();
