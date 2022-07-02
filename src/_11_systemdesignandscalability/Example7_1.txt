@@ -36,7 +36,20 @@ Identify the key issues:
 - Deprioritize inactive users.
 - Fetch bank data asynchronously and run tasks across many servers.
 - Categorizer
---
+-- Save transactions in files based on seller
+-- Read seller category and apply category to transactions
+-- Regroup transactions by user
+-- Insert transactions into user datastore
 - Budget Analyzer
+-- Takes in categorized transactions per user. Merges it across categories and updates the spending in the category in a time span
+-- Most tasks handled in log files only final data (categorized transactions, budget analysis) will be stored in database
+- User changing categories
+-- update data store of categorized transactions
+-- recompute budget, decrement amount from old category and increment in new category
+-- Alternatively budget analyzer could look at categorized user transactions of last week and recompute spending
 
 Follow up questions:
+- What needs to be done to support mobile user
+- Design component that assigns items to each category
+- Design recommended budgets feature
+- User develops rules to categorize transactions from a seller differently than default
