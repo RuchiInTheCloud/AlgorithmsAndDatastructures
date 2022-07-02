@@ -14,10 +14,19 @@ Make reasonable assumptions
 - Traffic not equally distributed across documents. Some accessed more frequently than others.
 
 Draw major components
--
--
+- Track URL and related file, Analytics of a URL
+- Store documents in file or database? Since search capability not needed store in file
+- Database (URL, Location(Server + File path))
+- Analytics: Add each visit to data store (timestamp, IP, location)
+-- To get stats pull information from database
 
 Identify the key issues
-
+- Some documents accessed more frequently than others.
+-- Reading data from file system relatively slow compared to reading data from memory
+-- Use cache to store most recently/ frequently accessed documents
+-- Since documents cannot be edited no need to invalidate cache
+--
+- Generating URLs
+- Analytics
 
 Follow up questions
