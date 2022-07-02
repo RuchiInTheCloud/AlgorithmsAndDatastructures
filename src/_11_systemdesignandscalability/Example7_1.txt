@@ -1,0 +1,26 @@
+Personal finance manager: connects to your bank accounts and analyses your spending habits and makes recommendations
+
+Scope the problem:
+- Create an account, add your bank accounts. Also add at a later point in time
+- Pulls your financial history as much allowed by the bank account
+-- History: outgoing money, incoming money, current money (in bank + investments)
+-- Each transaction has a category associated with it
+-- Data source which can associate a category with  transaction. Override of estimated category possible
+- Get recommendations on spending from a mix of users. Not to spend more than x% on clothing. Can be overriden by custom budgets.
+- Just a website
+- Receive notifications either regular basis or based on certain conditions: spending over certain threshold, hitting a budget max
+- No concept of user specified rules for assigning categories to transactions
+
+Make reasonable assumptions:
+- Adding or removing a bank account is relatively unusual
+- System is write heavy. Several transactions daily.
+- Few users access website more than once a week. Interact with the system through notification
+- Once transaction assigned a category, it can be changed by the user. System never changes assignment. Two identical transactions may be assigned to different category if the rules change.
+- Banks dont push data to the system. It needs to pull the data.
+- Alerts on users exceeding budget can be 24 hours delayed.
+
+Draw the major components:
+
+Identify the key issues:
+
+Follow up questions:
