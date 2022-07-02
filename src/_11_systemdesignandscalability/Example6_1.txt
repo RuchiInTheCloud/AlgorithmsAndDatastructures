@@ -1,0 +1,23 @@
+E commerce company wants to list best selling product overall and by category.
+
+Scope the problem
+- design components relevant to the question. Touch frontend and purchase component as it impacts sales rank
+- Sales rank: Total sales over past week
+- Each product can be in multiple categories, no subcategories
+
+Make reasonable assumption
+- Stats don't need to be 100% up to date
+- Data an hour old for popular item (top 100), a day old for less popular
+- Precision important for popular items, small degree of error okay for less popular items
+- Data updated every hour for most popular item, the time range need not be las 7 days (168 hours). 150 hours is ok.
+- Categorization based on seller
+(you may need to make other assumptions along the way)
+
+Draw the major components
+-
+-
+-
+
+Identify the key issues
+
+Follow up questions
