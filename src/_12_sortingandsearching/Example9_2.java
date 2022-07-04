@@ -1,4 +1,4 @@
 package _12_sortingandsearching;
 
-public class Example7_1 {
+public class Example9_2 {
 }
