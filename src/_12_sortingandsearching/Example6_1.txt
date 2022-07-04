@@ -1,2 +1,13 @@
 package _12_sortingandsearching;
 
+20GB file with one string per line
+How to sort this file?
+
+20GB will not fit in memory
+8GB ram possible, 4GB ram common
+
+Divide file in x megabyte chunks, x is the amount of memory available.
+Each chunk is sorted separately and saved to file system.
+Merge chunks one by one. At the end we have a fully sorted file.
+
+This algorithm is called external sort.
