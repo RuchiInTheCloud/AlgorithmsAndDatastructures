@@ -19,7 +19,7 @@ public class Example8_1 {
         int[] bitVector;
 
         public BitSet(int size) {
-            bitVector = new int[size >> 5 + 1];
+            bitVector = new int[(size >> 5) + 1];
         }
 
         public void set(int num) {
