@@ -39,9 +39,16 @@ public class Example5_1 {
         return -1;
     }
 
+    private static int search(String[] strings, String str) {
+        if (strings == null || str == null || str.isEmpty()) {
+            return -1;
+        }
+        return search(strings, str, 0, strings.length - 1);
+    }
+
     public static void main(String[] args) {
         String[] strings = {"at", "", "", "", "ball", "", "", "car", "", "", "dad", "", ""};
-        int index = search(strings, "ball", 0 , strings.length - 1);
+        int index = search(strings, "ball");
         System.out.println(index);
     }
 }
