@@ -72,7 +72,7 @@ public class Example9_2 {
             }
         }
 
-        return partitionAndSearch(matrix, origin, dest, pivot, x);
+        return partitionAndSearch(matrix, origin, dest, start, x);
     }
 
     private static Coordinate partitionAndSearch(int[][] matrix, Coordinate origin, Coordinate dest, Coordinate pivot,
