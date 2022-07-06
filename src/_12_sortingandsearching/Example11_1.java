@@ -7,6 +7,7 @@ import java.util.Arrays;
 //Valley is a number that is surrounded by elements greater or equal to it
 //Sort the array into an alternating sequence of peaks and valleys
 //Solution: Sort the array and then in every second medium of the low medium high sequence, switch medium with low
+//Solution runs in O(nlogn)
 public class Example11_1 {
     private static void sortValleyPeak(int[] array) {
         Arrays.sort(array);
