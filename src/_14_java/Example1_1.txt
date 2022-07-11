@@ -1,0 +1,9 @@
+package _14_java;
+
+In terms of inheritance what is the effect of keeping constructor private
+
+If class A has private constructor.
+It is accessible by inner classes within A
+If A is within class Q. A's private constructor is accessible by other classes within Q
+
+Class A can only be inherited by its own or its parents inner class
