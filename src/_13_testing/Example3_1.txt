@@ -1,0 +1,26 @@
+Following method is used in a chess game
+class Piece
+    canMoveTo(x, y)
+
+How would you test the above method
+
+Extreme case validation
+Test with negative x, y values
+Test with x larger than the width
+Test with y larger than the height
+Test with a full board
+Test with empty board
+Test with more white pieces than black
+Test with more black pieces than white
+
+For the error cases ask whether method should return false or exception. Test accordingly
+
+General Testing
+There are six pieces in chess, Test each piece against every other piece in every possible direction
+
+for each piece a
+    for each other type of piece b (6 types + empty space)
+        for each direction
+            Create a board with piece a
+            Place piece b in direction d
+            Try to move - check return value
