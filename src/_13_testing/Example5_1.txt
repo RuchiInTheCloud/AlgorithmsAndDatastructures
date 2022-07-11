@@ -1,0 +1,16 @@
+Test a pen
+
+Who will use? Children
+What will they do with it? Drawing
+On what? Clothing
+What kind of tip? Intended to wash off
+
+Different components of the object that need to be tested:
+Fact check
+Intended use: Verify it is felt tip and ink is one of allowed colors.
+- Drawing: Does pen write on clothing
+- Washing: Does it wash off of clothing (even after being present for a long period of time)? Wash off in cold, warm and
+cold water?
+Safety: Is the pen safe for children=
+Unintended uses: Children may write on other surface. They may stomp on the pen. Throw it. How does the pen behave does
+it hold up.
