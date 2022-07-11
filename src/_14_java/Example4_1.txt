@@ -1,0 +1,19 @@
+package _14_java;
+
+Generics vs Templates
+
+Java Generics
+- During compilation (translation to byte code), type erasure takes place. Type parameters are erased at runtime
+- static variables are shared across all instances of parameterized class
+- Cannot use primitive type as parameterized type
+- Can restrict parameterized type to be of a certain type
+- type parameter cannot be instantiated
+- type parameter cannot be used for static methods and variables
+
+C++ Templates
+- Compiler creates a copy of template code for every parameterized type
+- MyClass<Foo>, MyClass<Bar> do not share static variables
+- Two instances of MyClass<Foo> share static variables
+- Can use primitive type as parameterized type
+- type parameter can be instantiated
+- different type parameters create different types
