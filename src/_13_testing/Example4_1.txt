@@ -1,0 +1,18 @@
+Load test a webpage without using any test tools
+
+Load testing is done to identify a web applications maximum operating capacity, as well as any bottlenecks that may
+interfere with its performance.
+
+Identify performance critical scenarios:
+
+Metrics:
+Response time
+Throughput
+Resource utilization
+Maximum load that a system can bear
+
+Design tests to simulate the load, measure each criterion
+Simulate concurrent users by creating a multithreaded program with thousands of threads where each thread acts as a
+ real world user loading a page. For each user measure response time, data I/O etc.
+
+We would then analyze results gathered and compare it with accepted values
