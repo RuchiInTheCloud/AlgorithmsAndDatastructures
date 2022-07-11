@@ -1,4 +1,10 @@
 package _13_testing;
 
-public class Example1_1 {
-}
+unsigned int i;
+for (i = 100; i >= 0; --i)
+    printf("%d\n", i);
+
+unsigned int is always greater than equal to zero. For loop will always be true
+Change i>=0 to i>0
+If 0 needs to be printed print separately
+Change %d to %u

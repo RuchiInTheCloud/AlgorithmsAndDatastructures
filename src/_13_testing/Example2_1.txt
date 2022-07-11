@@ -1,4 +1,2 @@
 package _13_testing;
 
-public class Example2_1 {
-}
