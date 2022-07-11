@@ -1,0 +1,22 @@
+Test an ATM in a distributed banking system.
+
+Who is going to use ATM? anyone, blind people
+What are they going to use it for? Withdrawing money. Transferring money, Checking Balance
+Do we have access to code or just to ATM?
+
+Break system into components
+Logging in
+Withdrawing money
+Depositing money
+Checknig balance
+Transfering money
+
+Use mix of manual and automated testing
+Execute above tasks manually in cases low balance, new account, nonexistent account
+
+Automated testing: Automate standard scenarios and specific issues such as race conditions
+Even if deposit and withdrawal take place from different location you never get or lose money that you should'nt
+
+Prioritize security and reliability
+Peoples accounts must be protected, Money is always accounted for. No one unexpectedly loses money
+
