@@ -1,0 +1,30 @@
+SQL Statement
+
+Courses: CourseID, CourseName, TeacherID
+Teachers: TeacherID, TeacherName
+Stundents: StudentID, StudentName
+StudentCourses: StudentId, CourseID
+
+- list of all students and how many courses the student is enolled in:
+select studentname, students.studentid, count(studentcourses.courseid) as count
+from student left outer join studentcourses
+on students.studentid = studentcourses.studentid
+group by students.studentid, students.studentsname
+
+-- left outer join because some students attend no courses
+-- count(studentcourses.courseid)
+-- group by students.studentname
+-- max(studentname) <-- aggregate function
+
+- list of teacher and their class size in descending order of class size
+  select teachername, isnull(studentsize.number, 0)
+  from teachers left outer join
+    (select teacherid, count(studentcourses.studentid) as number
+        from courses inner join studentcourses
+        on courses.courseID = studentcourses.courseID
+        group by teacherid) studentsize
+  on teachers.teacherid = studentsize.teacherid
+  order by studentsize.number desc
+
+-- teacher may not take courses
+-- isnull(number, 0) convert null number to 0
