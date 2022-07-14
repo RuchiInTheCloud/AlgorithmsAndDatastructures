@@ -1,2 +1,16 @@
+Apartments (AptID, UnitNumber, BuildingID)
+Buildings (BuildingID, ComplexID, BuildingName, Address)
+Requests (RequestID, Status, AptID, Description)
+Complexes (ComplexID, ComplexName)
+AptTenants (TenantID, AptID)
+Tenants (TenantID, TenantName)
 
+List of tenants who are renting more than one apartment
 
+select tenantName from
+tenants inner join
+(select TenantID from AptTenants group by tenants.TenantsID having count(*) > 1 ) c
+on Tenants.TenantID = c.TenantID
+
+- when you write group by clause make sure that anything in the select clause is either aggregate function or contained
+in the group by clause

@@ -1,0 +1,6 @@
+Apartments (AptID, UnitNumber, BuildingID)
+Buildings (BuildingID, ComplexID, BuildingName, Address)
+Requests (RequestID, Status, AptID, Description)
+Complexes (ComplexID, ComplexName)
+AptTenants (TenantID, AptID)
+Tenants (TenantID, TenantName)
