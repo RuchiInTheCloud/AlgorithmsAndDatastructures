@@ -1,0 +1,8 @@
+[People] - pid, pname, sex, dob, phone*, address*
+[Professional] - degree*, experience*
+[Companies] - cid, cname, address*
+
+<Works For> - pid, cid, date of joining, salary
+
+[Professional] -(is A)-> [People]
+[Professional] -N-<Works For>-1- [Companies]
