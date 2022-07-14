@@ -1,0 +1,7 @@
+Every thread is controlled by an object of Thread class
+When a standalone application is run, a thread is created automatically to execute the main method
+This thread is called the main thread
+
+Threads can be implemented in two ways:
+- By implementing the java.lang.Runnable interface
+- By extending the java.lang.Thread class
