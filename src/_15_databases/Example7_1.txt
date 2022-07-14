@@ -1,0 +1,22 @@
+Design database to store student grades
+Create SQL query to return a list of honor roll students (top 10%) sorted by their gpa
+
+Students: StudentID, StudentName, Address, personal information
+Courses: CourseID, CourseName, ProfessorID, course description etc.
+CourseEnrollment: CourseID, StudentID, Grade, Term
+
+DECLARE @GpaCutOff float;
+
+SET @GpaCutOff = select min(gpa) as 'GPAMin' from (
+    select top 10 percent avg(grade) as gpa
+    from courseenrollment
+    group by studentid
+    order by gpa desc
+) grades;
+
+Select students.studentName, gpa
+from (select studentID, avg(grade) as gpa from courseenrollment group by studentid having avg(grade) >= @gpacutoff)
+honors inner join students on honors.studentID = students.studentID
+
+Assumption: course taught by one teacher. this increases flexibility and complexity
+Make design reasonably flexible and state assumptions
