@@ -4,3 +4,18 @@ Requests (RequestID, Status, AptID, Description)
 Complexes (ComplexID, ComplexName)
 AptTenants (TenantID, AptID)
 Tenants (TenantID, TenantName)
+
+Get list of all buildings and the number of open requests (Requests in which status equals 'Open')
+
+select AptID, count(*) as openRequestCnt from requests
+where status = 'Open'
+group by AptID
+
+select BuildingName, isnull(openRequestCnt, 0) as 'Count' from
+Buildings left outer join
+(select BuildingID, count (*) as openRequestCnt from
+Apartments inner join requests
+on Appartments.AptID = requests.AptID
+where requests.status = 'Open'
+group by BuildingID) as C
+on Buildings.BuildingID = C.BuildingID
