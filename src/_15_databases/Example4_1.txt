@@ -1,0 +1,33 @@
+Explain different types of joins
+Explain why certain types are better in certain situations
+
+join is used to combine results of two tables
+to perform join both tables must have atleast one matching field that would be used to match rows in the two tables
+the join type defines which records will go into the result set
+
+Regular beverages
+Name            Code
+Budweiser       BUDWEISER
+Coca-Cola       COCACOLA
+Pepsi           PEPSI
+
+Calorie-free beverages
+Name            Code
+Diet Coca-Cola  COCACOLA
+Fresca          FRESCA
+Diet Pepsi      PEPSI
+Pepsi Light     PEPSI
+Purified Water  Water
+
+Beverate join Calorie free beverages
+
+inner join
+The result set would contain three rows
+outer join
+    left outer join
+    The result set would contain four rows. Budweiser has no match but would be added to the result set.
+    right outer join
+    The result set would contain five rows. Fresca and Purified Water have no match but would be added to the result set.
+    A LEFT JOIN B === B RIGHT JOIN A
+    full outer join
+    The result would contain six records. Results from left outer join and right outer join would be contained in the result set.
