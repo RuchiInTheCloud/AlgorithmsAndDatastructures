@@ -4,3 +4,9 @@ Requests (RequestID, Status, AptID, Description)
 Complexes (ComplexID, ComplexName)
 AptTenants (TenantID, AptID)
 Tenants (TenantID, TenantName)
+
+Building 11 undergoing renovation. Close requests from apartments in this building
+
+update requests
+set status = Closed
+where aptID in (select aptID from apartments where buildingid = 11)
