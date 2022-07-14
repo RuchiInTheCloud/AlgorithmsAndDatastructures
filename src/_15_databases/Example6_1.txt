@@ -6,3 +6,5 @@
 
 [Professional] -(is A)-> [People]
 [Professional] -N-<Works For>-1- [Companies]
+
+Ask: Can a Professional be working in more than one company at a time?
