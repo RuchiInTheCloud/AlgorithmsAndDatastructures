@@ -1,0 +1,17 @@
+Denormalization: pros and cons
+
+A database optimization technique in which we add redundant data to one or more tables
+This helps avoid costly joins in a relational database
+
+In normalized database we store data in separate logical tables and attempt to minimize redundant data
+
+E.g. Courses and Teachers table in normalized database. to retrieve courses with teachers name we need to perform join.
+If teacher changes his name only one table requires update
+If the tables are large the time to perform joins is too long
+
+With denormalization, we do extra effort to update database for efficiency advantage of fewer joins
+- update and insert code more complex
+- data may become inconsistent
+- more storage required
++ retrieving data is faster since we do few joins
++ queries to retrieve can be simpler (look at fewer tables) and less likely to have bugs.
