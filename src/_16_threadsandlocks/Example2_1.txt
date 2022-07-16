@@ -1,4 +1,26 @@
 package _16_threadsandlocks;
 
 Context Switch: Measure time spent in context switch
-- Time spent
+- Time spent switching between two processes (i.e. bringing a waiting process into execution and sending an executing process
+into waiting/ terminated state)
+- The OS must bring state information of waiting processes into memory and save the state information of the currently running
+process
+- Record timestamp of the last (t1,n) and first instruction (t2,1) of the swapping processes P1, P2.
+- Construct a data channel between P1, P2 via pipe.
+- P2 in blocked state awaiting data
+- P1 sends token records time.
+- P1 attempts to read response, gets blocked. Context switch takes place.
+- P2 is scheduled and receives token.
+- P2 sends response token to P1.
+- P2 attempts to read response token, gets blocked. Context switch takes place
+- P1 is scheduled and receives token and records time
+
+T = 2 * (Td + Tc + Tr)
+- Td: time to deliver
+- Tc: time for context switch
+- Tr: time to receive
+T can be measured.
+Td + Tr can be measured by making P1 the receiver, there will be no context switch since P1 is running
+
+Play game for some iterations, select the lowest measurement. P2 may not be next in line to be scheduled, kernel
+may instead handle an interrupt.
