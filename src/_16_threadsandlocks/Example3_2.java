@@ -4,6 +4,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 //Put down left chopstick if right unavailable
+//If all philosophers were perfectly synchronized, they could simultaneously pick up their left chopstick be unable to
+//pickup the right one and put back down the left one. Only to have the process repeated again
 public class Example3_2 {
     private static class Chopstick {
         private Lock lock;
@@ -12,8 +14,8 @@ public class Example3_2 {
             lock = new ReentrantLock();
         }
 
-        public void pickUp() {
-            lock.tryLock();
+        public boolean pickUp() {
+            return lock.tryLock();
         }
 
         public void putDown() {
@@ -31,14 +33,21 @@ public class Example3_2 {
         }
 
         public void eat() {
-            pickUp();
-            chew();
-            putdown();
+            if (pickUp()) {
+                chew();
+                putdown();
+            }
         }
 
-        public void pickUp() {
-            left.pickUp();
-            right.pickUp();
+        public boolean pickUp() {
+            if (!left.pickUp()) {
+                return false;
+            }
+            if (!right.pickUp()) {
+                left.putDown();
+                return false;
+            }
+            return true;
         }
 
         public void chew() {
