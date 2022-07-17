@@ -1,31 +1,21 @@
 package _16_threadsandlocks;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.Semaphore;
 
-//Consider the FooBad class below
-//The same instance of this class is passed to three different threads. ThreadA will call first
-//ThreadB will call second, Thread C will call third
-//Design a mechanism to ensure that first is called before second that is called before third.
-//The code below does not work due to lock ownership.
-//"""One thread is performing the lock while different threads attempt to unlock the locks"""
-//This is not allowed and your code will raise an exception
-//A lock in java is owned by the thread which locked it
-//Instead we can replicate this behavior with Semaphores
-public class Example5_1 {
+public class Example5_2 {
     private static class FooBad {
         public int pauseTime = 1000;
-        public Lock lock1, lock2;
+
+        public Semaphore sem1, sem2;
 
         public FooBad() {
+            sem1 = new Semaphore(1);
+            sem2 = new Semaphore(1);
             try {
-                lock1 = new ReentrantLock();
-                lock2 = new ReentrantLock();
-
-                lock1.lock();
-                lock2.lock();
-            } catch (Exception ex) {
-                ex.printStackTrace();
+                sem1.acquire();
+                sem2.acquire();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
 
@@ -34,7 +24,8 @@ public class Example5_1 {
                 System.out.println("Started Executing 1");
                 Thread.sleep(pauseTime);
                 System.out.println("Finished Executing 1");
-                lock1.unlock();
+
+                sem1.release();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -42,26 +33,29 @@ public class Example5_1 {
 
         public void second() {
             try {
-                lock1.lock();
-                lock1.unlock();
+                sem1.acquire();
+                sem1.release();
+
                 System.out.println("Started Executing 2");
                 Thread.sleep(pauseTime);
                 System.out.println("Finished Executing 2");
-                lock2.unlock();
-            } catch (Exception ex) {
-                ex.printStackTrace();
+
+                sem2.release();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
 
         public void third() {
             try {
-                lock2.lock();
-                lock2.unlock();
+                sem2.acquire();
+                sem2.release();
+
                 System.out.println("Started Executing 3");
                 Thread.sleep(pauseTime);
                 System.out.println("Finished Executing 3");
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
     }
