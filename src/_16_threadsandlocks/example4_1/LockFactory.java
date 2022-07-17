@@ -26,7 +26,7 @@ public class LockFactory {
         return instance;
     }
 
-    public static LockFactory initialize(int count) {
+    public static synchronized LockFactory initialize(int count) {
         if (instance == null) {
             instance = new LockFactory(count);
         }
@@ -70,6 +70,7 @@ public class LockFactory {
         return true;
     }
 
+    //Check for cycles in connected components
     public boolean hasCycle(HashMap<Integer, Boolean> touchedNodes, int[] resourcesInOrder) {
         /* check for a cycle */
         for (int resource : resourcesInOrder) {
