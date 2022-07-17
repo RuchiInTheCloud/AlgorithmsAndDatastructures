@@ -1,0 +1,13 @@
+package _16_threadsandlocks;
+
+Synchronized Methods: Class with synchronized method A and normal method B
+
+If you have two threads in one instance of a program, can they both execute A at the same time? Can they execute A and B
+at the same time?
+
+Only one synchronized method can be in execution per instance of an object
+Other threads can execute non synchronized methods on that instance or they can execute any method on a different instance
+of the class
+
+A synchronized method applies locks on all synchronized methods in that instance of the object. This blocks other threads
+from executing synchronized methods within that instance.
