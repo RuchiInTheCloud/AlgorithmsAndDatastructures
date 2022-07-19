@@ -5,7 +5,7 @@ package _17_moderate.example4_1;
 //Do we know the last move made?
 //Do we design for 3X3 board or NXN board
 //Prioritize compactness of code vs speed of execution vs clarity of code? Most efficient not best, should also be easy to understand and maintainable
-//Solution 1: We know the last move
+//Solution 2: We know the last move
 public class Example4_2 {
     enum Piece {
         Empty,
@@ -16,6 +16,9 @@ public class Example4_2 {
     private static Piece hasWon(Piece[][] board, int row, int column) {
         if (board.length != board[0].length)
             return Piece.Empty;
+        if (row < 0 || row >= board.length || column < 0 || column >= board.length) {
+            return Piece.Empty;
+        }
 
         Piece piece = board[row][column];
         if (piece == Piece.Empty) {
@@ -67,5 +70,12 @@ public class Example4_2 {
             col += direction;
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        Piece[][] board = {{Piece.Empty, Piece.Empty, Piece.Empty}, {Piece.Empty, Piece.Empty, Piece.Empty},
+                {Piece.Blue, Piece.Blue, Piece.Blue}};
+
+        System.out.println(hasWon(board, 2, 2));
     }
 }
