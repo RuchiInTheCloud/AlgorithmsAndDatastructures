@@ -31,7 +31,7 @@ public class Example7_1 {
     public static void rotate(int[][] matrix, int n) {
         for (int i = 0; i < n / 2; i++) {
             int last = n - 1 - i;
-            for (int j = i; j < n - 1 - i; j++) {
+            for (int j = i; j < last; j++) {
                 // save top
                 int temp = matrix[i][j];
                 // move left to top

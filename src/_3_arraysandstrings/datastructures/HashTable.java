@@ -13,10 +13,6 @@ package _3_arraysandstrings.datastructures;
 // table is rehashed so that the hash table has approximately twice
 // the number of buckets
 
-import _9_objectorienteddesign.example6_1.Edge;
-
-import java.util.Objects;
-
 public class HashTable<K, V> {
     private static final int INITIAL_CAPACITY = 4;
     private static final double LOAD_FACTOR = 0.7;

@@ -1,6 +1,5 @@
 package _3_arraysandstrings.datastructures;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class ArrayList<T> implements Iterable<T> {

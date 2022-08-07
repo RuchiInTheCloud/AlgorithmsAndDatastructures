@@ -27,14 +27,14 @@ public class Example8_2 {
     private static void setZeros(int[][] matrix) {
         boolean rowHasZero = false;
         boolean columnHasZero = false;
-        for (int i = 0; i < matrix.length; i++) {
-            if (matrix[i][0] == 0) {
+        for (int i = 0; i < matrix[0].length; i++) {
+            if (matrix[0][i] == 0) {
                 rowHasZero = true;
                 break;
             }
         }
-        for (int i = 0; i < matrix[0].length; i++) {
-            if (matrix[0][i] == 0) {
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i][0] == 0) {
                 columnHasZero = true;
                 break;
             }

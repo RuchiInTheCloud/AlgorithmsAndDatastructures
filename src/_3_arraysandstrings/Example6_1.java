@@ -9,7 +9,7 @@ package _3_arraysandstrings;
 // Bruteforce:
 // Traverse through the string, keep track of the consecutive character sequence with a counter,
 // If there is a break in the consecutive character sequence, "change" the "compressed string" with the repeating character and its count
-// Complexity: O(n + k^2)
+// Complexity: O(n + k^2), k is the number of character sequences
 // Optimize: Use String builder
 // Walk through
 // Implement

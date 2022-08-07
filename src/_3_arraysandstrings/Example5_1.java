@@ -4,7 +4,7 @@ package _3_arraysandstrings;
 //Write method to determine if two strings a at most one edit away
 //Example:
 //1. abc, abcd
-//2. abcd, abc
+//2. abcd, abd
 //3. abc, abd
 //4. abc, abc
 //5. abc, acd

@@ -46,6 +46,6 @@ public class Example4_2 {
 
     public static void main(String[] args) {
         System.out.println(
-                "Is 'abb a' a permutation of a palindrome " + (isPermutationOfPalindrome("abb a") ? "yes" : "no"));
+                "Is 'eabbaccd' a permutation of a palindrome " + (isPermutationOfPalindrome("eabbaccd") ? "yes" : "no"));
     }
 }
