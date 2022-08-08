@@ -92,7 +92,7 @@ public class LinkedList<T> {
 
     public Node<T> removeFront() {
         if (head == null) {
-            return null;
+            throw new EmptyStackException();
         }
 
         Node<T> current = head;
@@ -152,15 +152,7 @@ public class LinkedList<T> {
     }
 
     public Node<T> poll() {
-        if (head == null) {
-            throw new EmptyStackException();
-        }
-
-        Node<T> node = head;
-        head = head.next;
-
-        size--;
-        return node;
+        return removeFront();
     }
 
     public Node<T> peek() {
