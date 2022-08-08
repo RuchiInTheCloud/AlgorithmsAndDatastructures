@@ -36,6 +36,8 @@ public class Queue<T> {
 
         if (first == null) {
             last = null;
+        } else {
+            node.next = null;
         }
 
         return node;

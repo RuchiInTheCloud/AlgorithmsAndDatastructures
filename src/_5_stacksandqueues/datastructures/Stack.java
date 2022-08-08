@@ -85,6 +85,7 @@ public class Stack<T> {
 
         if (bottom != null) {
             bottom.below = null;
+            node.above = null;
         } else {
             top = null;
         }

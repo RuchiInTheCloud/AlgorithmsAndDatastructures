@@ -37,13 +37,13 @@ public class MultiStack {
     }
 
     private int[] values;
-    private MultiStack.StackInfo[] stackInfos;
+    private StackInfo[] stackInfos;
 
     public MultiStack(int numberOfStacks, int defaultSize) {
         values = new int[defaultSize * numberOfStacks];
-        stackInfos = new MultiStack.StackInfo[numberOfStacks];
+        stackInfos = new StackInfo[numberOfStacks];
         for (int i = 0; i < numberOfStacks; i++) {
-            stackInfos[i] = new MultiStack.StackInfo(i * defaultSize, defaultSize);
+            stackInfos[i] = new StackInfo(i * defaultSize, defaultSize);
         }
     }
 

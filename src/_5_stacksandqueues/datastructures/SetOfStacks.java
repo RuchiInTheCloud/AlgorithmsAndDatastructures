@@ -34,10 +34,6 @@ public class SetOfStacks {
         return node;
     }
 
-    public Stack.Node<Integer> popAt(int index) {
-        return leftShift(index, true);
-    }
-
     public Stack.Node<Integer> peek() {
         Stack<Integer> stack = getLastStack();
         if (stack == null || stack.isEmpty()) {
@@ -54,6 +50,10 @@ public class SetOfStacks {
 
     public int getStackCount() {
         return stacks.size();
+    }
+
+    public Stack.Node<Integer> popAt(int index) {
+        return leftShift(index, true);
     }
 
     private Stack.Node<Integer> leftShift(int index, boolean removeTop) {
