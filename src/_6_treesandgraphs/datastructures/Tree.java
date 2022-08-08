@@ -18,7 +18,7 @@ public class Tree<T> {
         }
     }
 
-    public BinaryTree.Node<T> root;
+    public Node<T> root;
     private int N;
 
     public Tree(int N) {

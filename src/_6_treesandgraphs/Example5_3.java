@@ -4,7 +4,7 @@ import _6_treesandgraphs.datastructures.BinaryTree;
 
 //Check if binary tree is a binary search tree
 //left subtree <= n < right subtree
-//execute pre order traversal
+//execute pre-order traversal
 //Check if max != null --> node.value <= max? if not return false;
 //Check if min != null --> node.value > min? if not return false;
 //Check the same for the left and right subtree, if either result is false return false

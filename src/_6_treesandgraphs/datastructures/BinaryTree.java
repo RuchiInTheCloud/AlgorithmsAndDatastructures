@@ -20,7 +20,6 @@ public class BinaryTree<T> {
 
     public Node<T> root;
 
-
     public int size(Node<T> node) {
         if (node == null) {
             return 0;

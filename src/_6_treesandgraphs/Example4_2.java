@@ -4,16 +4,12 @@ import _6_treesandgraphs.datastructures.BinaryTree;
 
 //Check balanced: For every node in the tree, height of left and right subtree differs at most by 1
 //Brute force: During computing the height check for imbalance
-//int getHeight(treenode node)
-//  node == null? return -1;
-//  return Math.max(getHeight(node.left), getHeight(node.right)) + 1
-//
 //int checkHeight(treenode node)
 //  node == null? return -1;
-//  leftHeight = getHeight(node.left)
+//  leftHeight = checkHeight(node.left)
 //  if (leftHeight == Int.minvalue)
 //      return Int.minvalue
-//  rightHeight = getHeight(node.right)
+//  rightHeight = checkHeight(node.right)
 //  if (rightHeight == Int.minvalue)
 //      return Int.minvalue
 //  if (Math.abs(leftHeight - rightHeight)) > 1)

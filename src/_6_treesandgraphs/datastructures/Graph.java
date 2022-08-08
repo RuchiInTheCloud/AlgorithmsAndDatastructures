@@ -144,29 +144,6 @@ public class Graph<T> {
         }
     }
 
-    /*public void bidirectionalSearch(Node<T> start, Node<T> end) {
-        if (start != null && end != null) {
-            if (node != null) {
-                Queue<Node<T>> queue = new Queue<>();
-                node.marked = true;
-                queue.add(node);
-
-                Node<T> adjacentNode;
-                while (!queue.isEmpty()) {
-                    node = queue.remove().data;
-                    visit(node);
-                    for (int i = 0; i < node.adjacentNodes.size(); i++) {
-                        adjacentNode = node.adjacentNodes.get(i);
-                        if (!adjacentNode.marked) {
-                            adjacentNode.marked = true;
-                            queue.add(adjacentNode);
-                        }
-                    }
-                }
-            }
-        }
-    }*/
-
     private void visit(Node<T> node) {
         System.out.print(node.data + " -> ");
     }

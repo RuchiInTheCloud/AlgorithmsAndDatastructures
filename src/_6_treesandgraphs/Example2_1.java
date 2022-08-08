@@ -3,7 +3,7 @@ package _6_treesandgraphs;
 import _6_treesandgraphs.datastructures.BinaryTree;
 
 //Convert a sorted array into a BST
-//Left descendants <= n < Right descendants
+// left descendants <= n < right descendants
 // If we insert every element into tree the time to insert n elements would be O(nlogn)
 // Tree needs to be "constructed" recursively
 // treenode createBST(array, start, end)
