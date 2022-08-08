@@ -2,7 +2,7 @@ package _6_treesandgraphs;
 
 //Return the next node of a node based on in-order traversal
 //If node has a right subtree. The left most node in the subtree is the next node
-//Otherwise, the above node of the node, to which the current node falls on the right side is the next node
+//Otherwise, the above node of the node, to which the current node falls on the left side is the next node
 //TreeNode inOrderSucc(TreeNode node)
 //  if (node.right != null)
 //      return leftMostNode(node.right)
