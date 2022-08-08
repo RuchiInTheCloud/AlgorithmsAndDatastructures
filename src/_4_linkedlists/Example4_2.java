@@ -33,7 +33,7 @@ public class Example4_2 {
             if (node.data < x) {
                 node.next = head;
                 head = node;
-            }  else {
+            } else {
                 tail.next = node;
                 tail = node;
             }
@@ -41,6 +41,7 @@ public class Example4_2 {
         }
         linkedList.head = head;
     }
+
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList<>();
         linkedList.addLast(3);

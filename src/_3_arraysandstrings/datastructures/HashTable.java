@@ -98,7 +98,7 @@ public class HashTable<K, V> {
     public ArrayList<K> keySet() {
         ArrayList<K> keys = new ArrayList<>();
         for (Entry<K, V> bucket : buckets) {
-            if (buckets != null) {
+            if (bucket != null) {
                 while (bucket != null) {
                     keys.add(bucket.key);
                     bucket = bucket.next;
@@ -113,6 +113,7 @@ public class HashTable<K, V> {
         return value == null ? otherValue : value;
     }
 
+    //Remove all occurences
     public void remove(K key) {
         int idx = computeHashCode(key);
         Entry<K, V> bucket = buckets[idx];
@@ -132,6 +133,7 @@ public class HashTable<K, V> {
 
         if (buckets[idx].key == key) {
             buckets[idx] = buckets[idx].next;
+            size--;
         }
     }
 

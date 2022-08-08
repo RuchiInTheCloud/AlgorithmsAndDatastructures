@@ -40,18 +40,22 @@ public class Example6_1 {
         if (node == null) {
             return null;
         }
+
         HeadAndTail ht = reverse(node.next);
         LinkedList.Node<Integer> duplicate = new LinkedList.Node<>(node.data);
+
         if (ht == null) {
             return new HeadAndTail(duplicate, duplicate);
         }
+
         ht.tail.next = duplicate;
-        return new HeadAndTail(ht.head, duplicate);
+        ht.tail = duplicate;
+        return ht;
     }
 
     static boolean isEqual(LinkedList.Node<Integer> head1, LinkedList.Node<Integer> head2) {
         while (head1 != null && head2 != null) {
-            if (head1.data.equals(head2.data)) {
+            if (!head1.data.equals(head2.data)) {
                 return false;
             }
             head1 = head1.next;

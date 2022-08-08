@@ -45,10 +45,10 @@ public class Example4_1 {
 
         if (beforeStart == null) {
             linkedList.head = afterStart;
+        } else {
+            beforeEnd.next = afterStart;
+            linkedList.head = beforeStart;
         }
-
-        beforeEnd.next = afterStart;
-        linkedList.head = beforeStart;
     }
 
     public static void main(String[] args) {

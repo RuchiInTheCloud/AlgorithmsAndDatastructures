@@ -14,7 +14,7 @@ import _4_linkedlists.datastructures.LinkedList;
 //Create two pointers p1, p2.
 //Traverse the list, let p1 make 2 step hops. Let p2 make 1 step hops.
 //   If the start of the loop is k step away from head,
-//      after k steps, p1 = k or K (mod(k%loopsize)) steps into loop, p2 = k steps from head
+//      after k steps, p1 = 2k or K (=(k%loopsize)) steps into loop, p2 = k steps from head
 //      after loopsize - K steps, p1 will be at p2, break
 //Move p1 to head
 //Traverse the list, move both p1 and p2 at 1 step hop. After k = K +(m * loopsize) steps they will hit the start of the loop

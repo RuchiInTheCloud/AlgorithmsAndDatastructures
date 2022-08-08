@@ -16,7 +16,7 @@ import java.util.Stack;
 //Walk through:
 // boolean isPalindrome(node)
 //  Determine the middle of the second half, at the same time push elements while traversing the first half down a stack
-//    Create two pointers p1, p2: Move p2 at twice speed. When p2 or p1.next reaches the end, p1 is at midpoint
+//    Create two pointers p1, p2: Move p2 at twice speed. When p1 or p1.next reaches the end, p2 is at midpoint
 //    If p1 != null, move p2 to its next
 //  Pop element from the stack and traverse the second half to determine if the elements around center are equal
 //    Loop until p2 != null

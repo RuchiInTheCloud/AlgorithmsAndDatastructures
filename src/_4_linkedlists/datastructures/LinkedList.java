@@ -13,8 +13,8 @@ public class LinkedList<T> {
             this.data = data;
         }
 
-        public static <T> Node<T> createNode(T data) {
-            return new Node<>(data);
+        public static <T> Node createNode(T data) {
+            return new Node(data);
         }
     }
 
@@ -22,10 +22,8 @@ public class LinkedList<T> {
     private int size = 0;
 
     public void addFront(T data) {
-        Node<T> node = new Node<>(data);
-        node.next = head;
-        head = node;
-        size++;
+        Node<T> node = new Node(data);
+        addFront(node);
     }
 
     public void addFront(Node<T> node) {
@@ -35,17 +33,8 @@ public class LinkedList<T> {
     }
 
     public void addLast(T data) {
-        Node<T> end = new Node<>(data);
-        if (head == null) {
-            head = end;
-        } else {
-            Node<T> current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = end;
-        }
-        size++;
+        Node<T> end = new Node(data);
+        addLast(end);
     }
 
     public void addLast(Node<T> node) {
@@ -117,17 +106,17 @@ public class LinkedList<T> {
             return null;
         } else if (head.next == null) {
             Node<T> current = head;
-            head = head.next;
+            head = null;
             size--;
             return current;
         } else {
             Node<T> prev = head;
-            Node<T> current = head.next;
+            Node<T> current = head;
             while (current.next != null) {
                 prev = current;
                 current = current.next;
             }
-            prev.next = current.next;
+            prev.next = null;
             size--;
             return current;
         }
@@ -139,21 +128,24 @@ public class LinkedList<T> {
             return null;
         }
 
-        Node<T> current = head;
         Node<T> returnValue = null;
+        if (head.data == data) {
+            returnValue = head;
+            head = head.next;
+            size--;
+        }
+
+        Node<T> current = head;
         while (current.next != null) {
             if (current.next.data == data) {
                 returnValue = current.next;
+                returnValue.next = null;
                 current.next = current.next.next;
                 size--;
+                break;
             } else {
                 current = current.next;
             }
-        }
-
-        if (head.data == data) {
-            head = head.next;
-            size--;
         }
 
         return returnValue;

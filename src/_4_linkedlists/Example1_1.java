@@ -18,15 +18,19 @@ public class Example1_1 {
         HashSet<Integer> set = new HashSet<>();
         LinkedList.Node<Integer> prev = null;
         LinkedList.Node<Integer> current = linkedList.head;
+        LinkedList.Node<Integer> next = null;
 
         while (current != null) {
+            next = current.next;
+            current.next = null;
+
             if (set.contains(current.data)) {
-                prev.next = current.next;
+                prev.next = next;
             } else {
                 set.add(current.data);
                 prev = current;
             }
-            current = current.next;
+            current = next;
         }
     }
 
