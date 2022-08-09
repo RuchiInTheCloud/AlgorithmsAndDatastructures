@@ -32,7 +32,7 @@ public class Example7_1 {
             String remainder = string.substring(1);
             ArrayList<String> words = permutation(remainder);
             for (String word : words) {
-                for (int i = 0; i < word.length(); i++) {
+                for (int i = 0; i <= word.length(); i++) {
                     String permutation = insertCharAt(word, i, first);
                     permutations.add(permutation);
                 }
