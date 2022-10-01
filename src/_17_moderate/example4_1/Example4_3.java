@@ -31,6 +31,7 @@ public class Example4_3 {
         }
         return p1 == p2 && p2 == p3;
     }
+
     public static void main(String[] args) {
         Piece[][] board = {{Piece.Empty, Piece.Empty, Piece.Empty}, {Piece.Empty, Piece.Empty, Piece.Empty},
                 {Piece.Blue, Piece.Blue, Piece.Blue}};
