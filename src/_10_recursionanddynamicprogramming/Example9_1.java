@@ -1,7 +1,5 @@
 package _10_recursionanddynamicprogramming;
 
-import _3_arraysandstrings.datastructures.ArrayList;
-
 import java.util.HashSet;
 
 //Input: 3

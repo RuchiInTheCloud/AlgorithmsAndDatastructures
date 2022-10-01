@@ -2,7 +2,6 @@ package _12_sortingandsearching;
 
 import _3_arraysandstrings.datastructures.ArrayList;
 import _3_arraysandstrings.datastructures.HashTable;
-import _4_linkedlists.datastructures.LinkedList;
 
 import java.util.Arrays;
 import java.util.Iterator;

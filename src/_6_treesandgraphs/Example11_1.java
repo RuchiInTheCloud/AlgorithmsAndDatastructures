@@ -95,13 +95,11 @@ public class Example11_1 {
 
             if (node.data == data) {
                 return node;
-            } else if (node.data > data && node.left != null) {
+            } else if (node.data > data) {
                 return find(node.left, data);
-            } else if (node.data < data && node.right != null) {
+            } else {
                 return find(node.right, data);
             }
-
-            return null;
         }
     }
 

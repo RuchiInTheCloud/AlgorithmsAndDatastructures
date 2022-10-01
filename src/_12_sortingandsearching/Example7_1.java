@@ -1,4 +1,4 @@
-package _12_sortingandsearching.example7_1;
+package _12_sortingandsearching;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -27,7 +27,7 @@ public class Example7_1 {
         Scanner in = new Scanner(new FileReader(fileName));
         while (in.hasNextInt()) {
             int n = in.nextInt();
-            bitField[n / 8] |= n % 8;
+            bitField[n / 8] |= (1 << n % 8);
         }
         for (int i = 0; i < bitField.length; i++) {
             for (int j = 0; j < 8; j++) {

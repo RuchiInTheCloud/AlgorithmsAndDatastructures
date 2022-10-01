@@ -31,7 +31,6 @@ public class Example5_1 {
         } else if (smaller == 1) {
             return larger;
         } else {
-            System.out.println("I was here. Smaller = " + smaller + ", Larger = " + larger);
             int half = smaller >> 1;
             int halfProduct = productHelper(half, larger);
             int otherHalfProduct = halfProduct;

@@ -1,0 +1,10 @@
+
+
+AVL Tree: Used to implement tree balancing
+Every node stores height of subtree rooted at this node
+Height of left and right subtree should differ by no more than 1
+-1 <= balance(n) = n.left.height - n.right.height <= 1
+
+Insertion: Balance may change to 2 or -2
+During unwind of recursive stack, check and balance each node by rotation
+

@@ -20,7 +20,7 @@ public class Example8_4 {
             BinaryTree.Node<Integer> q) {
         if (root == null) {
             return null;
-        } else if (root == p && root == q) {
+        } else if (root == p && root == q) { // cannot use or here because a child node of root could be p or q
             return root;
         }
 
@@ -30,7 +30,7 @@ public class Example8_4 {
         }
         BinaryTree.Node<Integer> y = commonAncestor(root.right, p, q);
         if (y != null && y != p && y != q) {
-            return x;
+            return y;
         }
 
         if (x != null && y != null) {

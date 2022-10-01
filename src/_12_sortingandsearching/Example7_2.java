@@ -1,4 +1,4 @@
-package _12_sortingandsearching.example7_1;
+package _12_sortingandsearching;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,17 +7,15 @@ import java.util.Scanner;
 //Given an input file with 1 billion non-negative integers
 //Provide an algorithm to generate an integer not contained in the file
 //Assume 10MB memory available for this task
-//10^9 X 4 bytes = 4 GB
 //
 //There are total 2^32 or 4 billion distinct integers possible, 2^31 non-negative integers = 2 billion distinct numbers
-//The file does not contains dups
 //
 //Consider blocks such as 0 - 999, 1000 - 1999, ...; in this example of size 1000
 //Construct blocks and count the numbers in each block
 //Maximum integers possible = 2^31
 //Memory = 2^23 bytes = 2^21 ints
 //
-//arraysize = 2^31/ rangesize <= 2^21 ints
+//arraysize = 2^31/ rangesize <= 2^21 block counts
 //rangesize >= 2^10
 //
 //rangesize <= 2^26 bits
@@ -76,7 +74,7 @@ public class Example7_2 {
             int n = in.nextInt();
             if (n >= startRange && n < endRange) {
                 int offset = n - startRange;
-                int mask = 1 << offset % Byte.SIZE;
+                int mask = 1 << (offset % Byte.SIZE);
                 bitVector[offset / Byte.SIZE] |= mask;
             }
         }

@@ -2,7 +2,7 @@ package _12_sortingandsearching;
 
 //Search in a sorted array that has been rotated
 //O(log n) runtime if elements are unique, otherwise O(n) in
-// worst case since left and right sub arrays need to be searched
+//Worst case since left and right sub arrays need to be searched
 public class Example3_1 {
     private static int search(int[] a, int x, int low, int high) {
         if (low > high) {

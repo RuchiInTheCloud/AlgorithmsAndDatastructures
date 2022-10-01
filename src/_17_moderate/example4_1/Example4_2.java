@@ -7,12 +7,6 @@ package _17_moderate.example4_1;
 //Prioritize compactness of code vs speed of execution vs clarity of code? Most efficient not best, should also be easy to understand and maintainable
 //Solution 2: We know the last move
 public class Example4_2 {
-    enum Piece {
-        Empty,
-        Red,
-        Blue
-    }
-
     private static Piece hasWon(Piece[][] board, int row, int column) {
         if (board.length != board[0].length)
             return Piece.Empty;

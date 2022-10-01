@@ -1,6 +1,6 @@
 package _12_sortingandsearching;
 
-//Find duplicates: Array contains number between 1 and N (32000). The array may have duplicate entries.
+//Find duplicates: Array contains number between 1 and N (<=32000). The array may have duplicate entries.
 //With 4KB memory given find the duplicates
 public class Example8_1 {
     private static void checkDuplicates(int[] array) {

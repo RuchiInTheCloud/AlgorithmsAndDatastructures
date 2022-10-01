@@ -11,7 +11,6 @@ import java.util.Arrays;
 public class Example11_1 {
     private static void sortValleyPeak(int[] array) {
         Arrays.sort(array);
-        System.out.println(Arrays.toString(array));
 
         for (int i = 1; i < array.length; i += 2) {
             swap(array, i - 1, i);

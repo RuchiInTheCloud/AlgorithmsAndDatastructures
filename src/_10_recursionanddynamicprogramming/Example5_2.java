@@ -27,11 +27,11 @@ public class Example5_2 {
         } else {
             System.out.println("I was here. Smaller = " + smaller + ", Larger = " + larger);
 
-            int temp = smaller >> 1;
-            int halfProduct = productHelper(temp, larger, memo);
+            int half = smaller >> 1;
+            int halfProduct = productHelper(half, larger, memo);
             int otherHalfProduct = halfProduct;
             if (smaller % 2 == 1) {
-                otherHalfProduct = productHelper(smaller - temp, larger, memo);
+                otherHalfProduct = productHelper(smaller - half, larger, memo);
             }
             memo[smaller] = halfProduct + otherHalfProduct;
             return memo[smaller];

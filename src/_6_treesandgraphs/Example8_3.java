@@ -41,7 +41,7 @@ public class Example8_3 {
         }
 
         boolean pIsOnLeft = covers(node.left, p);
-        boolean qIsOnLeft = covers(node.right, q);
+        boolean qIsOnLeft = covers(node.left, q);
 
         if (pIsOnLeft != qIsOnLeft) {
             return node;

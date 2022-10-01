@@ -1,5 +1,7 @@
 package _12_sortingandsearching;
 
+//Listy has no size method
+//Contains only positive sorted integers
 public class Example4_1 {
     private static class Listy {
         int[] array;
