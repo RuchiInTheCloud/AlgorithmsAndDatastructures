@@ -1,5 +1,8 @@
 package _17_moderate;
 
+/*
+Find max value without using if else or comparison operator
+ */
 public class Example7_1 {
     static int flip(int bit) {
         return 1 ^ bit;
