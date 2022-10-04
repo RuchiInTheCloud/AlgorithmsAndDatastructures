@@ -7,6 +7,7 @@ Given integer matrix representing plot of land
 value at location represents height above sea level. 0 = indicated water
 Pond = region of water connected vertically horizontally and diagonally
 Compute the size of all ponds
+O(WH), width height of land, each cell is touched once by parent method and at most once by each of its adjacent cells
  */
 public class Example19_1 {
     static ArrayList<Integer> computePondSizes(int[][] land) {
