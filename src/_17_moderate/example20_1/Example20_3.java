@@ -10,6 +10,8 @@ Given numeric keypad (each digit maps to 0 - 4 letters, valid words, and user in
 ---> Provide list of words that match the numbers
 Precomputation: Convert dictionary into hashmap of key: sequence of digits, value: list of valid words
 Then when user provides input lookup in the dictionary
+O(N) complexity for lookup where N is length of the word and not the dictionary. To compute hashcode it takes O(N) time.
+Since max word length is constant it is O(1)
  */
 public class Example20_3 {
     static char[][] t9Letters = {null, null, {'a', 'b', 'c'}, {'d', 'e', 'f'}, {'g', 'h', 'i'}, {'j', 'k', 'l'},
