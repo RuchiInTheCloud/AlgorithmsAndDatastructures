@@ -21,9 +21,8 @@ public class Example26_1 {
 
             processing = collapseTerm(processing, current);
 
-            if (next == null || next.getOperator() == Operator.ADD
-                    || next.getOperator() == Operator.SUBTRACT) {
-                result = applyOp(result, processing.getOperator(), processing.getNumber());
+            if (next == null || next.getOperator() == Operator.ADD || next.getOperator() == Operator.SUBTRACT) {
+                result = Operator.applyOp(result, processing.getOperator(), processing.getNumber());
                 processing = null;
             }
         }
@@ -36,24 +35,9 @@ public class Example26_1 {
         if (secondary == null)
             return primary;
 
-        double value = applyOp(primary.getNumber(), secondary.getOperator(), secondary.getNumber());
+        double value = Operator.applyOp(primary.getNumber(), secondary.getOperator(), secondary.getNumber());
         primary.setNumber(value);
         return primary;
-    }
-
-    static double applyOp(double left, Operator op, double right) {
-        switch (op) {
-            case ADD:
-                return left + right;
-            case SUBTRACT:
-                return left - right;
-            case MULTIPLY:
-                return left * right;
-            case DIVIDE:
-                return left / right;
-            default:
-                return right;
-        }
     }
 
     public static void main(String[] args) {
