@@ -42,6 +42,7 @@ public class Example18_3 {
             if (!isEqual(value, offSet, stringIndex, size)) {
                 return false;
             }
+            stringIndex += size;
         }
         return true;
     }

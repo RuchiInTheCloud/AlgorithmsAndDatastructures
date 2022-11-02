@@ -23,7 +23,7 @@ public class Example5_3 {
             return false;
         }
 
-        if (!(checkBST(node.left, node.data, null) || !checkBST(node.right, null, min))) {
+        if (!(checkBST(node.left, node.data, min) || !checkBST(node.right, max, node.data))) {
             return false;
         }
 
